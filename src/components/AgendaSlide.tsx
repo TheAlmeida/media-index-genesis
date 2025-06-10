@@ -97,24 +97,24 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       className
     )}>
       {/* Header */}
-      <div className="flex-shrink-0 pt-8 pb-6 px-6">
+      <div className="flex-shrink-0 pt-[2vh] pb-[1.5vh] px-[2vw]">
         <div className={cn(
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-2">
+          <h1 className="text-[clamp(2rem,4vw,4rem)] font-bold text-gray-800 mb-[1vh]">
             Presentation Timeline
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 font-light">
+          <p className="text-[clamp(1rem,2vw,1.5rem)] text-gray-600 font-light">
             Journey through the audio fingerprinting analysis
           </p>
         </div>
       </div>
 
       {/* Cards Grid */}
-      <div className="flex-1 px-6 pb-20 flex items-center justify-center min-h-0">
-        <div className="w-full max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-fr">
+      <div className="flex-1 px-[2vw] pb-[2vh] flex items-center justify-center min-h-0">
+        <div className="w-full max-w-[90vw]">
+          <div className="grid grid-cols-4 gap-[2vw] auto-rows-fr h-[70vh]">
             {agendaItems.map((item, index) => {
               const IconComponent = item.icon;
               const isVisible = animationStep >= index + 1;
@@ -134,14 +134,15 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
                 >
                   {/* Card */}
                   <div className={cn(
-                    "bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-200 h-full",
-                    "min-h-[200px] flex flex-col"
+                    "bg-white rounded-[1.5vw] shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-200 h-full",
+                    "min-h-[15vh] flex flex-col"
                   )}>
-                    <div className="p-6 flex-1 flex flex-col items-center justify-center text-center">
+                    <div className="p-[1.5vw] flex-1 flex flex-col items-center justify-center text-center">
                       {/* Step Number */}
-                      <div className="mb-4">
+                      <div className="mb-[1vh]">
                         <span className={cn(
-                          "inline-flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold text-white",
+                          "inline-flex items-center justify-center rounded-full text-[clamp(0.8rem,1.2vw,1.2rem)] font-bold text-white",
+                          "w-[clamp(2rem,3vw,3rem)] h-[clamp(2rem,3vw,3rem)]",
                           item.bgColor
                         )}>
                           {index + 1}
@@ -150,20 +151,21 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
                       
                       {/* Icon Circle */}
                       <div className={cn(
-                        "w-16 h-16 rounded-full flex items-center justify-center mb-4",
+                        "rounded-full flex items-center justify-center mb-[1vh]",
+                        "w-[clamp(3rem,5vw,5rem)] h-[clamp(3rem,5vw,5rem)]",
                         item.bgColor
                       )}>
-                        <IconComponent className="w-8 h-8 text-white" />
+                        <IconComponent className="w-[clamp(1.5rem,2.5vw,2.5rem)] h-[clamp(1.5rem,2.5vw,2.5rem)] text-white" />
                       </div>
                       
                       {/* Title */}
-                      <h3 className="text-gray-800 font-bold text-lg leading-tight">
+                      <h3 className="text-gray-800 font-bold text-[clamp(0.9rem,1.4vw,1.4rem)] leading-tight text-center">
                         {item.title}
                       </h3>
                     </div>
                     
                     {/* Bottom accent */}
-                    <div className={cn("h-1 rounded-b-2xl", item.bgColor)} />
+                    <div className={cn("h-[0.5vh] rounded-b-[1.5vw]", item.bgColor)} />
                   </div>
                 </div>
               );
@@ -173,12 +175,12 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       </div>
 
       {/* Progress Indicator */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="absolute bottom-[2vh] left-1/2 transform -translate-x-1/2 z-20">
         <div className={cn(
-          "bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg transition-all duration-700",
+          "bg-white/90 backdrop-blur-sm rounded-full px-[2vw] py-[1vh] shadow-lg transition-all duration-700",
           animationStep >= 1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
         )}>
-          <span className="text-sm font-medium text-gray-700">
+          <span className="text-[clamp(0.8rem,1.2vw,1.2rem)] font-medium text-gray-700">
             {Math.min(animationStep, agendaItems.length)} / {agendaItems.length} Topics
           </span>
         </div>
