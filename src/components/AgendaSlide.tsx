@@ -101,67 +101,63 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
         </div>
       </div>
 
-      {/* Horizontal Timeline */}
-      <div className="flex-1 px-[2vw] pb-[2vh] relative overflow-x-auto">
-        <div className="relative min-w-max h-full px-[4vw]">
-          <div className="flex items-center justify-between h-full min-w-[200vw]">
+      {/* Horizontal Timeline - Fixed Width to Fit All */}
+      <div className="flex-1 px-[2vw] pb-[2vh] relative">
+        <div className="relative h-full w-full flex items-center justify-center">
+          <div className="flex items-center justify-between w-full max-w-[95vw] gap-2">
             {agendaItems.map((item, index) => {
               const Icon = item.icon;
               const isAbove = index % 2 === 0;
               
               return (
-                <div key={index} className="relative flex flex-col items-center">
+                <div key={index} className="relative flex flex-col items-center flex-1">
                   {/* Bubble Container */}
                   <div className={cn(
                     "relative flex flex-col items-center transition-all duration-700 transform",
                     animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
-                    isAbove ? "justify-start" : "justify-end flex-col-reverse",
-                    // Floating animation using Tailwind's bounce with custom delays
-                    "animate-bounce"
+                    isAbove ? "justify-start" : "justify-end flex-col-reverse"
                   )} style={{
-                    animationDelay: `${index * 0.3}s`,
-                    animationDuration: '4s',
-                    animationIterationCount: 'infinite',
-                    animationTimingFunction: 'ease-in-out'
+                    animation: `float 8s ease-in-out infinite`,
+                    animationDelay: `${index * 0.8}s`
                   }}>
                     
-                    {/* Main Bubble */}
+                    {/* Main Bubble - Fixed Size */}
                     <div className={cn(
-                      "relative w-32 h-32 rounded-full flex flex-col items-center justify-center text-white shadow-lg border-4 border-white",
+                      "relative w-24 h-24 rounded-full flex flex-col items-center justify-center text-white shadow-lg border-4 border-white",
                       item.bgColor,
-                      isAbove ? "mb-8" : "mt-8"
+                      isAbove ? "mb-4" : "mt-4"
                     )}>
                       {/* Number Badge */}
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md">
-                        <span className="text-sm font-bold text-gray-800">{index + 1}</span>
+                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-md">
+                        <span className="text-xs font-bold text-gray-800">{index + 1}</span>
                       </div>
                       
                       {/* Icon */}
-                      <Icon className="w-8 h-8 mb-2" />
+                      <Icon className="w-6 h-6 mb-1" />
                       
                       {/* Title */}
-                      <div className="text-center px-2">
-                        <h3 className="text-xs font-semibold leading-tight">
+                      <div className="text-center px-1">
+                        <h3 className="text-[10px] font-semibold leading-tight">
                           {item.title}
                         </h3>
                       </div>
                     </div>
                   </div>
 
-                  {/* Curved Zigzag Arrow */}
+                  {/* Curved Zigzag Arrow - Connecting to actual bubbles */}
                   {index < agendaItems.length - 1 && (
                     <div className={cn(
-                      "absolute left-full top-1/2 transform -translate-y-1/2 ml-4 transition-all duration-700",
+                      "absolute left-[calc(100%-12px)] top-1/2 transform -translate-y-1/2 z-10 transition-all duration-700",
                       animationStep >= index + 3 ? "opacity-100" : "opacity-0"
                     )}>
                       <svg 
-                        width="60" 
+                        width="24" 
                         height="40" 
-                        viewBox="0 0 60 40" 
+                        viewBox="0 0 24 40" 
                         className="text-gray-400"
                       >
                         <path
-                          d={isAbove ? "M0,20 Q15,5 30,20 Q45,35 60,20" : "M0,20 Q15,35 30,20 Q45,5 60,20"}
+                          d={isAbove ? "M0,20 Q8,8 16,20 Q20,28 24,20" : "M0,20 Q8,32 16,20 Q20,12 24,20"}
                           stroke="currentColor"
                           strokeWidth="2"
                           fill="none"
@@ -170,14 +166,14 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
                         <defs>
                           <marker
                             id="arrowhead"
-                            markerWidth="10"
-                            markerHeight="7"
-                            refX="9"
-                            refY="3.5"
+                            markerWidth="8"
+                            markerHeight="6"
+                            refX="7"
+                            refY="3"
                             orient="auto"
                           >
                             <polygon
-                              points="0 0, 10 3.5, 0 7"
+                              points="0 0, 8 3, 0 6"
                               fill="currentColor"
                             />
                           </marker>
@@ -191,6 +187,18 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
           </div>
         </div>
       </div>
+
+      {/* CSS Animation for slower floating effect */}
+      <style>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+      `}</style>
     </div>
   );
 };
