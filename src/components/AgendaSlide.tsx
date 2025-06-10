@@ -37,65 +37,47 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
     {
       icon: User,
       title: "Internship Context",
-      color: "blue",
       bgColor: "bg-blue-500",
-      textColor: "text-blue-500",
     },
     {
       icon: Shield,
       title: "Host Company & State of Art",
-      color: "indigo",
       bgColor: "bg-indigo-500",
-      textColor: "text-indigo-500",
     },
     {
       icon: File,
       title: "Achieved Algorithms",
-      color: "purple",
       bgColor: "bg-purple-500",
-      textColor: "text-purple-500",
     },
     {
       icon: Database,
       title: "Datasets",
-      color: "teal",
       bgColor: "bg-teal-500",
-      textColor: "text-teal-500",
     },
     {
       icon: Settings,
       title: "Evaluation Methodologies",
-      color: "green",
       bgColor: "bg-green-500",
-      textColor: "text-green-500",
     },
     {
       icon: ChartBar,
       title: "Experimental Results",
-      color: "yellow",
       bgColor: "bg-yellow-500",
-      textColor: "text-yellow-500",
     },
     {
       icon: Target,
       title: "Challenges & Solutions",
-      color: "red",
       bgColor: "bg-red-500",
-      textColor: "text-red-500",
     },
     {
       icon: Clock,
       title: "Future Work",
-      color: "orange",
       bgColor: "bg-orange-500",
-      textColor: "text-orange-500",
     },
     {
       icon: Check,
       title: "Conclusions",
-      color: "pink",
       bgColor: "bg-pink-500",
-      textColor: "text-pink-500",
     }
   ];
 
@@ -119,67 +101,86 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
         </div>
       </div>
 
-      {/* Horizontal Zigzag Timeline */}
+      {/* Horizontal Timeline */}
       <div className="flex-1 px-[2vw] pb-[2vh] relative overflow-x-auto">
         <div className="relative min-w-max h-full px-[4vw]">
-          {/* Horizontal connecting line */}
-          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-300 transform -translate-y-1/2"></div>
-          
-          <div className="flex items-center justify-between h-full min-w-[150vw]">
+          <div className="flex items-center justify-between h-full min-w-[200vw]">
             {agendaItems.map((item, index) => {
               const Icon = item.icon;
-              const isTop = index % 2 === 0;
+              const isAbove = index % 2 === 0;
               
               return (
                 <div key={index} className="relative flex flex-col items-center">
-                  {/* Step Container */}
+                  {/* Bubble Container */}
                   <div className={cn(
-                    "flex flex-col items-center transition-all duration-700 transform",
-                    animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                  )}>
-                    {/* Text content above or below */}
+                    "relative flex flex-col items-center transition-all duration-700 transform",
+                    animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
+                    isAbove ? "justify-start" : "justify-end flex-col-reverse",
+                    // Floating animation - each bubble has slightly different timing
+                    "animate-[float_4s_ease-in-out_infinite]"
+                  )} style={{
+                    animationDelay: `${index * 0.3}s`,
+                    animationName: 'float'
+                  }}>
+                    
+                    {/* Main Bubble */}
                     <div className={cn(
-                      "mb-[2vh] text-center",
-                      isTop ? "order-1" : "order-3"
+                      "relative w-32 h-32 rounded-full flex flex-col items-center justify-center text-white shadow-lg border-4 border-white",
+                      item.bgColor,
+                      isAbove ? "mb-8" : "mt-8"
                     )}>
-                      <div className="bg-white rounded-full p-[1vw] shadow-md border-2 border-gray-100 max-w-[12vw]">
-                        <div className="flex items-center justify-center gap-[0.5vw] mb-[0.5vh]">
-                          <span className={cn(
-                            "inline-flex items-center justify-center rounded-full text-white font-bold",
-                            "w-[1.5vw] h-[1.5vw] min-w-[20px] min-h-[20px] text-[clamp(0.6rem,0.8vw,0.8rem)]",
-                            item.bgColor
-                          )}>
-                            {index + 1}
-                          </span>
-                        </div>
-                        <h3 className="text-[clamp(0.7rem,0.9vw,0.9rem)] font-bold text-gray-800 leading-tight">
+                      {/* Number Badge */}
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md">
+                        <span className="text-sm font-bold text-gray-800">{index + 1}</span>
+                      </div>
+                      
+                      {/* Icon */}
+                      <Icon className="w-8 h-8 mb-2" />
+                      
+                      {/* Title */}
+                      <div className="text-center px-2">
+                        <h3 className="text-xs font-semibold leading-tight">
                           {item.title}
                         </h3>
                       </div>
                     </div>
-
-                    {/* Center circle */}
-                    <div className={cn(
-                      "relative z-10 order-2",
-                      isTop ? "mt-[2vh]" : "mb-[2vh]"
-                    )}>
-                      <div className={cn(
-                        "rounded-full border-4 border-white shadow-lg flex items-center justify-center",
-                        "w-[3vw] h-[3vw] min-w-[50px] min-h-[50px]",
-                        item.bgColor
-                      )}>
-                        <Icon className="w-[1.5vw] h-[1.5vw] min-w-[25px] min-h-[25px] text-white" />
-                      </div>
-                    </div>
                   </div>
 
-                  {/* Arrow to next step */}
+                  {/* Curved Zigzag Arrow */}
                   {index < agendaItems.length - 1 && (
                     <div className={cn(
-                      "absolute left-full top-1/2 transform -translate-y-1/2 ml-[1vw] transition-all duration-700",
+                      "absolute left-full top-1/2 transform -translate-y-1/2 ml-4 transition-all duration-700",
                       animationStep >= index + 3 ? "opacity-100" : "opacity-0"
                     )}>
-                      <ArrowRight className="w-[1.2vw] h-[1.2vw] min-w-[16px] min-h-[16px] text-gray-400" />
+                      <svg 
+                        width="60" 
+                        height="40" 
+                        viewBox="0 0 60 40" 
+                        className="text-gray-400"
+                      >
+                        <path
+                          d={isAbove ? "M0,20 Q15,5 30,20 Q45,35 60,20" : "M0,20 Q15,35 30,20 Q45,5 60,20"}
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          fill="none"
+                          markerEnd="url(#arrowhead)"
+                        />
+                        <defs>
+                          <marker
+                            id="arrowhead"
+                            markerWidth="10"
+                            markerHeight="7"
+                            refX="9"
+                            refY="3.5"
+                            orient="auto"
+                          >
+                            <polygon
+                              points="0 0, 10 3.5, 0 7"
+                              fill="currentColor"
+                            />
+                          </marker>
+                        </defs>
+                      </svg>
                     </div>
                   )}
                 </div>
@@ -188,6 +189,18 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
           </div>
         </div>
       </div>
+
+      {/* CSS Animation for floating effect */}
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+      `}</style>
     </div>
   );
 };
