@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { AudioWaveform, Mic, MicOff } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -13,6 +12,9 @@ const PresentationSlide: React.FC<SlideProps> = ({ isActive = true, className })
 
   useEffect(() => {
     if (isActive) {
+      // Reset and start animation when slide becomes active
+      setAnimationStep(0);
+      
       const timeouts = [
         setTimeout(() => setAnimationStep(1), 200),
         setTimeout(() => setAnimationStep(2), 600),
@@ -22,6 +24,9 @@ const PresentationSlide: React.FC<SlideProps> = ({ isActive = true, className })
       ];
 
       return () => timeouts.forEach(clearTimeout);
+    } else {
+      // Reset animation when slide becomes inactive
+      setAnimationStep(0);
     }
   }, [isActive]);
 
