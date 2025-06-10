@@ -116,11 +116,13 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
                     "relative flex flex-col items-center transition-all duration-700 transform",
                     animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
                     isAbove ? "justify-start" : "justify-end flex-col-reverse",
-                    // Floating animation - each bubble has slightly different timing
-                    "animate-[float_4s_ease-in-out_infinite]"
+                    // Floating animation using Tailwind's bounce with custom delays
+                    "animate-bounce"
                   )} style={{
                     animationDelay: `${index * 0.3}s`,
-                    animationName: 'float'
+                    animationDuration: '4s',
+                    animationIterationCount: 'infinite',
+                    animationTimingFunction: 'ease-in-out'
                   }}>
                     
                     {/* Main Bubble */}
@@ -189,18 +191,6 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
           </div>
         </div>
       </div>
-
-      {/* CSS Animation for floating effect */}
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-      `}</style>
     </div>
   );
 };
