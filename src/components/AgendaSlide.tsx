@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { User, Shield, File, Settings, ChartBar, Target, Clock, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -41,7 +42,6 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       borderColor: "border-t-blue-500",
       bgColor: "bg-blue-50",
       iconColor: "text-blue-600",
-      subtitles: ["Project Overview", "Objectives & Goals", "Timeline & Scope"]
     },
     {
       icon: Shield,
@@ -50,7 +50,6 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       borderColor: "border-t-blue-500",
       bgColor: "bg-blue-50",
       iconColor: "text-blue-600",
-      subtitles: ["Mediaprobe Background", "Industry Analysis", "Current Technologies"]
     },
     {
       icon: File,
@@ -59,7 +58,6 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       borderColor: "border-t-purple-500",
       bgColor: "bg-purple-50",
       iconColor: "text-purple-600",
-      subtitles: ["Audio Fingerprinting", "Pattern Recognition", "Implementation Details"]
     },
     {
       icon: Settings,
@@ -68,7 +66,6 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       borderColor: "border-t-green-500",
       bgColor: "bg-green-50",
       iconColor: "text-green-600",
-      subtitles: ["Testing Framework", "Performance Metrics", "Validation Process"]
     },
     {
       icon: ChartBar,
@@ -77,7 +74,6 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       borderColor: "border-t-yellow-500",
       bgColor: "bg-yellow-50",
       iconColor: "text-yellow-600",
-      subtitles: ["Accuracy Analysis", "Performance Data", "Comparative Studies"]
     },
     {
       icon: Target,
@@ -86,7 +82,6 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       borderColor: "border-t-red-500",
       bgColor: "bg-red-50",
       iconColor: "text-red-600",
-      subtitles: ["Technical Obstacles", "Problem Resolution", "Lessons Learned"]
     },
     {
       icon: Clock,
@@ -95,7 +90,6 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       borderColor: "border-t-orange-500",
       bgColor: "bg-orange-50",
       iconColor: "text-orange-600",
-      subtitles: ["Enhancement Plans", "Scalability Goals", "Next Development Phase"]
     },
     {
       icon: Check,
@@ -104,17 +98,16 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       borderColor: "border-t-teal-500",
       bgColor: "bg-teal-50",
       iconColor: "text-teal-600",
-      subtitles: ["Key Achievements", "Impact Assessment", "Final Remarks"]
     }
   ];
 
   return (
     <div className={cn(
-      "h-screen w-full bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden flex flex-col",
+      "h-[100dvh] w-full bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden flex flex-col",
       className
     )}>
       {/* Header Section */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 lg:pt-16">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 lg:pt-12">
         {/* Navigation Button */}
         <div className="absolute top-4 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-8">
           <div className={cn(
@@ -126,12 +119,12 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
         </div>
 
         {/* Page Title */}
-        <div className="text-center space-y-3 sm:space-y-4 lg:space-y-6 mb-8 sm:mb-12 lg:mb-16">
+        <div className="text-center space-y-2 sm:space-y-3 lg:space-y-4 mb-6 sm:mb-8 lg:mb-12">
           <div className={cn(
             "transition-all duration-700 transform",
             animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
           )}>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-800 leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
               Presentation Agenda
             </h1>
           </div>
@@ -148,15 +141,15 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       </div>
 
       {/* Main Content - 8 Panel Grid */}
-      <div className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12 lg:pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 h-full">
+      <div className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 sm:pb-8 lg:pb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 h-full">
           {agendaItems.map((item, index) => {
             const IconComponent = item.icon;
             return (
               <div
                 key={index}
                 className={cn(
-                  "bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 transform border-t-4",
+                  "bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 transform border-t-4 hover:scale-105",
                   item.borderColor,
                   item.bgColor,
                   animationStep >= index + 1 
@@ -167,43 +160,19 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
                   transitionDelay: `${index * 100}ms`,
                 }}
               >
-                <div className="p-4 sm:p-6 lg:p-8 h-full flex flex-col">
-                  {/* Icon and Title */}
-                  <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
-                    <div className={cn(
-                      "w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg flex items-center justify-center",
-                      item.bgColor
-                    )}>
-                      <IconComponent className={cn("w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7", item.iconColor)} />
-                    </div>
-                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 flex-1">
-                      {item.title}
-                    </h3>
+                <div className="p-3 sm:p-4 lg:p-6 h-full flex flex-col items-center justify-center text-center">
+                  {/* Icon */}
+                  <div className={cn(
+                    "w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-lg flex items-center justify-center mb-2 sm:mb-3 lg:mb-4",
+                    item.bgColor
+                  )}>
+                    <IconComponent className={cn("w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6", item.iconColor)} />
                   </div>
 
-                  {/* Content Subtitles */}
-                  <div className="space-y-2 sm:space-y-3 flex-1">
-                    {item.subtitles.map((subtitle, subIndex) => (
-                      <div
-                        key={subIndex}
-                        className={cn(
-                          "flex items-center space-x-2 sm:space-x-3 transition-all duration-300",
-                          animationStep >= index + 1 ? "opacity-100" : "opacity-0"
-                        )}
-                        style={{ 
-                          transitionDelay: `${(index * 100) + (subIndex * 50) + 200}ms`,
-                        }}
-                      >
-                        <div className={cn(
-                          "w-2 h-2 rounded-full",
-                          item.iconColor.replace('text-', 'bg-')
-                        )}></div>
-                        <span className="text-sm sm:text-base lg:text-lg text-gray-600">
-                          {subtitle}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                  {/* Title */}
+                  <h3 className="text-xs sm:text-sm lg:text-base xl:text-lg font-bold text-gray-800 leading-tight">
+                    {item.title}
+                  </h3>
                 </div>
               </div>
             );
