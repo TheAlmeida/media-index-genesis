@@ -91,34 +91,13 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
     }
   ];
 
-  // Calculate positions for curved stair-step effect
-  const getCardPosition = (index: number) => {
-    const totalItems = agendaItems.length;
-    const progress = index / (totalItems - 1);
-    
-    // Create a curved path from top-left to bottom-right
-    const baseX = progress * 85; // 85% of viewport width
-    const baseY = progress * 75; // 75% of viewport height
-    
-    // Add curve effect using sine wave
-    const curveOffset = Math.sin(progress * Math.PI) * 10;
-    
-    const x = baseX + curveOffset;
-    const y = baseY + Math.sin(progress * Math.PI * 0.5) * 5;
-    
-    return {
-      left: `${5 + x}%`,
-      top: `${15 + y}%`,
-    };
-  };
-
   return (
     <div className={cn(
-      "h-[100dvh] w-[100dvw] bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden",
+      "h-[100dvh] w-[100dvw] bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden flex flex-col",
       className
     )}>
       {/* Header */}
-      <div className="absolute top-0 left-0 right-0 z-20 p-6">
+      <div className="flex-shrink-0 pt-8 pb-6 px-6">
         <div className={cn(
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
@@ -132,76 +111,65 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
         </div>
       </div>
 
-      {/* Timeline Cards */}
-      <div className="absolute inset-0 w-full h-full">
-        {agendaItems.map((item, index) => {
-          const IconComponent = item.icon;
-          const position = getCardPosition(index);
-          const isVisible = animationStep >= index + 1;
-          
-          return (
-            <div
-              key={index}
-              className={cn(
-                "absolute transition-all duration-700 transform",
-                isVisible 
-                  ? "translate-y-0 opacity-100 scale-100" 
-                  : "translate-y-8 opacity-0 scale-90"
-              )}
-              style={{
-                ...position,
-                transitionDelay: `${index * 150}ms`,
-              }}
-            >
-              {/* Connection Line to Next Card */}
-              {index < agendaItems.length - 1 && (
+      {/* Cards Grid */}
+      <div className="flex-1 px-6 pb-20 flex items-center justify-center min-h-0">
+        <div className="w-full max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-fr">
+            {agendaItems.map((item, index) => {
+              const IconComponent = item.icon;
+              const isVisible = animationStep >= index + 1;
+              
+              return (
                 <div
+                  key={index}
                   className={cn(
-                    "absolute top-1/2 left-full w-16 h-0.5 bg-gradient-to-r from-gray-300 to-transparent transform -translate-y-1/2 transition-all duration-500",
-                    isVisible ? "opacity-60 scale-x-100" : "opacity-0 scale-x-0"
+                    "transition-all duration-700 transform",
+                    isVisible 
+                      ? "translate-y-0 opacity-100 scale-100" 
+                      : "translate-y-8 opacity-0 scale-90"
                   )}
                   style={{
-                    transitionDelay: `${(index + 1) * 150}ms`,
+                    transitionDelay: `${index * 150}ms`,
                   }}
-                />
-              )}
-              
-              {/* Card */}
-              <div className={cn(
-                "bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-200",
-                "w-48 md:w-56 lg:w-64"
-              )}>
-                <div className="p-6">
-                  {/* Icon Circle */}
+                >
+                  {/* Card */}
                   <div className={cn(
-                    "w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto",
-                    item.bgColor
+                    "bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-200 h-full",
+                    "min-h-[200px] flex flex-col"
                   )}>
-                    <IconComponent className="w-8 h-8 text-white" />
+                    <div className="p-6 flex-1 flex flex-col items-center justify-center text-center">
+                      {/* Step Number */}
+                      <div className="mb-4">
+                        <span className={cn(
+                          "inline-flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold text-white",
+                          item.bgColor
+                        )}>
+                          {index + 1}
+                        </span>
+                      </div>
+                      
+                      {/* Icon Circle */}
+                      <div className={cn(
+                        "w-16 h-16 rounded-full flex items-center justify-center mb-4",
+                        item.bgColor
+                      )}>
+                        <IconComponent className="w-8 h-8 text-white" />
+                      </div>
+                      
+                      {/* Title */}
+                      <h3 className="text-gray-800 font-bold text-lg leading-tight">
+                        {item.title}
+                      </h3>
+                    </div>
+                    
+                    {/* Bottom accent */}
+                    <div className={cn("h-1 rounded-b-2xl", item.bgColor)} />
                   </div>
-                  
-                  {/* Step Number */}
-                  <div className="text-center mb-3">
-                    <span className={cn(
-                      "inline-flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold text-white",
-                      item.bgColor
-                    )}>
-                      {index + 1}
-                    </span>
-                  </div>
-                  
-                  {/* Title */}
-                  <h3 className="text-center text-gray-800 font-bold text-lg leading-tight">
-                    {item.title}
-                  </h3>
                 </div>
-                
-                {/* Bottom accent */}
-                <div className={cn("h-1 rounded-b-2xl", item.bgColor)} />
-              </div>
-            </div>
-          );
-        })}
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       {/* Progress Indicator */}
