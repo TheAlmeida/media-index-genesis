@@ -2,7 +2,7 @@
 import React from 'react';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { rocket, Clock, database, Zap } from 'lucide-react';
+import { Rocket, Clock, Database, Zap } from 'lucide-react';
 
 interface FutureWorkSlideProps {
   isActive: boolean;
@@ -24,7 +24,7 @@ const FutureWorkSlide: React.FC<FutureWorkSlideProps> = ({ isActive }) => {
       feasibility: { label: "Alta", color: "text-blue-600" }
     },
     {
-      icon: database,
+      icon: Database,
       title: "Content-Specific Testing",
       priorities: [
         { label: "High Priority", color: "bg-red-500 text-white" },
@@ -65,7 +65,7 @@ const FutureWorkSlide: React.FC<FutureWorkSlideProps> = ({ isActive }) => {
             </p>
           </div>
           <Badge className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 text-sm font-medium">
-            <rocket className="w-4 h-4 mr-2" />
+            <Rocket className="w-4 h-4 mr-2" />
             Innovation Roadmap
           </Badge>
         </div>
