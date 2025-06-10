@@ -10,6 +10,7 @@ import EvaluationMethodologySlide from '../components/EvaluationMethodologySlide
 import EvaluationResultsSlide from '../components/EvaluationResultsSlide';
 import ChallengesSolutionsSlide from '../components/ChallengesSolutionsSlide';
 import FutureWorkSlide from '../components/FutureWorkSlide';
+import ConclusionsSlide from '../components/ConclusionsSlide';
 import { Button } from '../components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -27,7 +28,8 @@ const Index = () => {
     { component: EvaluationMethodologySlide, title: "Evaluation Methodology" },
     { component: EvaluationResultsSlide, title: "Experimental Results" },
     { component: ChallengesSolutionsSlide, title: "Challenges & Solutions" },
-    { component: FutureWorkSlide, title: "Future Work" }
+    { component: FutureWorkSlide, title: "Future Work" },
+    { component: ConclusionsSlide, title: "Conclusions" }
   ];
 
   const nextSlide = () => {
