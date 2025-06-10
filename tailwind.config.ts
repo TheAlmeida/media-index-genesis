@@ -114,9 +114,7 @@ export default {
 				'scale-in': 'scale-in 0.4s ease-out'
 			},
 			fontFamily: {
-				'sans': ['Inter', 'system-ui', 'sans-serif'],
-				'body': ['Inter', 'system-ui', 'sans-serif'],
-				'heading': ['Inter', 'system-ui', 'sans-serif']
+				'sans': ['Inter', 'system-ui', 'sans-serif']
 			}
 		}
 	},
