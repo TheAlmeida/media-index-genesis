@@ -13,7 +13,7 @@ import FutureWorkSlide from '../components/FutureWorkSlide';
 import ConclusionsSlide from '../components/ConclusionsSlide';
 import ThankYouSlide from '../components/ThankYouSlide';
 import { Button } from '../components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Keyboard } from 'lucide-react';
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -40,7 +40,7 @@ const Index = () => {
       setTimeout(() => {
         setCurrentSlide(prev => prev + 1);
         setIsTransitioning(false);
-      }, 150);
+      }, 200);
     }
   };
 
@@ -50,17 +50,7 @@ const Index = () => {
       setTimeout(() => {
         setCurrentSlide(prev => prev - 1);
         setIsTransitioning(false);
-      }, 150);
-    }
-  };
-
-  const goToSlide = (index: number) => {
-    if (index !== currentSlide && !isTransitioning) {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentSlide(index);
-        setIsTransitioning(false);
-      }, 150);
+      }, 200);
     }
   };
 
@@ -81,7 +71,7 @@ const Index = () => {
   }, [currentSlide, isTransitioning]);
 
   return (
-    <div className="min-h-screen w-full relative overflow-hidden">
+    <div className="min-h-screen w-full relative overflow-hidden bg-slate-50">
       {/* Slides Container */}
       <div className="relative w-full h-screen">
         {slides.map((slide, index) => {
@@ -91,7 +81,7 @@ const Index = () => {
           return (
             <div
               key={index}
-              className={`absolute inset-0 w-full h-full transition-transform duration-500 ease-in-out ${
+              className={`absolute inset-0 w-full h-full transition-transform duration-500 ease-out ${
                 isTransitioning ? 'transition-duration-300' : ''
               }`}
               style={{
@@ -104,52 +94,72 @@ const Index = () => {
         })}
       </div>
       
-      {/* Navigation Controls */}
-      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 flex items-center space-x-4 bg-black/20 backdrop-blur-sm rounded-full px-6 py-3 z-50">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={prevSlide}
-          disabled={currentSlide === 0 || isTransitioning}
-          className="text-white hover:bg-white/20 disabled:opacity-50"
-        >
-          <ChevronLeft className="w-4 h-4" />
-        </Button>
-        
-        <span className="text-white text-sm font-medium">
-          {currentSlide + 1} / {slides.length}
-        </span>
-        
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={nextSlide}
-          disabled={currentSlide === slides.length - 1 || isTransitioning}
-          className="text-white hover:bg-white/20 disabled:opacity-50"
-        >
-          <ChevronRight className="w-4 h-4" />
-        </Button>
-      </div>
-
-      {/* Slide Indicators */}
-      <div className="fixed bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2 z-50">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            disabled={isTransitioning}
-            className={`w-3 h-3 rounded-full transition-all duration-300 disabled:cursor-not-allowed ${
-              index === currentSlide 
-                ? 'bg-white' 
-                : 'bg-white/30 hover:bg-white/50'
-            }`}
-          />
-        ))}
+      {/* Simplified Navigation Bar */}
+      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
+        <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-slate-200/50 px-8 py-4">
+          <div className="flex items-center space-x-6">
+            {/* Previous Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={prevSlide}
+              disabled={currentSlide === 0 || isTransitioning}
+              className="h-11 w-11 p-0 rounded-xl bg-slate-100 hover:bg-slate-200 disabled:opacity-40 disabled:cursor-not-allowed text-slate-700 border border-slate-200 shadow-sm transition-all duration-200"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </Button>
+            
+            {/* Slide Counter */}
+            <div className="flex items-center space-x-3">
+              <span className="text-slate-800 font-semibold text-lg tracking-wide">
+                {currentSlide + 1}
+              </span>
+              <div className="w-px h-6 bg-slate-300"></div>
+              <span className="text-slate-500 font-medium text-lg">
+                {slides.length}
+              </span>
+            </div>
+            
+            {/* Next Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={nextSlide}
+              disabled={currentSlide === slides.length - 1 || isTransitioning}
+              className="h-11 w-11 p-0 rounded-xl bg-slate-100 hover:bg-slate-200 disabled:opacity-40 disabled:cursor-not-allowed text-slate-700 border border-slate-200 shadow-sm transition-all duration-200"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </Button>
+          </div>
+        </div>
       </div>
 
       {/* Keyboard Navigation Hint */}
-      <div className="fixed top-4 left-4 bg-black/20 backdrop-blur-sm rounded-lg px-3 py-2 text-white text-xs z-50">
-        Use ← → arrow keys to navigate
+      <div className="fixed top-6 left-6 z-50">
+        <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg border border-slate-200/50 px-4 py-3 flex items-center space-x-2">
+          <Keyboard className="w-4 h-4 text-slate-600" />
+          <span className="text-sm font-medium text-slate-700">
+            Use ← → arrow keys to navigate
+          </span>
+        </div>
+      </div>
+
+      {/* Progress Indicator */}
+      <div className="fixed top-6 right-6 z-50">
+        <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg border border-slate-200/50 px-4 py-3">
+          <div className="flex items-center space-x-3">
+            <div className="text-sm font-medium text-slate-700">Progress</div>
+            <div className="w-32 h-2 bg-slate-200 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full transition-all duration-300 ease-out"
+                style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
+              />
+            </div>
+            <div className="text-sm font-semibold text-slate-800">
+              {Math.round(((currentSlide + 1) / slides.length) * 100)}%
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
