@@ -97,15 +97,15 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       className
     )}>
       {/* Header */}
-      <div className="flex-shrink-0 pt-[3vh] pb-[2vh] px-[4vw]">
+      <div className="flex-shrink-0 pt-[2vh] pb-[1.5vh] px-[2vw]">
         <div className={cn(
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
-          <h1 className="font-bold text-gray-800 mb-[1vh]" style={{ fontSize: `${Math.max(24, Math.min(64, window.innerWidth * 0.04))}px` }}>
+          <h1 className="text-[clamp(2rem,4vw,4rem)] font-bold text-gray-800 mb-[1vh]">
             Presentation Timeline
           </h1>
-          <p className="text-gray-600 font-light" style={{ fontSize: `${Math.max(16, Math.min(32, window.innerWidth * 0.02))}px` }}>
+          <p className="text-[clamp(1rem,2vw,1.5rem)] text-gray-600 font-light">
             Journey through the audio fingerprinting analysis
           </p>
         </div>
@@ -113,8 +113,8 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
 
       {/* Cards Grid */}
       <div className="flex-1 px-[2vw] pb-[2vh] flex items-center justify-center min-h-0">
-        <div className="w-full max-w-[96vw] max-h-[80vh]">
-          <div className="grid grid-cols-4 gap-[1.5vw] auto-rows-fr h-full">
+        <div className="w-full max-w-[90vw]">
+          <div className="grid grid-cols-4 gap-[2vw] auto-rows-fr h-[70vh]">
             {agendaItems.map((item, index) => {
               const IconComponent = item.icon;
               const isVisible = animationStep >= index + 1;
@@ -134,58 +134,38 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
                 >
                   {/* Card */}
                   <div className={cn(
-                    "bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-200 h-full",
-                    "flex flex-col"
-                  )}
-                  style={{
-                    borderRadius: `${Math.max(8, Math.min(24, window.innerWidth * 0.015))}px`,
-                    minHeight: `${Math.max(120, Math.min(200, window.innerHeight * 0.15))}px`
-                  }}>
-                    <div className="flex-1 flex flex-col items-center justify-center text-center" style={{ padding: `${Math.max(12, Math.min(32, window.innerWidth * 0.015))}px` }}>
+                    "bg-white rounded-[1.5vw] shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-200 h-full",
+                    "min-h-[15vh] flex flex-col"
+                  )}>
+                    <div className="p-[1.5vw] flex-1 flex flex-col items-center justify-center text-center">
                       {/* Step Number */}
-                      <div className="mb-2">
+                      <div className="mb-[1vh]">
                         <span className={cn(
-                          "inline-flex items-center justify-center rounded-full font-bold text-white",
+                          "inline-flex items-center justify-center rounded-full text-[clamp(0.8rem,1.2vw,1.2rem)] font-bold text-white",
+                          "w-[clamp(2rem,3vw,3rem)] h-[clamp(2rem,3vw,3rem)]",
                           item.bgColor
-                        )}
-                        style={{
-                          width: `${Math.max(24, Math.min(48, window.innerWidth * 0.025))}px`,
-                          height: `${Math.max(24, Math.min(48, window.innerWidth * 0.025))}px`,
-                          fontSize: `${Math.max(10, Math.min(20, window.innerWidth * 0.012))}px`
-                        }}>
+                        )}>
                           {index + 1}
                         </span>
                       </div>
                       
                       {/* Icon Circle */}
                       <div className={cn(
-                        "rounded-full flex items-center justify-center mb-2",
+                        "rounded-full flex items-center justify-center mb-[1vh]",
+                        "w-[clamp(3rem,5vw,5rem)] h-[clamp(3rem,5vw,5rem)]",
                         item.bgColor
-                      )}
-                      style={{
-                        width: `${Math.max(40, Math.min(80, window.innerWidth * 0.04))}px`,
-                        height: `${Math.max(40, Math.min(80, window.innerWidth * 0.04))}px`
-                      }}>
-                        <IconComponent 
-                          className="text-white" 
-                          style={{
-                            width: `${Math.max(20, Math.min(40, window.innerWidth * 0.02))}px`,
-                            height: `${Math.max(20, Math.min(40, window.innerWidth * 0.02))}px`
-                          }}
-                        />
+                      )}>
+                        <IconComponent className="w-[clamp(1.5rem,2.5vw,2.5rem)] h-[clamp(1.5rem,2.5vw,2.5rem)] text-white" />
                       </div>
                       
                       {/* Title */}
-                      <h3 className="text-gray-800 font-bold leading-tight text-center"
-                        style={{ fontSize: `${Math.max(11, Math.min(18, window.innerWidth * 0.012))}px` }}>
+                      <h3 className="text-gray-800 font-bold text-[clamp(0.9rem,1.4vw,1.4rem)] leading-tight text-center">
                         {item.title}
                       </h3>
                     </div>
                     
                     {/* Bottom accent */}
-                    <div className={cn("rounded-b-xl", item.bgColor)} 
-                      style={{ height: `${Math.max(3, Math.min(8, window.innerHeight * 0.008))}px` }} 
-                    />
+                    <div className={cn("h-[0.5vh] rounded-b-[1.5vw]", item.bgColor)} />
                   </div>
                 </div>
               );
@@ -197,14 +177,10 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       {/* Progress Indicator */}
       <div className="absolute bottom-[2vh] left-1/2 transform -translate-x-1/2 z-20">
         <div className={cn(
-          "bg-white/90 backdrop-blur-sm rounded-full shadow-lg transition-all duration-700",
+          "bg-white/90 backdrop-blur-sm rounded-full px-[2vw] py-[1vh] shadow-lg transition-all duration-700",
           animationStep >= 1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-        )}
-        style={{
-          padding: `${Math.max(8, Math.min(16, window.innerHeight * 0.01))}px ${Math.max(16, Math.min(32, window.innerWidth * 0.02))}px`
-        }}>
-          <span className="font-medium text-gray-700"
-            style={{ fontSize: `${Math.max(12, Math.min(20, window.innerWidth * 0.012))}px` }}>
+        )}>
+          <span className="text-[clamp(0.8rem,1.2vw,1.2rem)] font-medium text-gray-700">
             {Math.min(animationStep, agendaItems.length)} / {agendaItems.length} Topics
           </span>
         </div>
