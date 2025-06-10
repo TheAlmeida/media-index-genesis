@@ -5,6 +5,7 @@ import AgendaSlide from '../components/AgendaSlide';
 import InternshipContextSlide from '../components/InternshipContextSlide';
 import AudioFingerprintingSlide from '../components/AudioFingerprintingSlide';
 import AlgorithmAnalysisSlide from '../components/AlgorithmAnalysisSlide';
+import ResearchDataSlide from '../components/ResearchDataSlide';
 import { Button } from '../components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -17,7 +18,8 @@ const Index = () => {
     { component: AgendaSlide, title: "Presentation Agenda" },
     { component: InternshipContextSlide, title: "Internship Context" },
     { component: AudioFingerprintingSlide, title: "Audio Fingerprinting Pipeline" },
-    { component: AlgorithmAnalysisSlide, title: "Algorithm Analysis" }
+    { component: AlgorithmAnalysisSlide, title: "Algorithm Analysis" },
+    { component: ResearchDataSlide, title: "Research Data" }
   ];
 
   const nextSlide = () => {
