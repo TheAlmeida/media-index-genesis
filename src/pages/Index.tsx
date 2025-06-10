@@ -131,26 +131,12 @@ const Index = () => {
         </Button>
       </div>
 
-      {/* Slide Indicators */}
-      <div className="fixed bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2 z-50">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            disabled={isTransitioning}
-            className={`w-3 h-3 rounded-full transition-all duration-300 disabled:cursor-not-allowed ${
-              index === currentSlide 
-                ? 'bg-white' 
-                : 'bg-white/30 hover:bg-white/50'
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* Keyboard Navigation Hint */}
-      <div className="fixed top-4 left-4 bg-black/20 backdrop-blur-sm rounded-lg px-3 py-2 text-white text-xs z-50">
-        Use ← → arrow keys to navigate
-      </div>
+      {/* Keyboard Navigation Hint - Only on slide 1 */}
+      {currentSlide === 0 && (
+        <div className="fixed top-4 left-4 bg-black/20 backdrop-blur-sm rounded-lg px-3 py-2 text-white text-xs z-50">
+          Use ← → arrow keys to navigate
+        </div>
+      )}
     </div>
   );
 };
