@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Award, TrendingUp, Bulb, Clipboard, Check } from 'lucide-react';
+import { Award, TrendingUp, Lightbulb, Clipboard, Check } from 'lucide-react';
 
 interface ConclusionsSlideProps {
   isActive: boolean;
@@ -98,7 +97,7 @@ const ConclusionsSlide: React.FC<ConclusionsSlideProps> = ({ isActive }) => {
         <Card className="shadow-lg">
           <CardHeader>
             <div className="flex items-center space-x-3 mb-4">
-              <Bulb className="w-6 h-6 text-purple-600" />
+              <Lightbulb className="w-6 h-6 text-purple-600" />
               <CardTitle className="text-xl font-semibold text-slate-800">
                 Main Recommendations
               </CardTitle>
