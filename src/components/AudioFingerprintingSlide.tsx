@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { Info, Mic, Settings, Waveform, Hash, Database, Search, ArrowRight } from 'lucide-react';
+import { Info, Mic, Settings, AudioWaveform, Hash, Database, Search, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface AudioFingerprintingSlideProps {
@@ -54,7 +53,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
     },
     {
       id: 3,
-      icon: Waveform,
+      icon: AudioWaveform,
       title: "Feature Extraction",
       function: "Análise espectral",
       technical: "STFT, MFCC, deteção de picos",
