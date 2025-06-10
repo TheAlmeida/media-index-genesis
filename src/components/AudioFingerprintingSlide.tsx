@@ -126,7 +126,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
 
       {/* Main Content Area */}
       <div className="flex-1 px-[2vw] pb-[2vh] flex items-center justify-center min-h-0">
-        <div className="w-full max-w-[95vw]">
+        <div className="w-full max-w-[96vw]">
           
           {/* Main Card Container */}
           <div className={cn(
@@ -142,7 +142,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
             </div>
 
             {/* Pipeline Steps */}
-            <div className="flex items-center justify-between gap-[1vw] overflow-x-auto">
+            <div className="flex items-center justify-between w-full">
               {pipelineSteps.map((step, index) => {
                 const StepIcon = step.icon;
                 const isVisible = animationStep >= (index + 3);
@@ -151,41 +151,41 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
                   <React.Fragment key={step.id}>
                     {/* Step Card */}
                     <div className={cn(
-                      "flex-shrink-0 w-[14vw] min-w-[200px] transition-all duration-700 transform",
+                      "flex-1 max-w-[13vw] transition-all duration-700 transform",
                       isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     )}>
                       <div className={cn(
-                        "relative rounded-[1vw] border-2 p-[1.5vw] text-center h-[25vh] min-h-[280px] flex flex-col justify-between",
+                        "relative rounded-[1vw] border-2 p-[1vw] text-center h-[25vh] flex flex-col justify-between",
                         step.borderColor,
                         step.bgColor
                       )}>
                         {/* Step Number Badge */}
                         <div className={cn(
-                          "absolute top-[0.5vw] right-[0.5vw] w-[2vw] h-[2vw] min-w-[24px] min-h-[24px] rounded-full text-white text-[clamp(0.8rem,1.2vw,1.2rem)] font-bold flex items-center justify-center",
+                          "absolute top-[0.3vw] right-[0.3vw] w-[1.8vw] h-[1.8vw] min-w-[20px] min-h-[20px] rounded-full text-white text-[clamp(0.7rem,1vw,1rem)] font-bold flex items-center justify-center",
                           step.color
                         )}>
                           {step.id}
                         </div>
 
                         {/* Icon */}
-                        <div className="flex justify-center mb-[1vh]">
+                        <div className="flex justify-center mb-[0.5vh]">
                           <div className={cn(
-                            "w-[4vw] h-[4vw] min-w-[48px] min-h-[48px] rounded-full text-white flex items-center justify-center",
+                            "w-[3.5vw] h-[3.5vw] min-w-[40px] min-h-[40px] rounded-full text-white flex items-center justify-center",
                             step.color
                           )}>
-                            <StepIcon className="w-[2vw] h-[2vw] min-w-[24px] min-h-[24px]" />
+                            <StepIcon className="w-[1.8vw] h-[1.8vw] min-w-[20px] min-h-[20px]" />
                           </div>
                         </div>
 
                         {/* Content */}
                         <div className="flex-1 flex flex-col justify-center">
-                          <h3 className="text-[clamp(1rem,1.5vw,1.5rem)] font-bold text-gray-800 mb-[0.5vh]">
+                          <h3 className="text-[clamp(0.9rem,1.3vw,1.3rem)] font-bold text-gray-800 mb-[0.3vh]">
                             {step.title}
                           </h3>
-                          <p className="text-[clamp(0.8rem,1.2vw,1.2rem)] font-medium text-gray-700 mb-[1vh]">
+                          <p className="text-[clamp(0.7rem,1vw,1rem)] font-medium text-gray-700 mb-[0.5vh]">
                             {step.function}
                           </p>
-                          <p className="text-[clamp(0.7rem,1vw,1rem)] text-gray-600 font-light">
+                          <p className="text-[clamp(0.6rem,0.9vw,0.9rem)] text-gray-600 font-light">
                             {step.technical}
                           </p>
                         </div>
@@ -195,10 +195,10 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
                     {/* Arrow (except after last step) */}
                     {index < pipelineSteps.length - 1 && (
                       <div className={cn(
-                        "flex-shrink-0 transition-all duration-700 transform",
+                        "flex-shrink-0 mx-[0.5vw] transition-all duration-700 transform",
                         isVisible ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
                       )}>
-                        <ArrowRight className="w-[2vw] h-[2vw] min-w-[24px] min-h-[24px] text-blue-500" />
+                        <ArrowRight className="w-[1.5vw] h-[1.5vw] min-w-[18px] min-h-[18px] text-blue-500" />
                       </div>
                     )}
                   </React.Fragment>
