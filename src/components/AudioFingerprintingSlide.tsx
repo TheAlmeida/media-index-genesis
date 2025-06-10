@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Info, Mic, Settings, AudioWaveform, Hash, Database, Search, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -128,7 +127,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
       </div>
 
       {/* Pipeline Section */}
-      <div className="flex-shrink-0 px-[1vw] pt-[3vh] pb-[2vh]">
+      <div className="flex-shrink-0 px-[1vw] pt-[6vh] pb-[2vh]">
         <div className="w-full max-w-[98vw] mx-auto">
           {/* Pipeline Card Container */}
           <div className={cn(
