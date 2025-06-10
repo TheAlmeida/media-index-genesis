@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { User, Shield, File, Settings, ChartBar, Target, Clock, Check, Database, ArrowDown } from 'lucide-react';
+import { User, Shield, File, Settings, ChartBar, Target, Clock, Check, Database, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface AgendaSlideProps {
@@ -105,7 +105,7 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       className
     )}>
       {/* Header */}
-      <div className="flex-shrink-0 pt-[2vh] pb-[1vh] px-[2vw]">
+      <div className="flex-shrink-0 pt-[2vh] pb-[2vh] px-[2vw]">
         <div className={cn(
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
@@ -119,90 +119,73 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
         </div>
       </div>
 
-      {/* Zigzag Timeline */}
-      <div className="flex-1 px-[2vw] pb-[2vh] relative">
-        <div className="relative h-full">
-          {/* Vertical connecting line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-300 transform -translate-x-1/2"></div>
+      {/* Horizontal Zigzag Timeline */}
+      <div className="flex-1 px-[2vw] pb-[2vh] relative overflow-x-auto">
+        <div className="relative min-w-max h-full px-[4vw]">
+          {/* Horizontal connecting line */}
+          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-300 transform -translate-y-1/2"></div>
           
-          {agendaItems.map((item, index) => {
-            const Icon = item.icon;
-            const isLeft = index % 2 === 0;
-            const rowIndex = Math.floor(index / 2);
-            const topPosition = (index * 10) + 5; // Distribute evenly across height
-            
-            return (
-              <div key={index} className="absolute w-full" style={{ top: `${topPosition}%` }}>
-                {/* Step Container */}
-                <div className={cn(
-                  "flex items-center transition-all duration-700 transform",
-                  isLeft ? "justify-start" : "justify-end",
-                  animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                )}>
-                  {/* Left side content */}
-                  {isLeft && (
-                    <div className="w-[45%] pr-[2vw] text-right">
-                      <div className="bg-white rounded-lg p-[1vw] shadow-md border-l-4" style={{ borderLeftColor: item.bgColor.replace('bg-', '#') }}>
-                        <div className="flex items-center justify-end gap-[0.5vw] mb-[0.5vh]">
+          <div className="flex items-center justify-between h-full min-w-[150vw]">
+            {agendaItems.map((item, index) => {
+              const Icon = item.icon;
+              const isTop = index % 2 === 0;
+              
+              return (
+                <div key={index} className="relative flex flex-col items-center">
+                  {/* Step Container */}
+                  <div className={cn(
+                    "flex flex-col items-center transition-all duration-700 transform",
+                    animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                  )}>
+                    {/* Text content above or below */}
+                    <div className={cn(
+                      "mb-[2vh] text-center",
+                      isTop ? "order-1" : "order-3"
+                    )}>
+                      <div className="bg-white rounded-full p-[1vw] shadow-md border-2 border-gray-100 max-w-[12vw]">
+                        <div className="flex items-center justify-center gap-[0.5vw] mb-[0.5vh]">
                           <span className={cn(
                             "inline-flex items-center justify-center rounded-full text-white font-bold",
-                            "w-[2vw] h-[2vw] min-w-[24px] min-h-[24px] text-[clamp(0.7rem,1vw,1rem)]",
+                            "w-[1.5vw] h-[1.5vw] min-w-[20px] min-h-[20px] text-[clamp(0.6rem,0.8vw,0.8rem)]",
                             item.bgColor
                           )}>
                             {index + 1}
                           </span>
                         </div>
-                        <h3 className="text-[clamp(0.9rem,1.2vw,1.2rem)] font-bold text-gray-800 leading-tight">
+                        <h3 className="text-[clamp(0.7rem,0.9vw,0.9rem)] font-bold text-gray-800 leading-tight">
                           {item.title}
                         </h3>
                       </div>
                     </div>
-                  )}
 
-                  {/* Center circle */}
-                  <div className="relative z-10">
+                    {/* Center circle */}
                     <div className={cn(
-                      "rounded-full border-4 border-white shadow-lg flex items-center justify-center",
-                      "w-[4vw] h-[4vw] min-w-[60px] min-h-[60px]",
-                      item.bgColor
+                      "relative z-10 order-2",
+                      isTop ? "mt-[2vh]" : "mb-[2vh]"
                     )}>
-                      <Icon className="w-[2vw] h-[2vw] min-w-[30px] min-h-[30px] text-white" />
+                      <div className={cn(
+                        "rounded-full border-4 border-white shadow-lg flex items-center justify-center",
+                        "w-[3vw] h-[3vw] min-w-[50px] min-h-[50px]",
+                        item.bgColor
+                      )}>
+                        <Icon className="w-[1.5vw] h-[1.5vw] min-w-[25px] min-h-[25px] text-white" />
+                      </div>
                     </div>
                   </div>
 
-                  {/* Right side content */}
-                  {!isLeft && (
-                    <div className="w-[45%] pl-[2vw] text-left">
-                      <div className="bg-white rounded-lg p-[1vw] shadow-md border-r-4" style={{ borderRightColor: item.bgColor.replace('bg-', '#') }}>
-                        <div className="flex items-center gap-[0.5vw] mb-[0.5vh]">
-                          <span className={cn(
-                            "inline-flex items-center justify-center rounded-full text-white font-bold",
-                            "w-[2vw] h-[2vw] min-w-[24px] min-h-[24px] text-[clamp(0.7rem,1vw,1rem)]",
-                            item.bgColor
-                          )}>
-                            {index + 1}
-                          </span>
-                        </div>
-                        <h3 className="text-[clamp(0.9rem,1.2vw,1.2rem)] font-bold text-gray-800 leading-tight">
-                          {item.title}
-                        </h3>
-                      </div>
+                  {/* Arrow to next step */}
+                  {index < agendaItems.length - 1 && (
+                    <div className={cn(
+                      "absolute left-full top-1/2 transform -translate-y-1/2 ml-[1vw] transition-all duration-700",
+                      animationStep >= index + 3 ? "opacity-100" : "opacity-0"
+                    )}>
+                      <ArrowRight className="w-[1.2vw] h-[1.2vw] min-w-[16px] min-h-[16px] text-gray-400" />
                     </div>
                   )}
                 </div>
-
-                {/* Arrow to next step */}
-                {index < agendaItems.length - 1 && (
-                  <div className={cn(
-                    "absolute left-1/2 transform -translate-x-1/2 mt-[1vh] transition-all duration-700",
-                    animationStep >= index + 3 ? "opacity-100" : "opacity-0"
-                  )}>
-                    <ArrowDown className="w-[1.5vw] h-[1.5vw] min-w-[20px] min-h-[20px] text-gray-400" />
-                  </div>
-                )}
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
