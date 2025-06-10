@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { Database, FileText, Headphones, Microphone, Shield } from 'lucide-react';
+import { Database, FileText, Headphones, Mic, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 
@@ -141,7 +140,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
           )}>
             <div className="flex items-center gap-[1vw] mb-[1vh]">
               <div className="w-[2.5vw] h-[2.5vw] min-w-[30px] min-h-[30px] bg-orange-500 rounded-full flex items-center justify-center">
-                <Microphone className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-white" />
+                <Mic className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-white" />
               </div>
               <h3 className="text-[clamp(0.9rem,1.2vw,1.2rem)] font-bold text-gray-800">
                 Realistic Testing
