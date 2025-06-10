@@ -128,7 +128,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
       </div>
 
       {/* Pipeline Section */}
-      <div className="flex-shrink-0 px-[1vw] pb-[2vh]">
+      <div className="flex-shrink-0 px-[1vw] pt-[3vh] pb-[2vh]">
         <div className="w-full max-w-[98vw] mx-auto">
           {/* Pipeline Card Container */}
           <div className={cn(
