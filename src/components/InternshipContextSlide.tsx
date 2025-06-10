@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Building, MapPin, Code, ChartBar, Calendar, ArrowDown } from 'lucide-react';
+import { Building, MapPin, Code, ChartBar, Calendar } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface InternshipContextSlideProps {
@@ -21,9 +21,6 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
         setTimeout(() => setAnimationStep(3), 600),
         setTimeout(() => setAnimationStep(4), 800),
         setTimeout(() => setAnimationStep(5), 1000),
-        setTimeout(() => setAnimationStep(6), 1200),
-        setTimeout(() => setAnimationStep(7), 1400),
-        setTimeout(() => setAnimationStep(8), 1600),
       ];
 
       return () => timeouts.forEach(clearTimeout);
@@ -32,56 +29,20 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
     }
   }, [isActive]);
 
-  const timelineSteps = [
-    {
-      icon: Building,
-      title: "Company Overview",
-      subtitle: "Mediaprobe - Audio Technology",
-      description: "Empresa líder portuguesa especializada na avaliação do impacto emocional de conteúdo audiovisual",
-      color: "blue",
-      position: "top"
-    },
-    {
-      icon: MapPin,
-      title: "Location & Focus",
-      subtitle: "Porto, Portugal",
-      description: "Audio Recognition & Biometrical Sensors Technology com foco em soluções inovadoras",
-      color: "indigo",
-      position: "bottom"
-    },
-    {
-      icon: Code,
-      title: "Core Technologies",
-      subtitle: "Audio Fingerprinting & Media Monitoring",
-      description: "Tecnologias de processamento em tempo real e análise KPR para soluções audiovisuais",
-      color: "purple",
-      position: "top"
-    },
-    {
-      icon: ChartBar,
-      title: "Project Goals",
-      subtitle: "6-Month Research Project",
-      description: "Análise e benchmark de algoritmos de audio fingerprinting para melhorar o algoritmo interno",
-      color: "green",
-      position: "bottom"
-    },
-    {
-      icon: Calendar,
-      title: "Timeline & Activities",
-      subtitle: "February - July 2024",
-      description: "Revisão da literatura, implementação de 6 algoritmos, avaliação de desempenho e recomendações",
-      color: "orange",
-      position: "top"
-    }
+  const technologies = [
+    "Audio Fingerprinting",
+    "Media Monitoring", 
+    "Real Time Processing",
+    "Análise KPR"
   ];
 
-  const colorMap = {
-    blue: { bg: "bg-blue-500", text: "text-blue-500", border: "border-blue-200" },
-    indigo: { bg: "bg-indigo-500", text: "text-indigo-500", border: "border-indigo-200" },
-    purple: { bg: "bg-purple-500", text: "text-purple-500", border: "border-purple-200" },
-    green: { bg: "bg-green-500", text: "text-green-500", border: "border-green-200" },
-    orange: { bg: "bg-orange-500", text: "text-orange-500", border: "border-orange-200" }
-  };
+  const activities = [
+    "Revisão da literatura e análise do estado da arte",
+    "Implementação e teste de 6 algoritmos",
+    "Avaliação de desempenho e benchmarking", 
+    "Criação de dataset com variações de ruído",
+    "Análise estatística e recomendações"
+  ];
 
   return (
     <div className={cn(
@@ -94,124 +55,123 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
-          <h1 className="text-[clamp(2.5rem,5vw,4rem)] font-bold text-gray-800 mb-[1vh]">
+          <h1 className="text-[clamp(2.5rem,5vw,5rem)] font-bold text-gray-800 mb-[1vh]">
             Internship Context
           </h1>
-          <p className="text-[clamp(1rem,1.8vw,1.5rem)] text-gray-600 font-light">
+          <p className="text-[clamp(1rem,1.8vw,1.8rem)] text-gray-600 font-light">
             Overview of the host company and internship framework
           </p>
         </div>
       </div>
 
-      {/* Zigzag Timeline */}
-      <div className="flex-1 px-[4vw] pb-[4vh] flex items-center justify-center min-h-0">
-        <div className="w-full max-w-[92vw] h-[75vh] relative">
-          {/* Timeline Line */}
-          <div className="absolute inset-0 flex items-center">
-            <svg
-              className="w-full h-full"
-              viewBox="0 0 1000 400"
-              preserveAspectRatio="xMidYMid meet"
-            >
-              <path
-                d="M 50 200 L 200 80 L 350 200 L 500 80 L 650 200 L 800 80 L 950 200"
-                stroke="#e5e7eb"
-                strokeWidth="3"
-                fill="none"
-                strokeDasharray="0"
-                className={cn(
-                  "transition-all duration-1000",
-                  animationStep >= 2 ? "opacity-100" : "opacity-0"
-                )}
-              />
-            </svg>
+      {/* Two Column Layout */}
+      <div className="flex-1 px-[2vw] pb-[2vh] flex items-center justify-center min-h-0">
+        <div className="w-full max-w-[95vw] grid grid-cols-2 gap-[3vw] h-[75vh]">
+          
+          {/* Left Column - Company Information */}
+          <div className={cn(
+            "bg-white rounded-[1.5vw] shadow-xl border border-gray-200 p-[2vw] flex flex-col overflow-hidden transition-all duration-700 transform",
+            animationStep >= 2 ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
+          )}>
+            {/* Company Header */}
+            <div className="flex items-center mb-[2vh]">
+              <Building className="w-[clamp(1.5rem,2.5vw,2.5rem)] h-[clamp(1.5rem,2.5vw,2.5rem)] text-blue-500 mr-[1vw]" />
+              <div>
+                <h2 className="text-[clamp(1.8rem,3vw,3rem)] font-bold text-gray-800">Mediaprobe</h2>
+                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-blue-500 font-medium">Audio Technology Company</p>
+              </div>
+            </div>
+
+            {/* Company Overview */}
+            <div className="mb-[2vh]">
+              <h3 className="text-[clamp(1.2rem,2vw,2rem)] font-semibold text-gray-700 mb-[1vh]">Visão Geral da Empresa</h3>
+              <p className="text-[clamp(0.9rem,1.3vw,1.3rem)] text-gray-600 leading-relaxed">
+                Empresa líder portuguesa de tecnologia especializada na avaliação do impacto emocional de conteúdo audiovisual (EIS - Emotional Impact Score)
+              </p>
+            </div>
+
+            {/* Location */}
+            <div className="flex items-center mb-[2vh]">
+              <MapPin className="w-[clamp(1.2rem,2vw,2rem)] h-[clamp(1.2rem,2vw,2rem)] text-blue-500 mr-[1vw]" />
+              <span className="text-[clamp(1rem,1.5vw,1.5rem)] text-gray-700 font-medium">Porto, Portugal</span>
+            </div>
+
+            {/* Technology Focus */}
+            <div className="flex items-center mb-[2vh]">
+              <Code className="w-[clamp(1.2rem,2vw,2rem)] h-[clamp(1.2rem,2vw,2rem)] text-blue-500 mr-[1vw]" />
+              <span className="text-[clamp(1rem,1.5vw,1.5rem)] text-gray-700 font-medium">Audio Recognition & Biometrical Sensors Technology</span>
+            </div>
+
+            {/* Main Technologies */}
+            <div className="flex-1">
+              <h3 className="text-[clamp(1.2rem,2vw,2rem)] font-semibold text-gray-700 mb-[1vh]">Tecnologias Principais</h3>
+              <div className="grid grid-cols-2 gap-[1vw]">
+                {technologies.map((tech, index) => (
+                  <div
+                    key={index}
+                    className={cn(
+                      "bg-blue-50 border border-blue-200 rounded-[1vw] p-[1vw] text-center transition-all duration-500 transform",
+                      animationStep >= 3 ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                    )}
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                  >
+                    <span className="text-[clamp(0.8rem,1.2vw,1.2rem)] text-blue-700 font-medium">{tech}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* Timeline Steps */}
-          <div className="relative h-full flex justify-between items-center">
-            {timelineSteps.map((step, index) => {
-              const IconComponent = step.icon;
-              const colors = colorMap[step.color];
-              const isTop = step.position === "top";
-              const stepVisible = animationStep >= index + 2;
-              
-              return (
-                <div
-                  key={index}
-                  className="relative flex flex-col items-center"
-                  style={{ width: `${90 / timelineSteps.length}%` }}
-                >
-                  {/* Content Container */}
-                  <div className={cn(
-                    "flex flex-col items-center",
-                    isTop ? "flex-col-reverse" : "flex-col"
-                  )}>
-                    
-                    {/* Text Content */}
-                    <div className={cn(
-                      "text-center px-[1vw] transition-all duration-700 transform",
-                      stepVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
-                      isTop ? "mb-[2vh]" : "mt-[2vh]"
-                    )}
-                    style={{ transitionDelay: `${index * 200}ms` }}
-                    >
-                      <h3 className="text-[clamp(1rem,1.5vw,1.3rem)] font-bold text-gray-800 mb-[0.5vh]">
-                        {step.title}
-                      </h3>
-                      <h4 className={cn(
-                        "text-[clamp(0.8rem,1.2vw,1rem)] font-semibold mb-[0.5vh]",
-                        colors.text
-                      )}>
-                        {step.subtitle}
-                      </h4>
-                      <p className="text-[clamp(0.7rem,1vw,0.9rem)] text-gray-600 leading-relaxed max-w-[15vw]">
-                        {step.description}
-                      </p>
-                    </div>
+          {/* Right Column - Project Details */}
+          <div className={cn(
+            "bg-white rounded-[1.5vw] shadow-xl border border-gray-200 p-[2vw] flex flex-col overflow-hidden transition-all duration-700 transform",
+            animationStep >= 3 ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+          )}>
+            {/* Project Header */}
+            <div className="flex items-center mb-[2vh]">
+              <ChartBar className="w-[clamp(1.5rem,2.5vw,2.5rem)] h-[clamp(1.5rem,2.5vw,2.5rem)] text-orange-500 mr-[1vw]" />
+              <div>
+                <h2 className="text-[clamp(1.8rem,3vw,3rem)] font-bold text-gray-800">Internship Goals</h2>
+                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-orange-500 font-medium">6-Month Research Project</p>
+              </div>
+            </div>
 
-                    {/* Rounded Card with Icon */}
-                    <div className={cn(
-                      "relative z-10 transition-all duration-700 transform",
-                      stepVisible ? "scale-100 opacity-100" : "scale-50 opacity-0"
+            {/* Main Objective */}
+            <div className="mb-[2vh]">
+              <h3 className="text-[clamp(1.2rem,2vw,2rem)] font-semibold text-gray-700 mb-[1vh]">Objetivo Principal</h3>
+              <p className="text-[clamp(0.9rem,1.3vw,1.3rem)] text-gray-600 leading-relaxed">
+                Análise e benchmark de algoritmos de audio fingerprinting existentes para melhorar o algoritmo interno em desenvolvimento da Mediaprobe e fornecer recomendações acionáveis
+              </p>
+            </div>
+
+            {/* Timeline */}
+            <div className="flex items-center mb-[2vh]">
+              <Calendar className="w-[clamp(1.2rem,2vw,2rem)] h-[clamp(1.2rem,2vw,2rem)] text-orange-500 mr-[1vw]" />
+              <div>
+                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-gray-700 font-medium">February - July 2024</p>
+                <p className="text-[clamp(0.8rem,1.2vw,1.2rem)] text-gray-600">Comprehensive evaluation of commercial and open-source audio fingerprinting solutions</p>
+              </div>
+            </div>
+
+            {/* Main Activities */}
+            <div className="flex-1">
+              <h3 className="text-[clamp(1.2rem,2vw,2rem)] font-semibold text-gray-700 mb-[1vh]">Atividades Principais</h3>
+              <div className="space-y-[1vh]">
+                {activities.map((activity, index) => (
+                  <div
+                    key={index}
+                    className={cn(
+                      "flex items-start transition-all duration-500 transform",
+                      animationStep >= 4 ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
                     )}
-                    style={{ transitionDelay: `${index * 200 + 100}ms` }}
-                    >
-                      <div className={cn(
-                        "w-[clamp(4rem,6vw,5rem)] h-[clamp(4rem,6vw,5rem)] rounded-full shadow-xl border-4 border-white flex items-center justify-center",
-                        colors.bg
-                      )}>
-                        <IconComponent className="w-[clamp(1.5rem,2.5vw,2rem)] h-[clamp(1.5rem,2.5vw,2rem)] text-white" />
-                      </div>
-                      
-                      {/* Step Number */}
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-gray-800 text-white rounded-full flex items-center justify-center text-xs font-bold">
-                        {index + 1}
-                      </div>
-                    </div>
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                  >
+                    <div className="w-[0.8vw] h-[0.8vw] bg-orange-500 rounded-full mt-[0.8vh] mr-[1vw] flex-shrink-0"></div>
+                    <span className="text-[clamp(0.9rem,1.3vw,1.3rem)] text-gray-600 leading-relaxed">{activity}</span>
                   </div>
-
-                  {/* Arrow to Next Step */}
-                  {index < timelineSteps.length - 1 && (
-                    <div className={cn(
-                      "absolute top-1/2 -translate-y-1/2 transition-all duration-700",
-                      stepVisible ? "opacity-60" : "opacity-0",
-                      isTop ? "right-[-2vw]" : "right-[-2vw]"
-                    )}
-                    style={{ 
-                      transitionDelay: `${index * 200 + 300}ms`,
-                      left: '90%',
-                      zIndex: 5
-                    }}
-                    >
-                      <ArrowDown className={cn(
-                        "w-[clamp(1.2rem,2vw,1.5rem)] h-[clamp(1.2rem,2vw,1.5rem)] text-gray-400",
-                        isTop ? "rotate-45" : "-rotate-45"
-                      )} />
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
