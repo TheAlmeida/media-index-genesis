@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import PresentationSlide from '../components/PresentationSlide';
 import AgendaSlide from '../components/AgendaSlide';
+import InternshipContextSlide from '../components/InternshipContextSlide';
 import { Button } from '../components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -11,7 +12,8 @@ const Index = () => {
   
   const slides = [
     { component: PresentationSlide, title: "Title Slide" },
-    { component: AgendaSlide, title: "Presentation Agenda" }
+    { component: AgendaSlide, title: "Presentation Agenda" },
+    { component: InternshipContextSlide, title: "Internship Context" }
   ];
 
   const nextSlide = () => {
