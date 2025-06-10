@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import PresentationSlide from '../components/PresentationSlide';
 import AgendaSlide from '../components/AgendaSlide';
@@ -6,6 +7,7 @@ import AudioFingerprintingSlide from '../components/AudioFingerprintingSlide';
 import AlgorithmAnalysisSlide from '../components/AlgorithmAnalysisSlide';
 import ResearchDataSlide from '../components/ResearchDataSlide';
 import EvaluationMethodologySlide from '../components/EvaluationMethodologySlide';
+import EvaluationResultsSlide from '../components/EvaluationResultsSlide';
 import { Button } from '../components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -20,7 +22,8 @@ const Index = () => {
     { component: AudioFingerprintingSlide, title: "Audio Fingerprinting Pipeline" },
     { component: AlgorithmAnalysisSlide, title: "Algorithm Analysis" },
     { component: ResearchDataSlide, title: "Research Data" },
-    { component: EvaluationMethodologySlide, title: "Evaluation Methodology" }
+    { component: EvaluationMethodologySlide, title: "Evaluation Methodology" },
+    { component: EvaluationResultsSlide, title: "Experimental Results" }
   ];
 
   const nextSlide = () => {
