@@ -70,7 +70,7 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
           
           {/* Left Column - Company Information */}
           <div className={cn(
-            "bg-white rounded-[1.5vw] shadow-xl border border-gray-200 p-[2vw] flex flex-col transition-all duration-700 transform",
+            "bg-white rounded-[1.5vw] shadow-xl border border-gray-200 p-[2vw] flex flex-col overflow-hidden transition-all duration-700 transform",
             animationStep >= 2 ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
           )}>
             {/* Company Header */}
@@ -124,7 +124,7 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
 
           {/* Right Column - Project Details */}
           <div className={cn(
-            "bg-white rounded-[1.5vw] shadow-xl border border-gray-200 p-[2vw] flex flex-col transition-all duration-700 transform",
+            "bg-white rounded-[1.5vw] shadow-xl border border-gray-200 p-[2vw] flex flex-col overflow-hidden transition-all duration-700 transform",
             animationStep >= 3 ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
           )}>
             {/* Project Header */}
