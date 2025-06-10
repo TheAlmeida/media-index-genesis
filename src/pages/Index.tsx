@@ -8,6 +8,7 @@ import AlgorithmAnalysisSlide from '../components/AlgorithmAnalysisSlide';
 import ResearchDataSlide from '../components/ResearchDataSlide';
 import EvaluationMethodologySlide from '../components/EvaluationMethodologySlide';
 import EvaluationResultsSlide from '../components/EvaluationResultsSlide';
+import ChallengesSolutionsSlide from '../components/ChallengesSolutionsSlide';
 import { Button } from '../components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -23,7 +24,8 @@ const Index = () => {
     { component: AlgorithmAnalysisSlide, title: "Algorithm Analysis" },
     { component: ResearchDataSlide, title: "Research Data" },
     { component: EvaluationMethodologySlide, title: "Evaluation Methodology" },
-    { component: EvaluationResultsSlide, title: "Experimental Results" }
+    { component: EvaluationResultsSlide, title: "Experimental Results" },
+    { component: ChallengesSolutionsSlide, title: "Challenges & Solutions" }
   ];
 
   const nextSlide = () => {
