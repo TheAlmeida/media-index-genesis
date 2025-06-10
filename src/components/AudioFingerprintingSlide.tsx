@@ -101,17 +101,6 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
       "h-[100dvh] w-[100dvw] bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden flex flex-col",
       className
     )}>
-      {/* Navigation Badge */}
-      <div className="absolute top-[2vh] right-[2vw] z-10">
-        <div className={cn(
-          "bg-purple-500 text-white px-[1.5vw] py-[0.5vh] rounded-full text-[clamp(0.7rem,1vw,1rem)] font-medium transition-all duration-700 flex items-center gap-2",
-          animationStep >= 1 ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
-        )}>
-          <Info className="w-[clamp(0.8rem,1.2vw,1.2rem)] h-[clamp(0.8rem,1.2vw,1.2rem)]" />
-          Technical Foundation
-        </div>
-      </div>
-
       {/* Header */}
       <div className="flex-shrink-0 pt-[2vh] pb-[1vh] px-[2vw]">
         <div className={cn(

@@ -36,17 +36,6 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
       "h-[100dvh] w-[100dvw] bg-gradient-to-br from-slate-50 via-gray-100 to-slate-200 relative overflow-hidden flex flex-col",
       className
     )}>
-      {/* Navigation Badge */}
-      <div className="absolute top-[2vh] right-[2vw] z-10">
-        <div className={cn(
-          "bg-blue-500 text-white px-[1.5vw] py-[0.5vh] rounded-full text-[clamp(0.7rem,1vw,1rem)] font-medium transition-all duration-700 flex items-center gap-2",
-          animationStep >= 1 ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
-        )}>
-          <Database className="w-[clamp(0.8rem,1.2vw,1.2rem)] h-[clamp(0.8rem,1.2vw,1.2rem)]" />
-          Research Data
-        </div>
-      </div>
-
       {/* Header */}
       <div className="flex-shrink-0 pt-[3vh] pb-[2vh] px-[2vw]">
         <div className={cn(
