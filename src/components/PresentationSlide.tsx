@@ -27,7 +27,7 @@ const PresentationSlide: React.FC<SlideProps> = ({ isActive = true, className })
 
   return (
     <div className={cn(
-      "min-h-screen w-full bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden",
+      "h-screen w-full bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden flex items-center justify-center",
       className
     )}>
       {/* Decorative Background Elements */}
@@ -53,115 +53,120 @@ const PresentationSlide: React.FC<SlideProps> = ({ isActive = true, className })
         />
       ))}
 
-      <div className="relative z-10 h-full flex flex-col justify-between p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
+      {/* Main Content Container - Centered and Responsive */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center h-full">
         
-        {/* Top Section */}
-        <div className="text-center space-y-6 sm:space-y-8">
-          {/* Document Type Label */}
-          <div className={cn(
-            "inline-block transition-all duration-700 transform",
-            animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
-          )}>
-            <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full text-sm sm:text-base font-medium shadow-lg backdrop-blur-sm border border-blue-400/30">
-              Relatório de Estágio Curricular
-            </span>
-          </div>
-
-          {/* Main Title */}
-          <div className={cn(
-            "transition-all duration-700 transform delay-300",
-            animationStep >= 2 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
-          )}>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent leading-tight">
-              Media Indexing
-            </h1>
-          </div>
-
-          {/* Horizontal Divider */}
-          <div className={cn(
-            "mx-auto h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent transition-all duration-700",
-            animationStep >= 2 ? "w-64 sm:w-96 opacity-100" : "w-0 opacity-0"
-          )}></div>
-        </div>
-
-        {/* Academic Context */}
-        <div className={cn(
-          "text-center transition-all duration-700 transform",
-          animationStep >= 3 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-        )}>
-          <h2 className="text-lg sm:text-xl lg:text-2xl text-slate-300 font-light">
-            Licenciatura em Engenharia Eletrotécnica e de Computadores
-          </h2>
-        </div>
-
-        {/* Three Panel Grid */}
-        <div className={cn(
-          "grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 transition-all duration-700 transform",
-          animationStep >= 4 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-        )}>
+        {/* Content Wrapper with proper spacing */}
+        <div className="w-full space-y-8 sm:space-y-12 lg:space-y-16">
           
-          {/* Student Panel */}
-          <div className="bg-gradient-to-br from-slate-800/80 to-blue-900/60 backdrop-blur-sm border border-blue-400/20 rounded-2xl p-6 sm:p-8 text-center hover:scale-105 transition-all duration-300 shadow-xl">
-            <div className="mb-6">
-              <div className="w-16 h-16 mx-auto bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full flex items-center justify-center shadow-lg">
-                <AudioWaveform className="w-8 h-8 text-white" />
+          {/* Top Section */}
+          <div className="text-center space-y-4 sm:space-y-6 lg:space-y-8">
+            {/* Document Type Label */}
+            <div className={cn(
+              "transition-all duration-700 transform",
+              animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
+            )}>
+              <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium shadow-lg backdrop-blur-sm border border-blue-400/30">
+                Relatório de Estágio Curricular
+              </span>
+            </div>
+
+            {/* Main Title */}
+            <div className={cn(
+              "transition-all duration-700 transform delay-300",
+              animationStep >= 2 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
+            )}>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent leading-tight">
+                Media Indexing
+              </h1>
+            </div>
+
+            {/* Horizontal Divider */}
+            <div className={cn(
+              "mx-auto h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent transition-all duration-700",
+              animationStep >= 2 ? "w-48 sm:w-64 md:w-80 lg:w-96 opacity-100" : "w-0 opacity-0"
+            )}></div>
+          </div>
+
+          {/* Academic Context */}
+          <div className={cn(
+            "text-center transition-all duration-700 transform",
+            animationStep >= 3 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          )}>
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 font-light">
+              Licenciatura em Engenharia Eletrotécnica e de Computadores
+            </h2>
+          </div>
+
+          {/* Three Panel Grid */}
+          <div className={cn(
+            "grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 transition-all duration-700 transform",
+            animationStep >= 4 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          )}>
+            
+            {/* Student Panel */}
+            <div className="bg-gradient-to-br from-slate-800/80 to-blue-900/60 backdrop-blur-sm border border-blue-400/20 rounded-2xl p-4 sm:p-6 lg:p-8 text-center hover:scale-105 transition-all duration-300 shadow-xl">
+              <div className="mb-4 sm:mb-6">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full flex items-center justify-center shadow-lg">
+                  <AudioWaveform className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+              </div>
+              <div className="space-y-2 sm:space-y-3">
+                <span className="inline-block bg-blue-500/20 text-blue-300 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+                  Estudante
+                </span>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">Filipe Almeida</h3>
+                <p className="text-slate-300 text-base sm:text-lg">20399</p>
               </div>
             </div>
-            <div className="space-y-3">
-              <span className="inline-block bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm font-medium">
-                Estudante
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-white">Filipe Almeida</h3>
-              <p className="text-slate-300 text-lg">20399</p>
+
+            {/* Institution Panel */}
+            <div className="bg-gradient-to-br from-slate-800/80 to-purple-900/60 backdrop-blur-sm border border-purple-400/20 rounded-2xl p-4 sm:p-6 lg:p-8 text-center hover:scale-105 transition-all duration-300 shadow-xl">
+              <div className="mb-4 sm:mb-6">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-purple-500 to-blue-400 rounded-full flex items-center justify-center shadow-lg">
+                  <AudioWaveform className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+              </div>
+              <div className="space-y-2 sm:space-y-3">
+                <span className="inline-block bg-purple-500/20 text-purple-300 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+                  Instituição
+                </span>
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white leading-tight">
+                  Escola Superior de Tecnologia
+                </h3>
+                <p className="text-slate-300 text-xs sm:text-sm lg:text-base">
+                  Instituto Politécnico do Cávado e do Ave
+                </p>
+              </div>
+            </div>
+
+            {/* Host Organization Panel */}
+            <div className="bg-gradient-to-br from-slate-800/80 to-cyan-900/60 backdrop-blur-sm border border-cyan-400/20 rounded-2xl p-4 sm:p-6 lg:p-8 text-center hover:scale-105 transition-all duration-300 shadow-xl">
+              <div className="mb-4 sm:mb-6">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-cyan-500 to-purple-400 rounded-full flex items-center justify-center shadow-lg">
+                  <Mic className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+              </div>
+              <div className="space-y-2 sm:space-y-3">
+                <span className="inline-block bg-cyan-500/20 text-cyan-300 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+                  Empresa de Acolhimento
+                </span>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">Mediaprobe</h3>
+                <p className="text-slate-300 text-xs sm:text-sm lg:text-base">
+                  Media Measurement Solutions (EIS)
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Institution Panel */}
-          <div className="bg-gradient-to-br from-slate-800/80 to-purple-900/60 backdrop-blur-sm border border-purple-400/20 rounded-2xl p-6 sm:p-8 text-center hover:scale-105 transition-all duration-300 shadow-xl">
-            <div className="mb-6">
-              <div className="w-16 h-16 mx-auto bg-gradient-to-r from-purple-500 to-blue-400 rounded-full flex items-center justify-center shadow-lg">
-                <AudioWaveform className="w-8 h-8 text-white" />
-              </div>
+          {/* Footer */}
+          <div className={cn(
+            "text-center transition-all duration-700 transform",
+            animationStep >= 5 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          )}>
+            <div className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg lg:text-xl font-medium shadow-lg">
+              2025
             </div>
-            <div className="space-y-3">
-              <span className="inline-block bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-sm font-medium">
-                Instituição
-              </span>
-              <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
-                Escola Superior de Tecnologia
-              </h3>
-              <p className="text-slate-300 text-sm sm:text-base">
-                Instituto Politécnico do Cávado e do Ave
-              </p>
-            </div>
-          </div>
-
-          {/* Host Organization Panel */}
-          <div className="bg-gradient-to-br from-slate-800/80 to-cyan-900/60 backdrop-blur-sm border border-cyan-400/20 rounded-2xl p-6 sm:p-8 text-center hover:scale-105 transition-all duration-300 shadow-xl">
-            <div className="mb-6">
-              <div className="w-16 h-16 mx-auto bg-gradient-to-r from-cyan-500 to-purple-400 rounded-full flex items-center justify-center shadow-lg">
-                <Mic className="w-8 h-8 text-white" />
-              </div>
-            </div>
-            <div className="space-y-3">
-              <span className="inline-block bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full text-sm font-medium">
-                Empresa de Acolhimento
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-white">Mediaprobe</h3>
-              <p className="text-slate-300 text-sm sm:text-base">
-                Media Measurement Solutions (EIS)
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className={cn(
-          "text-center transition-all duration-700 transform",
-          animationStep >= 5 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-        )}>
-          <div className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full text-lg sm:text-xl font-medium shadow-lg">
-            2025
           </div>
         </div>
       </div>
