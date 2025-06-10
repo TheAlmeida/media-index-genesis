@@ -138,111 +138,64 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
             
             <div className="space-y-[0.5vh] text-[clamp(0.7rem,0.9vw,0.9rem)] text-gray-600 mb-[1vh]">
               <p>• Desenvolvido pela Pexeso (2023)</p>
-              <p>• Ficheiros de referência (áudio original)</p>
-              <p>• Queries (versões modificadas)</p>
-              <p>• Anotações (CSV com modificações)</p>
+              <p>• Ficheiros de referência (ficheiros originais completos)</p>
+              <p>• Ficheiros de query (excertos de 5-10 segundos, potencialmente modificados)</p>
+              <p>• Métricas: Precision, Recall, F1-score</p>
+              <p>• Ground truth baseado em metadados de origem</p>
             </div>
-
-            <div className="mb-[1vh]">
-              <h5 className="text-[clamp(0.8rem,0.95vw,0.95rem)] font-semibold text-gray-700 mb-[0.5vh]">
-                Níveis de Avaliação:
-              </h5>
-              <div className="space-y-[0.3vh] text-[clamp(0.65rem,0.85vw,0.85rem)] text-gray-600">
-                <p>• Track-Level: Match existe independentemente do tempo</p>
-                <p>• Segment-Level: Matching de segmento alinhado temporalmente</p>
-                <p>• Bounding Box-Level: Alinhamento estrito query-referência</p>
-              </div>
-            </div>
-
-            <p className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-gray-600 font-medium">
-              Métricas: Precision & Recall (F-score excluído devido ao valor interpretativo limitado)
-            </p>
-          </div>
-
-          {/* Memory Usage Card */}
-          <div className={cn(
-            "bg-white rounded-[1vw] shadow-lg border-l-4 border-purple-500 p-[1.5vw] transition-all duration-700 transform hover:scale-105",
-            animationStep >= 6 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          )}>
-            <div className="flex items-center gap-[1vw] mb-[1vh]">
-              <div className="w-[2.5vw] h-[2.5vw] min-w-[30px] min-h-[30px] bg-purple-500 rounded-full flex items-center justify-center">
-                <Database className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-white" />
-              </div>
-              <h3 className="text-[clamp(0.9rem,1.2vw,1.2rem)] font-bold text-gray-800">
-                Memory Usage
-              </h3>
-            </div>
-            
-            <h4 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-gray-700 mb-[1vh]">
-              Persistent Storage Analysis
-            </h4>
-            
-            <p className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-gray-600 mb-[1vh]">
-              Armazenamento necessário após processamento dos ficheiros de referência
-            </p>
-
-            <div className="mb-[1vh]">
-              <h5 className="text-[clamp(0.8rem,0.95vw,0.95rem)] font-semibold text-gray-700 mb-[0.5vh]">
-                Abordagem de Medição:
-              </h5>
-              <div className="space-y-[0.3vh] text-[clamp(0.65rem,0.85vw,0.85rem)] text-gray-600">
-                <p>• Tamanho dos dados gerados (fingerprints, índices)</p>
-                <p>• Valores normalizados por segundo de áudio</p>
-                <p>• Dataset uniforme para equidade</p>
-              </div>
-            </div>
-
-            <p className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-gray-600 font-medium">
-              Objetivo: Comparar eficiência entre sistemas com métricas normalizadas
-            </p>
           </div>
 
           {/* Execution Time Card */}
           <div className={cn(
             "bg-white rounded-[1vw] shadow-lg border-l-4 border-green-500 p-[1.5vw] transition-all duration-700 transform hover:scale-105",
-            animationStep >= 7 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            animationStep >= 6 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           )}>
             <div className="flex items-center gap-[1vw] mb-[1vh]">
               <div className="w-[2.5vw] h-[2.5vw] min-w-[30px] min-h-[30px] bg-green-500 rounded-full flex items-center justify-center">
                 <Clock className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-white" />
               </div>
               <h3 className="text-[clamp(0.9rem,1.2vw,1.2rem)] font-bold text-gray-800">
-                Execution Time
+                Execution Time Analysis
               </h3>
             </div>
             
-            <h4 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-gray-700 mb-[1vh]">
-              Processing Phase Analysis
+            <h4 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-gray-700 mb-[0.5vh]">
+              Profiling Personalizado
             </h4>
             
-            <p className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-gray-600 mb-[1vh]">
-              Medição de tempo para cada fase
-            </p>
-
-            <div className="mb-[1vh]">
-              <h5 className="text-[clamp(0.8rem,0.95vw,0.95rem)] font-semibold text-gray-700 mb-[0.5vh]">
-                Fases Medidas:
-              </h5>
-              <div className="space-y-[0.3vh] text-[clamp(0.65rem,0.85vw,0.85rem)] text-gray-600">
-                <p className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                  Extração de fingerprint
-                </p>
-                <p className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                  Inserção na base de dados
-                </p>
-                <p className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                  Matching de query
-                </p>
-              </div>
+            <div className="space-y-[0.5vh] text-[clamp(0.7rem,0.9vw,0.9rem)] text-gray-600 mb-[1vh]">
+              <p>• Medição de tempo de indexação de referências</p>
+              <p>• Tempo de processamento de queries</p>
+              <p>• Latência de matching e retrieval</p>
+              <p>• Análise de escalabilidade</p>
+              <p>• Profiling em hardware padronizado</p>
             </div>
+          </div>
 
-            <div className="space-y-[0.5vh] text-[clamp(0.7rem,0.9vw,0.9rem)] text-gray-600">
-              <p>Testes: 20 iterações (10 ingestão, 10 reconhecimento)</p>
-              <p>Métrica: Tempo de execução como % da duração do áudio</p>
-              <p className="font-medium">Nota: Após adicionar anúncios, algoritmos previamente excluídos mostraram desempenho melhorado</p>
+          {/* Memory Efficiency Card */}
+          <div className={cn(
+            "bg-white rounded-[1vw] shadow-lg border-l-4 border-purple-500 p-[1.5vw] transition-all duration-700 transform hover:scale-105",
+            animationStep >= 7 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          )}>
+            <div className="flex items-center gap-[1vw] mb-[1vh]">
+              <div className="w-[2.5vw] h-[2.5vw] min-w-[30px] min-h-[30px] bg-purple-500 rounded-full flex items-center justify-center">
+                <Database className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-white" />
+              </div>
+              <h3 className="text-[clamp(0.9rem,1.2vw,1.2rem)] font-bold text-gray-800">
+                Memory Efficiency
+              </h3>
+            </div>
+            
+            <h4 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-gray-700 mb-[0.5vh]">
+              Análise de Armazenamento
+            </h4>
+            
+            <div className="space-y-[0.5vh] text-[clamp(0.7rem,0.9vw,0.9rem)] text-gray-600 mb-[1vh]">
+              <p>• Tamanho da base de dados indexada</p>
+              <p>• Requisitos de memória RAM</p>
+              <p>• Compressão de fingerprints</p>
+              <p>• Eficiência de estruturas de indexação</p>
+              <p>• Análise de crescimento com volume de dados</p>
             </div>
           </div>
         </div>

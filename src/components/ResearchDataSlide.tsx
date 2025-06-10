@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Database, FileText, Headphones, Mic, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -63,7 +64,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
 
       {/* Dataset Cards */}
       <div className="flex-1 px-[2vw] pb-[2vh] min-h-0">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-[2vw] h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-[2vw] h-[70vh]">
           {/* Dataset 1 - Open Source */}
           <div className={cn(
             "bg-white rounded-[1vw] shadow-lg border-l-4 border-blue-500 p-[1.5vw] transition-all duration-700 transform hover:scale-105",

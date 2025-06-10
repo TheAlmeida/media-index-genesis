@@ -185,18 +185,6 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
           </div>
         </div>
       </div>
-
-      {/* Progress Indicator */}
-      <div className="absolute bottom-[2vh] left-1/2 transform -translate-x-1/2 z-20">
-        <div className={cn(
-          "bg-white/90 backdrop-blur-sm rounded-full px-[2vw] py-[1vh] shadow-lg transition-all duration-700",
-          animationStep >= 1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-        )}>
-          <span className="text-[clamp(0.8rem,1.2vw,1.2rem)] font-medium text-gray-700">
-            Internship Context Overview
-          </span>
-        </div>
-      </div>
     </div>
   );
 };
