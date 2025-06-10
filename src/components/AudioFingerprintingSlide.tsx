@@ -128,7 +128,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
       </div>
 
       {/* Pipeline Section */}
-      <div className="flex-shrink-0 px-[1vw] pb-[1vh]">
+      <div className="flex-shrink-0 px-[1vw] pb-[2vh]">
         <div className="w-full max-w-[98vw] mx-auto">
           {/* Pipeline Card Container */}
           <div className={cn(
@@ -206,18 +206,20 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
 
       {/* Images Section */}
       <div className="flex-1 px-[2vw] pb-[2vh] flex items-center justify-center min-h-0">
-        <div className="w-full max-w-[95vw] flex gap-[2vw] items-center justify-center">
+        <div className="w-full max-w-[95vw] flex gap-[2vw] items-stretch justify-center">
           {/* Left Image */}
           <div className={cn(
             "flex-1 transition-all duration-700 transform",
             animationStep >= 8 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           )}>
-            <div className="bg-white rounded-[1vw] shadow-lg border border-gray-200 p-[1vw]">
-              <img 
-                src="https://github.com/worldveil/dejavu/blob/master/plots/spectrogram_peaks.png?raw=true"
-                alt="Spectrogram with peaks highlighted"
-                className="w-full h-auto rounded-[0.5vw]"
-              />
+            <div className="bg-white rounded-[1vw] shadow-lg border border-gray-200 p-[1vw] h-full flex flex-col">
+              <div className="flex-1 flex items-center justify-center">
+                <img 
+                  src="https://github.com/worldveil/dejavu/blob/master/plots/spectrogram_peaks.png?raw=true"
+                  alt="Spectrogram with peaks highlighted"
+                  className="max-w-full h-[25vh] object-contain rounded-[0.5vw]"
+                />
+              </div>
               <div className="mt-[1vh] text-center">
                 <h3 className="text-[clamp(0.9rem,1.3vw,1.3rem)] font-bold text-gray-800">
                   Peak Detection
@@ -234,12 +236,14 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
             "flex-1 transition-all duration-700 transform",
             animationStep >= 9 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           )}>
-            <div className="bg-white rounded-[1vw] shadow-lg border border-gray-200 p-[1vw]">
-              <img 
-                src="https://github.com/worldveil/dejavu/blob/master/plots/spectrogram_zoomed.png?raw=true"
-                alt="Zoomed spectrogram view"
-                className="w-full h-auto rounded-[0.5vw]"
-              />
+            <div className="bg-white rounded-[1vw] shadow-lg border border-gray-200 p-[1vw] h-full flex flex-col">
+              <div className="flex-1 flex items-center justify-center">
+                <img 
+                  src="https://github.com/worldveil/dejavu/blob/master/plots/spectrogram_zoomed.png?raw=true"
+                  alt="Zoomed spectrogram view"
+                  className="max-w-full h-[25vh] object-contain rounded-[0.5vw]"
+                />
+              </div>
               <div className="mt-[1vh] text-center">
                 <h3 className="text-[clamp(0.9rem,1.3vw,1.3rem)] font-bold text-gray-800">
                   Detailed Analysis
