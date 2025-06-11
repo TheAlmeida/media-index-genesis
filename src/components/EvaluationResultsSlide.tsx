@@ -140,7 +140,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3 mb-2">
                 <Database className="w-6 h-6 text-purple-600" />
-                <CardTitle className="text-lg">Eficiência de Memória - Espaço de 1s de Áudio</CardTitle>
+                <CardTitle className="text-lg">Eficiência de Memória - Espaço de 1s de Fingerprinting</CardTitle>
               </div>
               <Badge variant="outline" className="w-fit bg-purple-50 text-purple-700 border-purple-200">
                 Uso de Recursos
