@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Database, FileText, Headphones, Mic, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -121,7 +120,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
       </div>
 
       {/* Bottom Information Panels */}
-      <div className="flex-shrink-0 px-[2vw] pb-[3vh]">
+      <div className="flex-shrink-0 px-[2vw] pb-[9vh]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[2vw]">
           {/* Realistic Testing Panel */}
           <div className={cn(

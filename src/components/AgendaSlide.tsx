@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { User, Shield, File, Settings, ChartBar, Target, Clock, Check, Database } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -103,7 +102,7 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       </div>
 
       {/* Cards Grid */}
-      <div className="flex-1 px-8 pb-8">
+      <div className="flex-1 px-8 pb-[9vh]">
         <div className="grid grid-cols-3 gap-6 h-full max-w-7xl mx-auto">
           {agendaItems.map((item, index) => {
             const Icon = item.icon;

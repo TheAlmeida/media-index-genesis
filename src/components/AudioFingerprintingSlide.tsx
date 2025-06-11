@@ -189,7 +189,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
       </div>
 
       {/* Images Section */}
-      <div className="flex-1 px-[2vw] pb-[2vh] flex items-center justify-center min-h-0">
+      <div className="flex-1 px-[2vw] pb-[9vh] flex items-center justify-center min-h-0">
         <div className="w-full max-w-[95vw] flex gap-[2vw] items-stretch justify-center">
           {/* Left Image */}
           <div className={cn(

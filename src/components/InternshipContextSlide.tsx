@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Building, MapPin, Code, ChartBar, Calendar } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -65,7 +64,7 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
       </div>
 
       {/* Two Column Layout */}
-      <div className="flex-1 px-[2vw] pb-[2vh] flex items-center justify-center min-h-0">
+      <div className="flex-1 px-[2vw] pb-[9vh] flex items-center justify-center min-h-0">
         <div className="w-full max-w-[95vw] grid grid-cols-2 gap-[3vw] h-[75vh]">
           
           {/* Left Column - Company Information */}

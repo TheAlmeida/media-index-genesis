@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Target, Clock, Database } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -116,7 +115,7 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
       </div>
 
       {/* Bottom Row - Three Detailed Analysis Cards */}
-      <div className="flex-1 px-[2vw] pb-[3vh] min-h-0">
+      <div className="flex-1 px-[2vw] pb-[9vh] min-h-0">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-[2vw] h-full">
           {/* Matching Evaluation Card */}
           <div className={cn(
