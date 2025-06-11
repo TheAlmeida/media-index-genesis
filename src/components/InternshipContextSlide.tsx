@@ -32,7 +32,7 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
     "Audio Fingerprinting",
     "Media Monitoring", 
     "Real Time Processing",
-    "Análise KPR"
+    "Análise GSR"
   ];
 
   const activities = [
