@@ -44,7 +44,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 p-8 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 p-8 pb-[9vh] flex flex-col">
       {/* Header Section */}
       <div className="flex justify-between items-start mb-6">
         <div className="flex-1 text-center">
