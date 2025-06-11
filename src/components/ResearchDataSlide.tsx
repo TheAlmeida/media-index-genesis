@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Database, FileText, Headphones } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -34,7 +33,6 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
   // Consistent color mapping for categories
   const categoryColors = {
     "Música": "#10b981",
-    "Música": "#10b981", // Same as Música for consistency
     "Filmes": "#3b82f6",
     "Desporto": "#f59e0b",
     "Esports": "#8b5cf6",
