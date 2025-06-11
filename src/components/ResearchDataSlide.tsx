@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Database, FileText, Headphones } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -30,6 +31,18 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
     }
   }, [isActive]);
 
+  // Consistent color mapping for categories
+  const categoryColors = {
+    "Música": "#10b981",
+    "Musica": "#10b981", // Same as Música for consistency
+    "Filmes": "#3b82f6",
+    "Desporto": "#f59e0b",
+    "Esports": "#8b5cf6",
+    "Talk-shows": "#ef4444",
+    "Anúncios": "#6366f1",
+    "Anuncios": "#6366f1", // Same as Anúncios for consistency
+  };
+
   const datasets = [
     {
       icon: FileText,
@@ -40,13 +53,13 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
         {
           title: "Referencias (99)",
           data: [
-            { name: "Musica", value: 100, fill: "#3b82f6" }
+            { name: "Musica", value: 100, fill: categoryColors["Musica"] }
           ]
         },
         {
           title: "Queries (21 com 100 chunks)",
           data: [
-            { name: "Musica", value: 100, fill: "#60a5fa" }
+            { name: "Musica", value: 100, fill: categoryColors["Musica"] }
           ]
         }
       ]
@@ -60,30 +73,30 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
         {
           title: "Referencias (163)",
           data: [
-            { name: "Música", value: 81.0, fill: "#10b981" },
-            { name: "Filmes", value: 7.98, fill: "#34d399" },
-            { name: "Desporto", value: 3.68, fill: "#6ee7b7" },
-            { name: "Esports", value: 3.68, fill: "#a7f3d0" },
-            { name: "Talk-shows", value: 3.68, fill: "#d1fae5" }
+            { name: "Música", value: 81.0, fill: categoryColors["Música"] },
+            { name: "Filmes", value: 7.98, fill: categoryColors["Filmes"] },
+            { name: "Desporto", value: 3.68, fill: categoryColors["Desporto"] },
+            { name: "Esports", value: 3.68, fill: categoryColors["Esports"] },
+            { name: "Talk-shows", value: 3.68, fill: categoryColors["Talk-shows"] }
           ]
         },
         {
           title: "Queries 10seg (75 com 75 chunks)",
           data: [
-            { name: "Música", value: 81.33, fill: "#059669" },
-            { name: "Desporto", value: 9.33, fill: "#10b981" },
-            { name: "Filmes", value: 6.67, fill: "#34d399" },
-            { name: "Esports", value: 2.67, fill: "#6ee7b7" }
+            { name: "Música", value: 81.33, fill: categoryColors["Música"] },
+            { name: "Desporto", value: 9.33, fill: categoryColors["Desporto"] },
+            { name: "Filmes", value: 6.67, fill: categoryColors["Filmes"] },
+            { name: "Esports", value: 2.67, fill: categoryColors["Esports"] }
           ]
         },
         {
           title: "Queries 5seg (128 com 75 chunks)",
           data: [
-            { name: "Música", value: 75.0, fill: "#047857" },
-            { name: "Filmes", value: 10.9, fill: "#059669" },
-            { name: "Desporto", value: 7.03, fill: "#10b981" },
-            { name: "Talk-shows", value: 3.90, fill: "#34d399" },
-            { name: "Esports", value: 3.13, fill: "#6ee7b7" }
+            { name: "Música", value: 75.0, fill: categoryColors["Música"] },
+            { name: "Filmes", value: 10.9, fill: categoryColors["Filmes"] },
+            { name: "Desporto", value: 7.03, fill: categoryColors["Desporto"] },
+            { name: "Talk-shows", value: 3.90, fill: categoryColors["Talk-shows"] },
+            { name: "Esports", value: 3.13, fill: categoryColors["Esports"] }
           ]
         }
       ]
@@ -97,23 +110,37 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
         {
           title: "Referencias (181)",
           data: [
-            { name: "Música", value: 72.5, fill: "#8b5cf6" },
-            { name: "Anúncios", value: 9.89, fill: "#a78bfa" },
-            { name: "Filmes", value: 7.14, fill: "#c4b5fd" },
-            { name: "Desporto", value: 3.30, fill: "#ddd6fe" },
-            { name: "Esports", value: 3.30, fill: "#ede9fe" },
-            { name: "Talk-shows", value: 3.30, fill: "#f3f4f6" }
+            { name: "Música", value: 72.5, fill: categoryColors["Música"] },
+            { name: "Anúncios", value: 9.89, fill: categoryColors["Anúncios"] },
+            { name: "Filmes", value: 7.14, fill: categoryColors["Filmes"] },
+            { name: "Desporto", value: 3.30, fill: categoryColors["Desporto"] },
+            { name: "Esports", value: 3.30, fill: categoryColors["Esports"] },
+            { name: "Talk-shows", value: 3.30, fill: categoryColors["Talk-shows"] }
           ]
         },
         {
           title: "Queries (1 com 18 chunks)",
           data: [
-            { name: "Anuncios", value: 100, fill: "#7c3aed" }
+            { name: "Anuncios", value: 100, fill: categoryColors["Anuncios"] }
           ]
         }
       ]
     }
   ];
+
+  const CustomLegend = ({ payload }: any) => (
+    <div className="flex flex-wrap justify-center gap-2 mt-2">
+      {payload?.map((entry: any, index: number) => (
+        <div key={index} className="flex items-center gap-1">
+          <div 
+            className="w-3 h-3 rounded-sm"
+            style={{ backgroundColor: entry.color }}
+          />
+          <span className="text-xs text-gray-600">{entry.value}</span>
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <div className={cn(
@@ -182,9 +209,9 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                                 data={chart.data}
                                 cx="50%"
                                 cy="50%"
-                                outerRadius={dataset.charts.length === 3 ? 45 : 55}
+                                outerRadius={dataset.charts.length === 3 ? 35 : 45}
                                 dataKey="value"
-                                label={({ name, value }) => `${value}%`}
+                                label={chart.data.length === 1 ? false : ({ value }) => `${value}%`}
                                 labelLine={false}
                               >
                                 {chart.data.map((entry, entryIndex) => (
@@ -200,6 +227,12 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                                   fontSize: '12px'
                                 }}
                               />
+                              {chart.data.length > 1 && (
+                                <Legend 
+                                  content={<CustomLegend />}
+                                  wrapperStyle={{ paddingTop: '10px' }}
+                                />
+                              )}
                             </PieChart>
                           </ResponsiveContainer>
                         </div>
