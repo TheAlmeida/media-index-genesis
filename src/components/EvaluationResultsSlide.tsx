@@ -96,6 +96,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </CardHeader>
             <CardContent className="pt-0">
               <div className="space-y-2">
+                <PerformanceBar name="ACRCloud" value={0} maxValue={2.55} unit="%" color={algorithmColors.ACRCloud} />
                 <PerformanceBar name="Soundfingerprinting" value={0.51} maxValue={2.55} unit="%" color={algorithmColors.Soundfingerprinting} />
                 <PerformanceBar name="MP ACR" value={2.55} maxValue={2.55} unit="%" color={algorithmColors.Mediaprobe} />
                 <PerformanceBar name="Olaf" value={0.09} maxValue={2.55} unit="%" color={algorithmColors.Olaf} />
@@ -125,6 +126,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </CardHeader>
             <CardContent className="pt-0">
               <div className="space-y-2">
+                <PerformanceBar name="ACRCloud" value={63} maxValue={100} color={algorithmColors.ACRCloud} />
                 <PerformanceBar name="MP ACR" value={67} maxValue={100} color={algorithmColors.Mediaprobe} />
                 <PerformanceBar name="Soundfingerprinting" value={56} maxValue={100} color={algorithmColors.Soundfingerprinting} />
                 <PerformanceBar name="Olaf" value={87} maxValue={100} color={algorithmColors.Olaf} />
