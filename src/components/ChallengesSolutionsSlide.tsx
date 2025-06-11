@@ -12,25 +12,25 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
   const challenges = [
     {
       icon: Wrench,
-      title: "Algorithm Installation",
+      title: "Implementação Dos Algoritmos Open Source",
       borderColor: "border-l-red-500",
       description: "Vários algoritmos de audio fingerprinting foram difíceis de instalar devido à documentação em falta e problemas de dependências. Isto exigiu resolução de problemas, adaptação de código e forte autonomia técnica."
     },
     {
       icon: Book,
-      title: "In-depth Understanding",
+      title: "Estudo Aprofundado De Cada Algoritmo",
       borderColor: "border-l-orange-500",
       description: "Além de executar os algoritmos, foi necessário compreender profundamente como processavam áudio e realizavam matching. Isto envolveu estudar literatura científica e código fonte."
     },
     {
       icon: Target,
-      title: "Formulating Recommendations",
+      title: "Formulação De Recomendações",
       borderColor: "border-l-yellow-500",
       description: "Propor melhorias ao sistema interno da Mediaprobe foi limitado pela falta de acesso ao seu código fonte, tornando difícil avaliar a viabilidade das sugestões."
     },
     {
       icon: File,
-      title: "Report Writing",
+      title: "Sintetização Para O Relatório",
       borderColor: "border-l-blue-500",
       description: "Resumir descobertas técnicas de forma clara e coerente foi exigente, requerendo precisão, estrutura e competências de comunicação."
     }
@@ -38,17 +38,17 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
 
   const learningOutcomes = [
     {
-      category: "Technical",
+      category: "Técnicas",
       color: "bg-blue-100 text-blue-800",
       areas: ["Autonomia", "Competências de resolução de problemas"]
     },
     {
-      category: "Research",
+      category: "Investigação",
       color: "bg-green-100 text-green-800",
       areas: ["Metodologia", "Análise aprofundada"]
     },
     {
-      category: "Communication",
+      category: "Comunicação",
       color: "bg-purple-100 text-purple-800",
       areas: ["Competências", "Escrita técnica"]
     }
@@ -61,10 +61,10 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
         <div className="flex justify-between items-start mb-6">
           <div className="flex-1">
             <h1 className="text-4xl font-bold text-center text-slate-800 mb-3">
-              Challenges & Solutions
+              Desafios
             </h1>
             <p className="text-lg text-center text-slate-600 max-w-4xl mx-auto">
-              Summary of difficulties encountered during the internship and solutions implemented
+              Resumo dos maiores desafios encontraos ao logo do estágio
             </p>
           </div>
         </div>
@@ -104,7 +104,7 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
             <div className="flex items-center space-x-4 mb-4">
               <User className="w-8 h-8 text-slate-700" />
               <CardTitle className="text-2xl font-semibold text-slate-800">
-                Key Learning Outcomes
+                Maiores Aprendizagens
               </CardTitle>
             </div>
           </CardHeader>
