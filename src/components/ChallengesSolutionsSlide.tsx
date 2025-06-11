@@ -71,25 +71,25 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
       </div>
 
       {/* Main Content - centered vertically in remaining space */}
-      <div className="flex-1 flex flex-col justify-center">
-        {/* Challenges Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+      <div className="flex-1 flex flex-col justify-center items-center">
+        {/* Challenges Grid - reduced width and centered */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 max-w-5xl w-full">
           {challenges.map((challenge, index) => {
             const IconComponent = challenge.icon;
             return (
               <Card key={index} className={`border-l-4 ${challenge.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300`}>
-                <CardHeader className="pb-3">
-                  <div className="flex items-center space-x-3 mb-2">
-                    <div className="p-2 rounded-lg bg-slate-100">
-                      <IconComponent className="w-5 h-5 text-slate-700" />
+                <CardHeader className="pb-4">
+                  <div className="flex items-center space-x-4 mb-3">
+                    <div className="p-3 rounded-lg bg-slate-100">
+                      <IconComponent className="w-7 h-7 text-slate-700" />
                     </div>
-                    <CardTitle className="text-lg font-semibold text-slate-800">
+                    <CardTitle className="text-xl font-semibold text-slate-800">
                       {challenge.title}
                     </CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <p className="text-sm text-slate-600 leading-relaxed">
+                  <p className="text-base text-slate-600 leading-relaxed">
                     {challenge.description}
                   </p>
                 </CardContent>
@@ -98,26 +98,26 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
           })}
         </div>
 
-        {/* Learning Outcomes Section */}
-        <Card className="shadow-lg">
+        {/* Learning Outcomes Section - reduced width and centered */}
+        <Card className="shadow-lg max-w-4xl w-full">
           <CardHeader>
-            <div className="flex items-center space-x-3 mb-4">
-              <User className="w-6 h-6 text-slate-700" />
-              <CardTitle className="text-xl font-semibold text-slate-800">
+            <div className="flex items-center space-x-4 mb-4">
+              <User className="w-8 h-8 text-slate-700" />
+              <CardTitle className="text-2xl font-semibold text-slate-800">
                 Key Learning Outcomes
               </CardTitle>
             </div>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {learningOutcomes.map((outcome, index) => (
                 <div key={index} className="text-center">
-                  <div className={`inline-flex px-3 py-1 rounded-full text-sm font-medium mb-3 ${outcome.color}`}>
+                  <div className={`inline-flex px-4 py-2 rounded-full text-base font-medium mb-4 ${outcome.color}`}>
                     {outcome.category}
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     {outcome.areas.map((area, areaIndex) => (
-                      <div key={areaIndex} className="text-sm text-slate-600 font-medium">
+                      <div key={areaIndex} className="text-base text-slate-600 font-medium">
                         {area}
                       </div>
                     ))}
