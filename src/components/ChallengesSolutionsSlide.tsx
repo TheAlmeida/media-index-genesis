@@ -54,14 +54,17 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
   ];
 
   return (
-    <div className={`h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 pb-[9vh] flex flex-col justify-center items-center ${isActive ? 'animate-fade-in' : ''}`}>
+    <div className={`h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 pb-[9vh] flex flex-col ${isActive ? 'animate-fade-in' : ''}`}>
       {/* Header Section */}
-      <div className="mb-8 flex-shrink-0 w-full max-w-6xl">
+      <div className="mb-8 flex-shrink-0">
         <div className="flex justify-between items-start mb-6">
           <div className="flex-1">
             <h1 className="text-4xl font-bold text-center text-slate-800 mb-3">
-              Summary of difficulties encountered during the internship and solutions implemented
+              Challenges & Solutions
             </h1>
+            <p className="text-lg text-center text-slate-600 max-w-4xl mx-auto">
+              Summary of difficulties encountered during the internship and solutions implemented
+            </p>
           </div>
           <Badge className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 text-sm font-medium">
             <AlertTriangle className="w-4 h-4 mr-2" />
@@ -71,64 +74,60 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
       </div>
 
       {/* Challenges Grid */}
-      <div className="mb-12 flex-shrink-0 w-full max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {challenges.map((challenge, index) => {
-            const IconComponent = challenge.icon;
-            return (
-              <Card key={index} className={`border-l-4 ${challenge.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300`}>
-                <CardHeader className="pb-3">
-                  <div className="flex items-center space-x-3 mb-2">
-                    <div className="p-2 rounded-lg bg-slate-100">
-                      <IconComponent className="w-5 h-5 text-slate-700" />
-                    </div>
-                    <CardTitle className="text-lg font-semibold text-slate-800">
-                      {challenge.title}
-                    </CardTitle>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12 flex-shrink-0">
+        {challenges.map((challenge, index) => {
+          const IconComponent = challenge.icon;
+          return (
+            <Card key={index} className={`border-l-4 ${challenge.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300`}>
+              <CardHeader className="pb-3">
+                <div className="flex items-center space-x-3 mb-2">
+                  <div className="p-2 rounded-lg bg-slate-100">
+                    <IconComponent className="w-5 h-5 text-slate-700" />
                   </div>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {challenge.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+                  <CardTitle className="text-lg font-semibold text-slate-800">
+                    {challenge.title}
+                  </CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {challenge.description}
+                </p>
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
 
       {/* Learning Outcomes Section */}
-      <div className="flex-shrink-0 w-full max-w-4xl">
-        <Card className="shadow-lg">
-          <CardHeader>
-            <div className="flex items-center justify-center space-x-3 mb-4">
-              <User className="w-6 h-6 text-slate-700" />
-              <CardTitle className="text-xl font-semibold text-slate-800">
-                Key Learning Outcomes
-              </CardTitle>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {learningOutcomes.map((outcome, index) => (
-                <div key={index} className="text-center">
-                  <div className={`inline-flex px-3 py-1 rounded-full text-sm font-medium mb-3 ${outcome.color}`}>
-                    {outcome.category}
-                  </div>
-                  <div className="space-y-2">
-                    {outcome.areas.map((area, areaIndex) => (
-                      <div key={areaIndex} className="text-sm text-slate-600 font-medium">
-                        {area}
-                      </div>
-                    ))}
-                  </div>
+      <Card className="shadow-lg flex-shrink-0">
+        <CardHeader>
+          <div className="flex items-center space-x-3 mb-4">
+            <User className="w-6 h-6 text-slate-700" />
+            <CardTitle className="text-xl font-semibold text-slate-800">
+              Key Learning Outcomes
+            </CardTitle>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {learningOutcomes.map((outcome, index) => (
+              <div key={index} className="text-center">
+                <div className={`inline-flex px-3 py-1 rounded-full text-sm font-medium mb-3 ${outcome.color}`}>
+                  {outcome.category}
                 </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+                <div className="space-y-2">
+                  {outcome.areas.map((area, areaIndex) => (
+                    <div key={areaIndex} className="text-sm text-slate-600 font-medium">
+                      {area}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
