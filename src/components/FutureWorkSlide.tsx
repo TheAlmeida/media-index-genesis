@@ -49,17 +49,17 @@ const FutureWorkSlide: React.FC<FutureWorkSlideProps> = ({ isActive }) => {
         </div>
       </div>
 
-      {/* Future Work Cards */}
-      <div className="max-w-5xl mx-auto space-y-6">
+      {/* Future Work Cards - centered with max width */}
+      <div className="max-w-5xl mx-auto space-y-8">
         {futureWorkItems.map((item, index) => {
           const IconComponent = item.icon;
           return (
             <Card key={index} className={`border-l-4 ${item.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300`}>
               <CardHeader className="pb-4">
                 <div className="flex items-start mb-4">
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-4">
                     <div className={`p-3 rounded-lg ${item.iconBg}`}>
-                      <IconComponent className="w-6 h-6 text-slate-700" />
+                      <IconComponent className="w-7 h-7 text-slate-700" />
                     </div>
                     <CardTitle className="text-xl font-semibold text-slate-800">
                       {item.title}
@@ -68,7 +68,7 @@ const FutureWorkSlide: React.FC<FutureWorkSlideProps> = ({ isActive }) => {
                 </div>
               </CardHeader>
               <CardContent className="pt-0">
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-base text-slate-600 leading-relaxed">
                   {item.description}
                 </p>
               </CardContent>
