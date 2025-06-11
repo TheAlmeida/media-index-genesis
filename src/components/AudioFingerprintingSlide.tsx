@@ -59,7 +59,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
       icon: AudioWaveform,
       title: "Extração de Características",
       function: "Análise espectral",
-      technical: "STFT, MFCC, deteção de picos",
+      technical: "FFT, STFT, MFCC",
       color: "bg-purple-500",
       borderColor: "border-purple-200",
       bgColor: "bg-purple-50"
@@ -78,7 +78,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
       id: 5,
       icon: Database,
       title: "Armazenamento",
-      function: "Inddexação na base de dados",
+      function: "Indexação na base de dados",
       technical: "Estruturas de recuperação eficientes",
       color: "bg-red-500",
       borderColor: "border-red-200",
