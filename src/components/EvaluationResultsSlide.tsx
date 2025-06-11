@@ -25,10 +25,10 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
     unit?: string;
     color: string;
   }) => (
-    <div className="flex items-center justify-between mb-3 last:mb-0">
-      <span className="text-sm font-medium text-gray-700 w-32">{name}:</span>
-      <div className="flex-1 mx-3">
-        <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+    <div className="flex items-center justify-between mb-6 last:mb-0 pb-[9vh]">
+      <span className="text-lg font-semibold text-gray-700 w-40">{name}:</span>
+      <div className="flex-1 mx-4">
+        <div className="h-6 bg-gray-200 rounded-full overflow-hidden">
           <div 
             className={`h-full ${color} transition-all duration-1000 ease-out`}
             style={{ 
@@ -37,7 +37,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
           />
         </div>
       </div>
-      <span className="text-sm font-bold text-gray-800 w-12 text-right">
+      <span className="text-lg font-bold text-gray-800 w-16 text-right">
         {value}{unit}
       </span>
     </div>
