@@ -40,9 +40,9 @@ const ConclusionsSlide: React.FC<ConclusionsSlideProps> = ({ isActive }) => {
   ];
 
   return (
-    <div className={`min-h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 ${isActive ? 'animate-fade-in' : ''}`}>
-      {/* Header Section */}
-      <div className="mb-8">
+    <div className={`min-h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 flex flex-col ${isActive ? 'animate-fade-in' : ''}`}>
+      {/* Header Section - stays at top */}
+      <div className="mb-8 flex-shrink-0">
         <div className="flex justify-between items-start mb-6">
           <div className="flex-1">
             <h1 className="text-4xl font-bold text-center text-slate-800 mb-3">
@@ -55,89 +55,92 @@ const ConclusionsSlide: React.FC<ConclusionsSlideProps> = ({ isActive }) => {
         </div>
       </div>
 
-      {/* Two Column Layout */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-        {/* Left Column - Key Findings */}
-        <Card className="shadow-lg">
+      {/* Main Content - centered vertically in remaining space */}
+      <div className="flex-1 flex flex-col justify-center items-center">
+        {/* Two Column Layout */}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 w-full">
+          {/* Left Column - Key Findings */}
+          <Card className="shadow-lg">
+            <CardHeader>
+              <div className="flex items-center space-x-3 mb-4">
+                <TrendingUp className="w-7 h-7 text-blue-600" />
+                <CardTitle className="text-2xl font-semibold text-slate-800">
+                  Key Findings
+                </CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {keyFindings.map((finding, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <Check className="w-6 h-6 text-green-600 mt-0.5 flex-shrink-0" />
+                    <p className="text-base text-slate-600 leading-relaxed">
+                      {finding}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Right Column - Main Recommendations */}
+          <Card className="shadow-lg">
+            <CardHeader>
+              <div className="flex items-center space-x-3 mb-4">
+                <Lightbulb className="w-7 h-7 text-purple-600" />
+                <CardTitle className="text-2xl font-semibold text-slate-800">
+                  Main Recommendations
+                </CardTitle>
+              </div>
+              <p className="text-base text-slate-500 italic">
+                Based on external comparison, without access to Mediaprobe's source code
+              </p>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                {recommendations.map((rec, index) => (
+                  <div key={index} className="border border-slate-200 rounded-lg p-4">
+                    <div className="flex items-start space-x-4 mb-4">
+                      <div className="w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-base">
+                        {rec.number}
+                      </div>
+                      <p className="text-base text-slate-700 leading-relaxed flex-1">
+                        {rec.title}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Bottom Section - Project Achievement Summary */}
+        <Card className="shadow-lg max-w-4xl mx-auto w-full">
           <CardHeader>
-            <div className="flex items-center space-x-3 mb-4">
-              <TrendingUp className="w-6 h-6 text-blue-600" />
-              <CardTitle className="text-xl font-semibold text-slate-800">
-                Key Findings
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <Clipboard className="w-7 h-7 text-slate-700" />
+              <CardTitle className="text-2xl font-semibold text-slate-800 text-center">
+                Project Achievement Summary
               </CardTitle>
             </div>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
-              {keyFindings.map((finding, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <Check className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {finding}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {achievements.map((achievement, index) => (
+                <div key={index} className="text-center">
+                  <div className={`text-5xl font-bold ${achievement.color} mb-2`}>
+                    {achievement.number}
+                  </div>
+                  <p className="text-base text-slate-600 font-medium">
+                    {achievement.label}
                   </p>
                 </div>
               ))}
             </div>
           </CardContent>
         </Card>
-
-        {/* Right Column - Main Recommendations */}
-        <Card className="shadow-lg">
-          <CardHeader>
-            <div className="flex items-center space-x-3 mb-4">
-              <Lightbulb className="w-6 h-6 text-purple-600" />
-              <CardTitle className="text-xl font-semibold text-slate-800">
-                Main Recommendations
-              </CardTitle>
-            </div>
-            <p className="text-sm text-slate-500 italic">
-              Based on external comparison, without access to Mediaprobe's source code
-            </p>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
-              {recommendations.map((rec, index) => (
-                <div key={index} className="border border-slate-200 rounded-lg p-4">
-                  <div className="flex items-start space-x-4 mb-4">
-                    <div className="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm">
-                      {rec.number}
-                    </div>
-                    <p className="text-sm text-slate-700 leading-relaxed flex-1">
-                      {rec.title}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
       </div>
-
-      {/* Bottom Section - Project Achievement Summary */}
-      <Card className="shadow-lg max-w-4xl mx-auto">
-        <CardHeader>
-          <div className="flex items-center justify-center space-x-3 mb-4">
-            <Clipboard className="w-6 h-6 text-slate-700" />
-            <CardTitle className="text-xl font-semibold text-slate-800 text-center">
-              Project Achievement Summary
-            </CardTitle>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {achievements.map((achievement, index) => (
-              <div key={index} className="text-center">
-                <div className={`text-4xl font-bold ${achievement.color} mb-2`}>
-                  {achievement.number}
-                </div>
-                <p className="text-sm text-slate-600 font-medium">
-                  {achievement.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 };
