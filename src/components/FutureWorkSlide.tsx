@@ -34,9 +34,9 @@ const FutureWorkSlide: React.FC<FutureWorkSlideProps> = ({ isActive }) => {
   ];
 
   return (
-    <div className={`min-h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 ${isActive ? 'animate-fade-in' : ''}`}>
-      {/* Header Section */}
-      <div className="mb-8">
+    <div className={`min-h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 pb-[9vh] flex flex-col ${isActive ? 'animate-fade-in' : ''}`}>
+      {/* Header Section - stays at top */}
+      <div className="mb-8 flex-shrink-0">
         <div className="flex justify-between items-start mb-6">
           <div className="flex-1">
             <h1 className="text-4xl font-bold text-center text-slate-800 mb-3">
@@ -49,32 +49,35 @@ const FutureWorkSlide: React.FC<FutureWorkSlideProps> = ({ isActive }) => {
         </div>
       </div>
 
-      {/* Future Work Cards - centered with max width */}
-      <div className="max-w-5xl mx-auto space-y-8">
-        {futureWorkItems.map((item, index) => {
-          const IconComponent = item.icon;
-          return (
-            <Card key={index} className={`border-l-4 ${item.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300`}>
-              <CardHeader className="pb-4">
-                <div className="flex items-start mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className={`p-3 rounded-lg ${item.iconBg}`}>
-                      <IconComponent className="w-7 h-7 text-slate-700" />
+      {/* Main Content - centered vertically in remaining space */}
+      <div className="flex-1 flex flex-col justify-center items-center">
+        {/* Future Work Cards - centered with max width */}
+        <div className="max-w-5xl mx-auto space-y-8 w-full">
+          {futureWorkItems.map((item, index) => {
+            const IconComponent = item.icon;
+            return (
+              <Card key={index} className={`border-l-4 ${item.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300`}>
+                <CardHeader className="pb-4">
+                  <div className="flex items-start mb-4">
+                    <div className="flex items-center space-x-4">
+                      <div className={`p-3 rounded-lg ${item.iconBg}`}>
+                        <IconComponent className="w-7 h-7 text-slate-700" />
+                      </div>
+                      <CardTitle className="text-xl font-semibold text-slate-800">
+                        {item.title}
+                      </CardTitle>
                     </div>
-                    <CardTitle className="text-xl font-semibold text-slate-800">
-                      {item.title}
-                    </CardTitle>
                   </div>
-                </div>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <p className="text-base text-slate-600 leading-relaxed">
-                  {item.description}
-                </p>
-              </CardContent>
-            </Card>
-          );
-        })}
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <p className="text-base text-slate-600 leading-relaxed">
+                    {item.description}
+                  </p>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
