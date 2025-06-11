@@ -54,17 +54,14 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
   ];
 
   return (
-    <div className={`h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 pb-[9vh] flex flex-col ${isActive ? 'animate-fade-in' : ''}`}>
+    <div className={`h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 pb-[9vh] flex flex-col justify-center items-center ${isActive ? 'animate-fade-in' : ''}`}>
       {/* Header Section */}
-      <div className="mb-8 flex-shrink-0">
+      <div className="mb-8 flex-shrink-0 w-full max-w-6xl">
         <div className="flex justify-between items-start mb-6">
           <div className="flex-1">
             <h1 className="text-4xl font-bold text-center text-slate-800 mb-3">
-              Challenges & Solutions
-            </h1>
-            <p className="text-lg text-center text-slate-600 max-w-4xl mx-auto">
               Summary of difficulties encountered during the internship and solutions implemented
-            </p>
+            </h1>
           </div>
           <Badge className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 text-sm font-medium">
             <AlertTriangle className="w-4 h-4 mr-2" />
@@ -73,9 +70,9 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
         </div>
       </div>
 
-      {/* Challenges Grid - Centered */}
-      <div className="flex justify-center mb-12 flex-shrink-0">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl w-full">
+      {/* Challenges Grid */}
+      <div className="mb-12 flex-shrink-0 w-full max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {challenges.map((challenge, index) => {
             const IconComponent = challenge.icon;
             return (
@@ -101,9 +98,9 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
         </div>
       </div>
 
-      {/* Learning Outcomes Section - Centered */}
-      <div className="flex justify-center flex-shrink-0">
-        <Card className="shadow-lg max-w-4xl w-full">
+      {/* Learning Outcomes Section */}
+      <div className="flex-shrink-0 w-full max-w-4xl">
+        <Card className="shadow-lg">
           <CardHeader>
             <div className="flex items-center justify-center space-x-3 mb-4">
               <User className="w-6 h-6 text-slate-700" />
