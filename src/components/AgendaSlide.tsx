@@ -36,17 +36,17 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
   const agendaItems = [
     {
       icon: User,
-      title: "Internship Context",
+      title: "Contexto",
       bgColor: "bg-blue-500",
     },
     {
       icon: Shield,
-      title: "Host Company & State of Art",
+      title: "Audio Fingerprinting Pipeline",
       bgColor: "bg-indigo-500",
     },
     {
       icon: File,
-      title: "Achieved Algorithms",
+      title: "Algorítmos Implementados",
       bgColor: "bg-purple-500",
     },
     {
@@ -56,27 +56,27 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
     },
     {
       icon: Settings,
-      title: "Evaluation Methodologies",
+      title: "Métricas de Avaliação",
       bgColor: "bg-green-500",
     },
     {
       icon: ChartBar,
-      title: "Experimental Results",
+      title: "Resultados Experimentais",
       bgColor: "bg-yellow-500",
     },
     {
       icon: Target,
-      title: "Challenges & Solutions",
+      title: "Desafios",
       bgColor: "bg-red-500",
     },
     {
       icon: Clock,
-      title: "Future Work",
+      title: "Trabalho Futuro",
       bgColor: "bg-orange-500",
     },
     {
       icon: Check,
-      title: "Conclusions",
+      title: "Conclusões",
       bgColor: "bg-pink-500",
     }
   ];
