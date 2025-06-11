@@ -148,10 +148,10 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </CardHeader>
             <CardContent className="pt-0">
               <div className="space-y-2">
-                <PerformanceBar name="MP ACR" value={85} maxValue={200} unit="MB" color={algorithmColors.Mediaprobe} />
-                <PerformanceBar name="Olaf" value={90} maxValue={200} unit="MB" color={algorithmColors.Olaf} />
-                <PerformanceBar name="Audfprint" value={120} maxValue={200} unit="MB" color={algorithmColors.Audfprint} />
-                <PerformanceBar name="Dejavu" value={200} maxValue={200} unit="MB" color={algorithmColors.Dejavu} />
+                <PerformanceBar name="MP ACR" value={0.40} maxValue={24.4} unit="KB" color={algorithmColors.Mediaprobe} />
+                <PerformanceBar name="Olaf" value={0.90} maxValue={24.4} unit="KB" color={algorithmColors.Olaf} />
+                <PerformanceBar name="Audfprint" value={0.55} maxValue={24.4} unit="KB" color={algorithmColors.Audfprint} />
+                <PerformanceBar name="Dejavu" value={24.4} maxValue={24.4} unit="KB" color={algorithmColors.Dejavu} />
               </div>
             </CardContent>
           </Card>
