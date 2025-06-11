@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
@@ -21,23 +22,14 @@ const ConclusionsSlide: React.FC<ConclusionsSlideProps> = ({ isActive }) => {
     {
       number: "1",
       title: "Implementar um mecanismo de votação temporal (como no Audfprint e Olaf) para melhorar o recall sob condições ruidosas",
-      impact: { label: "Alto", color: "bg-blue-500 text-white" },
-      effort: { label: "Médio", color: "bg-orange-500 text-white" },
-      time: { label: "5 meses", color: "bg-green-500 text-white" }
     },
     {
       number: "2",
       title: "Rever a estratégia de codificação de fingerprint, adotando estruturas landmark robustas para melhorar a resistência à variação de áudio",
-      impact: { label: "Alto", color: "bg-blue-500 text-white" },
-      effort: { label: "Alto", color: "bg-red-500 text-white" },
-      time: { label: "9 meses", color: "bg-green-500 text-white" }
     },
     {
       number: "3",
       title: "Explorar estruturas de indexação de acesso direto (ex: LMDB, como usado no Olaf) para reduzir a latência de matching em ambientes sensíveis ao tempo",
-      impact: { label: "Médio", color: "bg-blue-500 text-white" },
-      effort: { label: "Médio", color: "bg-orange-500 text-white" },
-      time: { label: "4 meses", color: "bg-green-500 text-white" }
     }
   ];
 
@@ -117,34 +109,6 @@ const ConclusionsSlide: React.FC<ConclusionsSlideProps> = ({ isActive }) => {
                     <p className="text-sm text-slate-700 leading-relaxed flex-1">
                       {rec.title}
                     </p>
-                  </div>
-                  
-                  {/* Impact Metrics */}
-                  <div className="grid grid-cols-3 gap-3 mt-4">
-                    <div className="text-center">
-                      <span className="text-xs font-medium text-slate-500 uppercase tracking-wide block mb-1">
-                        Impacto
-                      </span>
-                      <Badge className={`${rec.impact.color} text-xs px-2 py-1`}>
-                        {rec.impact.label}
-                      </Badge>
-                    </div>
-                    <div className="text-center">
-                      <span className="text-xs font-medium text-slate-500 uppercase tracking-wide block mb-1">
-                        Esforço
-                      </span>
-                      <Badge className={`${rec.effort.color} text-xs px-2 py-1`}>
-                        {rec.effort.label}
-                      </Badge>
-                    </div>
-                    <div className="text-center">
-                      <span className="text-xs font-medium text-slate-500 uppercase tracking-wide block mb-1">
-                        Tempo
-                      </span>
-                      <Badge className={`${rec.time.color} text-xs px-2 py-1`}>
-                        {rec.time.label}
-                      </Badge>
-                    </div>
                   </div>
                 </div>
               ))}
