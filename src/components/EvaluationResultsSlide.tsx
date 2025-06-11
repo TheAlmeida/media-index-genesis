@@ -25,10 +25,10 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
     unit?: string;
     color: string;
   }) => (
-    <div className="flex items-center justify-between mb-3 last:mb-0 pb-[9vh]">
-      <span className="text-xl font-semibold text-gray-700 w-44">{name}:</span>
-      <div className="flex-1 mx-6">
-        <div className="h-8 bg-gray-200 rounded-full overflow-hidden">
+    <div className="flex items-center justify-between mb-4 last:mb-0 pb-2">
+      <span className="text-lg font-semibold text-gray-700 w-40">{name}:</span>
+      <div className="flex-1 mx-4">
+        <div className="h-6 bg-gray-200 rounded-full overflow-hidden">
           <div 
             className={`h-full ${color} transition-all duration-1000 ease-out`}
             style={{ 
@@ -37,18 +37,18 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
           />
         </div>
       </div>
-      <span className="text-xl font-bold text-gray-800 w-20 text-right">
+      <span className="text-lg font-bold text-gray-800 w-16 text-right">
         {value}{unit}
       </span>
     </div>
   );
 
   return (
-    <div className="h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 p-8 flex flex-col">
       {/* Header Section */}
-      <div className="flex justify-between items-start mb-4">
+      <div className="flex justify-between items-start mb-6">
         <div className="flex-1 text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-3">
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">
             Experimental Results
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -62,11 +62,11 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
       </div>
 
       {/* Performance Metrics Grid */}
-      <div className="grid grid-cols-2 gap-3 flex-1 min-h-0">
+      <div className="grid grid-cols-2 gap-4 flex-1">
         {/* Heavily Modified Queries */}
         <Card className="border-l-4 border-l-blue-500 shadow-lg">
-          <CardHeader className="pb-2">
-            <div className="flex items-center gap-3 mb-1">
+          <CardHeader className="pb-3">
+            <div className="flex items-center gap-3 mb-2">
               <Target className="w-6 h-6 text-blue-600" />
               <CardTitle className="text-lg">Heavily Modified Queries</CardTitle>
             </div>
@@ -75,7 +75,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </Badge>
           </CardHeader>
           <CardContent className="pt-0">
-            <div className="space-y-1">
+            <div className="space-y-2">
               <PerformanceBar name="ACRCloud" value={98} maxValue={100} color={algorithmColors.ACRCloud} />
               <PerformanceBar name="Mediaprobe" value={95} maxValue={100} color={algorithmColors.Mediaprobe} />
               <PerformanceBar name="Soundfingerprinting" value={93} maxValue={100} color={algorithmColors.Soundfingerprinting} />
@@ -88,8 +88,8 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
 
         {/* Company Use Case Simulation */}
         <Card className="border-l-4 border-l-green-500 shadow-lg">
-          <CardHeader className="pb-2">
-            <div className="flex items-center gap-3 mb-1">
+          <CardHeader className="pb-3">
+            <div className="flex items-center gap-3 mb-2">
               <TrendingUp className="w-6 h-6 text-green-600" />
               <CardTitle className="text-lg">Company Use Case Simulation</CardTitle>
             </div>
@@ -98,7 +98,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </Badge>
           </CardHeader>
           <CardContent className="pt-0">
-            <div className="space-y-1">
+            <div className="space-y-2">
               <PerformanceBar name="ACRCloud" value={94} maxValue={100} color={algorithmColors.ACRCloud} />
               <PerformanceBar name="Mediaprobe" value={92} maxValue={100} color={algorithmColors.Mediaprobe} />
               <PerformanceBar name="Soundfingerprinting" value={89} maxValue={100} color={algorithmColors.Soundfingerprinting} />
@@ -111,8 +111,8 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
 
         {/* Processing Speed */}
         <Card className="border-l-4 border-l-orange-500 shadow-lg">
-          <CardHeader className="pb-2">
-            <div className="flex items-center gap-3 mb-1">
+          <CardHeader className="pb-3">
+            <div className="flex items-center gap-3 mb-2">
               <Clock className="w-6 h-6 text-orange-600" />
               <CardTitle className="text-lg">Processing Speed</CardTitle>
             </div>
@@ -121,7 +121,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </Badge>
           </CardHeader>
           <CardContent className="pt-0">
-            <div className="space-y-1">
+            <div className="space-y-2">
               <PerformanceBar name="ACRCloud" value={80} maxValue={350} unit="ms" color={algorithmColors.ACRCloud} />
               <PerformanceBar name="Soundfingerprinting" value={110} maxValue={350} unit="ms" color={algorithmColors.Soundfingerprinting} />
               <PerformanceBar name="Mediaprobe" value={120} maxValue={350} unit="ms" color={algorithmColors.Mediaprobe} />
@@ -134,8 +134,8 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
 
         {/* Memory Efficiency */}
         <Card className="border-l-4 border-l-purple-500 shadow-lg">
-          <CardHeader className="pb-2">
-            <div className="flex items-center gap-3 mb-1">
+          <CardHeader className="pb-3">
+            <div className="flex items-center gap-3 mb-2">
               <Database className="w-6 h-6 text-purple-600" />
               <CardTitle className="text-lg">Memory Efficiency</CardTitle>
             </div>
@@ -144,7 +144,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </Badge>
           </CardHeader>
           <CardContent className="pt-0">
-            <div className="space-y-1">
+            <div className="space-y-2">
               <PerformanceBar name="ACRCloud" value={60} maxValue={200} unit="MB" color={algorithmColors.ACRCloud} />
               <PerformanceBar name="Soundfingerprinting" value={75} maxValue={200} unit="MB" color={algorithmColors.Soundfingerprinting} />
               <PerformanceBar name="Mediaprobe" value={85} maxValue={200} unit="MB" color={algorithmColors.Mediaprobe} />
