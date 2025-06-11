@@ -156,7 +156,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                 <div 
                   key={index}
                   className={cn(
-                    "bg-white rounded-lg shadow-lg border-l-4 p-[1.5vw] transition-all duration-700 transform hover:scale-[1.01] hover:shadow-xl flex flex-col h-[75vh]",
+                    "bg-white rounded-lg shadow-lg border-l-4 p-[1.5vw] transition-all duration-700 transform hover:scale-[1.01] hover:shadow-xl flex flex-col h-[60vh]",
                     `border-[${dataset.color}]`,
                     animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   )}
