@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { Building, MapPin, Code, ChartBar, Calendar } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { SlideTitle } from './ui/SlideTitle';
 
 interface InternshipContextSlideProps {
   isActive?: boolean;
@@ -55,12 +55,7 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
-          <h1 className="text-[clamp(2.5rem,5vw,5rem)] font-bold text-gray-800 mb-[1vh]">
-            Contexto
-          </h1>
-          <p className="text-[clamp(1rem,1.8vw,1.8rem)] text-gray-600 font-light">
-            Visão geral da empresa de acolhimento e enquadramento do estágio
-          </p>
+          <SlideTitle title="Contexto" subtitle="Visão geral da empresa de acolhimento e enquadramento do estágio" />
         </div>
       </div>
 

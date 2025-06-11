@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { Target, Clock, Database, CheckCircle, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { SlideTitle } from './ui/SlideTitle';
 
 interface EvaluationMethodologySlideProps {
   isActive?: boolean;
@@ -81,12 +81,7 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
-          <h1 className="text-[clamp(3rem,5vw,5rem)] font-bold text-slate-800 mb-4 leading-tight">
-            Metodologia de Avaliação
-          </h1>
-          <p className="text-[clamp(1.2rem,2vw,2rem)] text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            Abordagem tridimensional para benchmarking abrangente de algoritmos e análise de desempenho
-          </p>
+          <SlideTitle title="Metodologia de Avaliação" subtitle="Abordagem tridimensional para benchmarking abrangente de algoritmos e análise de desempenho" />
         </div>
       </div>
 

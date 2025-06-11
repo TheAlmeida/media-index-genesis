@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { User, Shield, File, Settings, ChartBar, Target, Clock, Check, Database } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { SlideTitle } from './ui/SlideTitle';
 
 interface AgendaSlideProps {
   isActive?: boolean;
@@ -92,12 +93,7 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
-          <h1 className="text-5xl font-bold text-gray-800 mb-2">
-            Conteúdo da Apresentação
-          </h1>
-          <p className="text-xl text-gray-600 font-light">
-            Tópicos do projeto de estágio a serem abordados
-          </p>
+          <SlideTitle title="Conteúdo da Apresentação" subtitle="Tópicos do projeto de estágio a serem abordados" />
         </div>
       </div>
 

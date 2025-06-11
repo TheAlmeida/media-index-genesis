@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Rocket, Clock, Database, Zap } from 'lucide-react';
+import { SlideTitle } from './ui/SlideTitle';
 
 interface FutureWorkSlideProps {
   isActive: boolean;
@@ -39,12 +39,7 @@ const FutureWorkSlide: React.FC<FutureWorkSlideProps> = ({ isActive }) => {
       <div className="mb-8 flex-shrink-0">
         <div className="flex justify-between items-start mb-6">
           <div className="flex-1">
-            <h1 className="text-4xl font-bold text-center text-slate-800 mb-3">
-              Trabalho Futuro
-            </h1>
-            <p className="text-lg text-center text-slate-600 max-w-4xl mx-auto">
-              Direções estratégicas para investigação contínua e avanço tecnológico
-            </p>
+            <SlideTitle title="Trabalho Futuro" subtitle="Direções estratégicas para investigação contínua e avanço tecnológico" />
           </div>
         </div>
       </div>

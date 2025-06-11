@@ -3,6 +3,7 @@ import { Code2, FileText, Cloud, Database, Hash, Zap, Music, Cpu, Binary, Waves 
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { SlideTitle } from './ui/SlideTitle';
 
 interface AlgorithmAnalysisSlideProps {
   isActive?: boolean;
@@ -73,12 +74,7 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
-          <h1 className="text-[clamp(2rem,4vw,4rem)] font-bold text-black mb-[0.5vh]">
-            Algoritmos Implementados
-          </h1>
-          <p className="text-[clamp(0.9rem,1.5vw,1.5rem)] text-black font-light">
-            Exposição das diferentes características de cada sistema implementado
-          </p>
+          <SlideTitle title="Algoritmos Implementados" subtitle="Exposição das diferentes características de cada sistema implementado" />
         </div>
       </div>
 

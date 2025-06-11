@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { Database, FileText, Headphones } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { SlideTitle } from './ui/SlideTitle';
 
 interface ResearchDataSlideProps {
   isActive?: boolean;
@@ -126,12 +126,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
-          <h1 className="text-[clamp(3rem,5vw,5rem)] font-bold text-gray-800 mb-[0.3vh]">
-            Datasets de Investigação
-          </h1>
-          <p className="text-[clamp(1.2rem,1.8vw,1.8rem)] text-gray-600 font-light">
-            Datasets de áudio abrangentes para avaliação e teste de algoritmos
-          </p>
+          <SlideTitle title="Datasets de Investigação" subtitle="Datasets de áudio abrangentes para avaliação e teste de algoritmos" />
         </div>
       </div>
 

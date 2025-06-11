@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import PresentationSlide from '../components/PresentationSlide';
 import AgendaSlide from '../components/AgendaSlide';
@@ -14,6 +13,7 @@ import ConclusionsSlide from '../components/ConclusionsSlide';
 import ThankYouSlide from '../components/ThankYouSlide';
 import { Button } from '../components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Watermark } from '../components/ui/Watermark';
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -82,6 +82,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full relative overflow-hidden">
+      {/* Watermarks in top right, stacked vertically */}
+      <div className="watermark-stack">
+        <Watermark type="escola" imgSrc="/escola.png" />
+        <Watermark type="company" imgSrc="/company.png" />
+      </div>
       {/* Slides Container */}
       <div className="relative w-full h-screen">
         {slides.map((slide, index) => {

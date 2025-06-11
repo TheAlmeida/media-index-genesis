@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Award, TrendingUp, Lightbulb, Clipboard, Check } from 'lucide-react';
+import { SlideTitle } from './ui/SlideTitle';
 
 interface ConclusionsSlideProps {
   isActive: boolean;
@@ -45,12 +45,7 @@ const ConclusionsSlide: React.FC<ConclusionsSlideProps> = ({ isActive }) => {
       <div className="mb-8 flex-shrink-0">
         <div className="flex justify-between items-start mb-6">
           <div className="flex-1">
-            <h1 className="text-4xl font-bold text-center text-slate-800 mb-3">
-              Conclusões
-            </h1>
-            <p className="text-lg text-center text-slate-600 max-w-4xl mx-auto">
-              Principais descobertas e recomendações estratégicas baseadas na comparação externa
-            </p>
+            <SlideTitle title="Conclusões" subtitle="Principais descobertas e recomendações estratégicas baseadas na comparação externa" />
           </div>
         </div>
       </div>

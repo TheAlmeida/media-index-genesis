@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Info, Mic, Settings, AudioWaveform, Hash, Database, Search, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { SlideTitle } from './ui/SlideTitle';
 
 interface AudioFingerprintingSlideProps {
   isActive?: boolean;
@@ -106,12 +107,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
-          <h1 className="text-[clamp(2rem,4vw,4rem)] font-bold text-gray-800 mb-[0.5vh]">
-            Audio Fingerprinting Pipeline
-          </h1>
-          <p className="text-[clamp(0.9rem,1.5vw,1.5rem)] text-gray-600 font-light">
-            Fluxo normal de um sistema de audio fingerprinting
-          </p>
+          <SlideTitle title="Audio Fingerprinting Pipeline" subtitle="Fluxo normal de um sistema de audio fingerprinting" />
         </div>
       </div>
 
