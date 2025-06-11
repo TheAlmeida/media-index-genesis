@@ -96,7 +96,7 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
             Conteúdo da Apresentação
           </h1>
           <p className="text-xl text-gray-600 font-light">
-            Journey through the audio fingerprinting analysis
+            Tópicos do projeto de estágio a serem abordados
           </p>
         </div>
       </div>
