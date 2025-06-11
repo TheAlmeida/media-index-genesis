@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
@@ -55,7 +54,7 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
   ];
 
   return (
-    <div className={`h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 pb-[9vh] flex flex-col justify-center ${isActive ? 'animate-fade-in' : ''}`}>
+    <div className={`h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 pb-[9vh] flex flex-col ${isActive ? 'animate-fade-in' : ''}`}>
       {/* Header Section */}
       <div className="mb-8 flex-shrink-0">
         <div className="flex justify-between items-start mb-6">
