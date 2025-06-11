@@ -12,25 +12,25 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
   const challenges = [
     {
       icon: Wrench,
-      title: "Algorithm Installation",
+      title: "Instalação de Algoritmos",
       borderColor: "border-l-red-500",
       description: "Vários algoritmos de audio fingerprinting foram difíceis de instalar devido à documentação em falta e problemas de dependências. Isto exigiu resolução de problemas, adaptação de código e forte autonomia técnica."
     },
     {
       icon: Book,
-      title: "In-depth Understanding",
+      title: "Compreensão Aprofundada",
       borderColor: "border-l-orange-500",
       description: "Além de executar os algoritmos, foi necessário compreender profundamente como processavam áudio e realizavam matching. Isto envolveu estudar literatura científica e código fonte."
     },
     {
       icon: Target,
-      title: "Formulating Recommendations",
+      title: "Formulação de Recomendações",
       borderColor: "border-l-yellow-500",
       description: "Propor melhorias ao sistema interno da Mediaprobe foi limitado pela falta de acesso ao seu código fonte, tornando difícil avaliar a viabilidade das sugestões."
     },
     {
       icon: File,
-      title: "Report Writing",
+      title: "Redação do Relatório",
       borderColor: "border-l-blue-500",
       description: "Resumir descobertas técnicas de forma clara e coerente foi exigente, requerendo precisão, estrutura e competências de comunicação."
     }
@@ -38,33 +38,33 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
 
   const learningOutcomes = [
     {
-      category: "Technical",
+      category: "Técnicas",
       color: "bg-blue-100 text-blue-800",
       areas: ["Autonomia", "Competências de resolução de problemas"]
     },
     {
-      category: "Research",
+      category: "Investigação",
       color: "bg-green-100 text-green-800",
       areas: ["Metodologia", "Análise aprofundada"]
     },
     {
-      category: "Communication",
+      category: "Comunicação",
       color: "bg-purple-100 text-purple-800",
       areas: ["Competências", "Escrita técnica"]
     }
   ];
 
   return (
-    <div className={`h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 pb-[9vh] flex flex-col ${isActive ? 'animate-fade-in' : ''}`}>
+    <div className={`min-h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 pb-[9vh] flex flex-col ${isActive ? 'animate-fade-in' : ''}`}>
       {/* Header Section - stays at top */}
       <div className="mb-8 flex-shrink-0">
         <div className="flex justify-between items-start mb-6">
           <div className="flex-1">
-            <h1 className="text-4xl font-bold text-center text-slate-800 mb-3">
-              Challenges & Solutions
+            <h1 className="text-5xl font-bold text-center text-slate-800 mb-3">
+              Desafios e Soluções
             </h1>
-            <p className="text-lg text-center text-slate-600 max-w-4xl mx-auto">
-              Summary of difficulties encountered during the internship and solutions implemented
+            <p className="text-xl text-center text-slate-600 max-w-4xl mx-auto">
+              Resumo das dificuldades encontradas durante o estágio e soluções implementadas
             </p>
           </div>
         </div>
@@ -73,23 +73,23 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
       {/* Main Content - centered vertically in remaining space */}
       <div className="flex-1 flex flex-col justify-center items-center">
         {/* Challenges Grid - reduced width and centered */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 max-w-5xl w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16 max-w-6xl w-full">
           {challenges.map((challenge, index) => {
             const IconComponent = challenge.icon;
             return (
               <Card key={index} className={`border-l-4 ${challenge.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300`}>
                 <CardHeader className="pb-4">
                   <div className="flex items-center space-x-4 mb-3">
-                    <div className="p-3 rounded-lg bg-slate-100">
-                      <IconComponent className="w-7 h-7 text-slate-700" />
+                    <div className="p-4 rounded-lg bg-slate-100">
+                      <IconComponent className="w-8 h-8 text-slate-700" />
                     </div>
-                    <CardTitle className="text-xl font-semibold text-slate-800">
+                    <CardTitle className="text-2xl font-semibold text-slate-800">
                       {challenge.title}
                     </CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <p className="text-base text-slate-600 leading-relaxed">
+                  <p className="text-lg text-slate-600 leading-relaxed">
                     {challenge.description}
                   </p>
                 </CardContent>
@@ -99,25 +99,25 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
         </div>
 
         {/* Learning Outcomes Section - reduced width and centered */}
-        <Card className="shadow-lg max-w-4xl w-full">
+        <Card className="shadow-lg max-w-5xl w-full">
           <CardHeader>
             <div className="flex items-center space-x-4 mb-4">
-              <User className="w-8 h-8 text-slate-700" />
-              <CardTitle className="text-2xl font-semibold text-slate-800">
-                Key Learning Outcomes
+              <User className="w-10 h-10 text-slate-700" />
+              <CardTitle className="text-3xl font-semibold text-slate-800">
+                Principais Resultados de Aprendizagem
               </CardTitle>
             </div>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               {learningOutcomes.map((outcome, index) => (
                 <div key={index} className="text-center">
-                  <div className={`inline-flex px-4 py-2 rounded-full text-base font-medium mb-4 ${outcome.color}`}>
+                  <div className={`inline-flex px-6 py-3 rounded-full text-lg font-medium mb-6 ${outcome.color}`}>
                     {outcome.category}
                   </div>
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     {outcome.areas.map((area, areaIndex) => (
-                      <div key={areaIndex} className="text-base text-slate-600 font-medium">
+                      <div key={areaIndex} className="text-lg text-slate-600 font-medium">
                         {area}
                       </div>
                     ))}
