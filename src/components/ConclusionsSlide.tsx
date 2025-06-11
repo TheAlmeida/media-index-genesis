@@ -36,7 +36,7 @@ const ConclusionsSlide: React.FC<ConclusionsSlideProps> = ({ isActive }) => {
   const achievements = [
     { number: "6", label: "Algoritmos Analisados", color: "text-blue-600" },
     { number: "3", label: "Recomendações Principais", color: "text-green-600" },
-    { number: "182", label: "Ficheiros de Teste", color: "text-purple-600" }
+    { number: "181", label: "Ficheiros de Teste", color: "text-purple-600" }
   ];
 
   return (
