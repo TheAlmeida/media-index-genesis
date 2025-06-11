@@ -37,9 +37,9 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
       color: "bg-blue-600",
       description: "Comprehensive evaluation using the Audio Fingerprinting Benchmark Toolkit developed by Pexeso (2023)",
       metrics: [
-        "Reference files (complete original audio)",
-        "Query files (5-10 second excerpts with modifications)", 
-        "Precision, Recall, and F1-score calculations",
+        "Track level evaluation",
+        "Segment level evaluation", 
+        "Bounding Box evaluation",
         "Ground truth validation using source metadata"
       ]
     },
@@ -64,9 +64,8 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
       description: "Comprehensive analysis of storage requirements and memory optimization strategies",
       metrics: [
         "Indexed database size analysis",
-        "RAM requirements assessment",
-        "Fingerprint compression efficiency",
-        "Index structure optimization evaluation"
+        "Estimated fingerprint size per second of audio",
+        "Fingerprint compression efficiency"
       ]
     }
   ];
@@ -82,10 +81,10 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
-          <h1 className="text-[clamp(2.5rem,4.5vw,4.5rem)] font-bold text-slate-800 mb-3 leading-tight">
+          <h1 className="text-[clamp(3rem,5vw,5rem)] font-bold text-slate-800 mb-4 leading-tight">
             Evaluation Framework
           </h1>
-          <p className="text-[clamp(1rem,1.8vw,1.8rem)] text-slate-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-[clamp(1.2rem,2vw,2rem)] text-slate-600 max-w-4xl mx-auto leading-relaxed">
             Three-dimensional approach to comprehensive algorithm benchmarking and performance analysis
           </p>
         </div>
@@ -106,24 +105,24 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
                 )}
               >
                 {/* Card Header */}
-                <div className="p-6 border-b border-slate-100">
-                  <div className="flex items-start gap-4">
+                <div className="p-8 border-b border-slate-100">
+                  <div className="flex items-start gap-5">
                     <div className={cn(
-                      "w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0",
+                      "w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0",
                       step.color
                     )}>
-                      <Icon className="w-7 h-7 text-white" />
+                      <Icon className="w-8 h-8 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-slate-800 mb-1">
+                      <h3 className="text-2xl font-bold text-slate-800 mb-2">
                         {step.title}
                       </h3>
-                      <p className="text-sm text-slate-500 font-medium">
+                      <p className="text-base text-slate-500 font-medium">
                         {step.subtitle}
                       </p>
                     </div>
-                    <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs font-bold text-slate-600">
+                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm font-bold text-slate-600">
                         {index + 1}
                       </span>
                     </div>
@@ -131,21 +130,21 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
                 </div>
 
                 {/* Card Content */}
-                <div className="p-6 flex-1 flex flex-col">
-                  <p className="text-slate-600 leading-relaxed mb-6 text-sm">
+                <div className="p-8 flex-1 flex flex-col">
+                  <p className="text-slate-600 leading-relaxed mb-8 text-base">
                     {step.description}
                   </p>
 
                   {/* Methodology Points */}
-                  <div className="space-y-3 flex-1">
-                    <h4 className="text-sm font-semibold text-slate-700 mb-3 flex items-center gap-2">
-                      <ArrowRight className="w-4 h-4 text-slate-400" />
+                  <div className="space-y-4 flex-1">
+                    <h4 className="text-base font-semibold text-slate-700 mb-4 flex items-center gap-3">
+                      <ArrowRight className="w-5 h-5 text-slate-400" />
                       Key Evaluation Metrics
                     </h4>
                     {step.metrics.map((metric, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                        <p className="text-sm text-slate-600 leading-relaxed">
+                      <div key={idx} className="flex items-start gap-4">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-1 flex-shrink-0" />
+                        <p className="text-base text-slate-600 leading-relaxed">
                           {metric}
                         </p>
                       </div>
@@ -153,13 +152,13 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
                   </div>
 
                   {/* Bottom Indicator */}
-                  <div className="mt-6 pt-4 border-t border-slate-100">
+                  <div className="mt-8 pt-6 border-t border-slate-100">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-slate-400 font-medium">
+                      <span className="text-sm text-slate-400 font-medium">
                         Metric {index + 1} of 3
                       </span>
                       <div className={cn(
-                        "w-2 h-2 rounded-full",
+                        "w-3 h-3 rounded-full",
                         step.color.replace('bg-', 'bg-').replace('-600', '-300')
                       )} />
                     </div>
@@ -168,16 +167,6 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
               </div>
             );
           })}
-        </div>
-
-        {/* Bottom Summary */}
-        <div className={cn(
-          "mt-8 text-center transition-all duration-700 transform",
-          animationStep >= 5 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-        )}>
-          <p className="text-slate-500 text-sm max-w-2xl mx-auto">
-            This comprehensive evaluation framework ensures rigorous testing across quality, performance, and efficiency dimensions
-          </p>
         </div>
       </div>
     </div>
