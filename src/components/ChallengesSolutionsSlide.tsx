@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
@@ -13,32 +12,24 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
     {
       icon: Wrench,
       title: "Algorithm Installation",
-      impact: "High Impact",
-      impactColor: "destructive",
       borderColor: "border-l-red-500",
       description: "Vários algoritmos de audio fingerprinting foram difíceis de instalar devido à documentação em falta e problemas de dependências. Isto exigiu resolução de problemas, adaptação de código e forte autonomia técnica."
     },
     {
       icon: Book,
       title: "In-depth Understanding",
-      impact: "High Impact",
-      impactColor: "destructive",
       borderColor: "border-l-orange-500",
       description: "Além de executar os algoritmos, foi necessário compreender profundamente como processavam áudio e realizavam matching. Isto envolveu estudar literatura científica e código fonte."
     },
     {
       icon: Target,
       title: "Formulating Recommendations",
-      impact: "Medium Impact",
-      impactColor: "secondary",
       borderColor: "border-l-yellow-500",
       description: "Propor melhorias ao sistema interno da Mediaprobe foi limitado pela falta de acesso ao seu código fonte, tornando difícil avaliar a viabilidade das sugestões."
     },
     {
       icon: File,
       title: "Report Writing",
-      impact: "Medium Impact",
-      impactColor: "secondary",
       borderColor: "border-l-blue-500",
       description: "Resumir descobertas técnicas de forma clara e coerente foi exigente, requerendo precisão, estrutura e competências de comunicação."
     }
@@ -89,18 +80,13 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
           return (
             <Card key={index} className={`border-l-4 ${challenge.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300`}>
               <CardHeader className="pb-3">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 rounded-lg bg-slate-100">
-                      <IconComponent className="w-5 h-5 text-slate-700" />
-                    </div>
-                    <CardTitle className="text-lg font-semibold text-slate-800">
-                      {challenge.title}
-                    </CardTitle>
+                <div className="flex items-center space-x-3 mb-2">
+                  <div className="p-2 rounded-lg bg-slate-100">
+                    <IconComponent className="w-5 h-5 text-slate-700" />
                   </div>
-                  <Badge variant={challenge.impactColor as any} className="text-xs">
-                    {challenge.impact}
-                  </Badge>
+                  <CardTitle className="text-lg font-semibold text-slate-800">
+                    {challenge.title}
+                  </CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="pt-0">
