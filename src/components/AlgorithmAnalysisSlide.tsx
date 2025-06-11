@@ -99,10 +99,10 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
-          <h1 className="text-[clamp(2rem,4vw,4rem)] font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-[0.5vh]">
+          <h1 className="text-[clamp(2rem,4vw,4rem)] font-bold text-black mb-[0.5vh]">
             Analyzed Algorithms
           </h1>
-          <p className="text-[clamp(0.9rem,1.5vw,1.5rem)] text-slate-600 font-light">
+          <p className="text-[clamp(0.9rem,1.5vw,1.5rem)] text-black font-light">
             Comprehensive evaluation of commercial and open-source solutions
           </p>
         </div>
@@ -116,7 +116,7 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
         )}>
           {/* Commercial Solutions Section */}
           <div className="space-y-[0.5vh]">
-            <h2 className="text-[clamp(1.2rem,1.8vw,1.8rem)] font-bold bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent text-center mb-[0.5vh]">
+            <h2 className="text-[clamp(1.2rem,1.8vw,1.8rem)] font-bold text-black text-center mb-[0.5vh]">
               Commercial Solutions
             </h2>
             <div className="grid grid-cols-2 gap-[0.5vh]">
@@ -127,9 +127,9 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
                     <Music className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-white" />
                   </div>
                 </div>
-                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-slate-800 mb-[0.3vh]">MP ACR</h3>
+                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black mb-[0.3vh]">MP ACR</h3>
                 <Badge className="bg-red-100 text-red-700 border-red-300 mb-[0.5vh]">Commercial</Badge>
-                <p className="text-[clamp(0.6rem,0.8vw,0.8rem)] text-slate-600">
+                <p className="text-[clamp(0.6rem,0.8vw,0.8rem)] text-black">
                   Sem acesso ao código fonte
                 </p>
               </div>
@@ -141,9 +141,9 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
                     <Cloud className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-white" />
                   </div>
                 </div>
-                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-slate-800 mb-[0.3vh]">ACRCloud</h3>
+                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black mb-[0.3vh]">ACRCloud</h3>
                 <Badge className="bg-orange-100 text-orange-700 border-orange-300 mb-[0.5vh]">Commercial API</Badge>
-                <p className="text-[clamp(0.6rem,0.8vw,0.8rem)] text-slate-600">
+                <p className="text-[clamp(0.6rem,0.8vw,0.8rem)] text-black">
                   Sem acesso ao código fonte
                 </p>
               </div>
@@ -152,7 +152,7 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
 
           {/* Open Source Solutions Section */}
           <div className="space-y-[0.5vh]">
-            <h2 className="text-[clamp(1.2rem,1.8vw,1.8rem)] font-bold bg-gradient-to-r from-green-500 to-indigo-500 bg-clip-text text-transparent text-center mb-[0.5vh]">
+            <h2 className="text-[clamp(1.2rem,1.8vw,1.8rem)] font-bold text-black text-center mb-[0.5vh]">
               Open Source Solutions
             </h2>
             <div className="grid grid-cols-2 gap-[0.5vh]">
@@ -160,10 +160,10 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-[1vw] p-[1vw] text-center hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl">
                 <div className="mb-[0.5vh]">
                   <div className="w-[2.5vw] h-[2.5vw] min-w-[30px] min-h-[30px] mx-auto bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center shadow-lg">
-                    <Waves className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-white" />
+                    <FileText className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-white" />
                   </div>
                 </div>
-                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-slate-800 mb-[0.3vh]">Audfprint</h3>
+                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black mb-[0.3vh]">Audfprint</h3>
                 <Badge className="bg-blue-100 text-blue-700 border-blue-300 mb-[0.5vh]">Python</Badge>
               </div>
 
@@ -174,7 +174,7 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
                     <Database className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-white" />
                   </div>
                 </div>
-                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-slate-800 mb-[0.3vh]">Dejavu</h3>
+                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black mb-[0.3vh]">Dejavu</h3>
                 <Badge className="bg-green-100 text-green-700 border-green-300 mb-[0.5vh]">Python</Badge>
               </div>
 
@@ -185,7 +185,7 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
                     <Cpu className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-white" />
                   </div>
                 </div>
-                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-slate-800 mb-[0.3vh]">Olaf</h3>
+                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black mb-[0.3vh]">Olaf</h3>
                 <Badge className="bg-purple-100 text-purple-700 border-purple-300 mb-[0.5vh]">C</Badge>
               </div>
 
@@ -193,10 +193,10 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
               <div className="bg-gradient-to-br from-teal-50 to-cyan-50 border-2 border-teal-200 rounded-[1vw] p-[1vw] text-center hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl">
                 <div className="mb-[0.5vh]">
                   <div className="w-[2.5vw] h-[2.5vw] min-w-[30px] min-h-[30px] mx-auto bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg">
-                    <Binary className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-white" />
+                    <Hash className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-white" />
                   </div>
                 </div>
-                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-slate-800 mb-[0.3vh]">Soundfingerprinting</h3>
+                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black mb-[0.3vh]">Soundfingerprinting</h3>
                 <Badge className="bg-teal-100 text-teal-700 border-teal-300 mb-[0.5vh]">C#</Badge>
               </div>
             </div>
@@ -210,7 +210,7 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
           "bg-white/80 backdrop-blur-sm rounded-[1vw] shadow-xl border-2 border-slate-200 p-[1vw] h-full flex flex-col transition-all duration-700 transform",
           animationStep >= 3 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         )}>
-          <h2 className="text-[clamp(1.2rem,1.8vw,1.8rem)] font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-[1vh] text-center">
+          <h2 className="text-[clamp(1.2rem,1.8vw,1.8rem)] font-bold text-black mb-[1vh] text-center">
             Open Source Algorithms Comparison
           </h2>
           
@@ -218,21 +218,21 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
             <Table>
               <TableHeader>
                 <TableRow className="border-slate-200">
-                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-slate-700">Feature</TableHead>
-                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-blue-600">Audfprint</TableHead>
-                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-green-600">Dejavu</TableHead>
-                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-purple-600">Olaf</TableHead>
-                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-teal-600">Soundfingerprinting</TableHead>
+                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black">Feature</TableHead>
+                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black">Audfprint</TableHead>
+                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black">Dejavu</TableHead>
+                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black">Olaf</TableHead>
+                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black">Soundfingerprinting</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {algorithmData.map((row, index) => (
                   <TableRow key={row.feature} className="border-slate-100 hover:bg-slate-50/50">
-                    <TableCell className="font-medium text-[clamp(0.7rem,0.9vw,0.9rem)] text-slate-700">{row.feature}</TableCell>
-                    <TableCell className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-blue-700">{row.audfprint}</TableCell>
-                    <TableCell className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-green-700">{row.dejavu}</TableCell>
-                    <TableCell className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-purple-700">{row.olaf}</TableCell>
-                    <TableCell className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-teal-700">{row.soundfingerprinting}</TableCell>
+                    <TableCell className="font-medium text-[clamp(0.7rem,0.9vw,0.9rem)] text-black">{row.feature}</TableCell>
+                    <TableCell className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-black">{row.audfprint}</TableCell>
+                    <TableCell className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-black">{row.dejavu}</TableCell>
+                    <TableCell className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-black">{row.olaf}</TableCell>
+                    <TableCell className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-black">{row.soundfingerprinting}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
