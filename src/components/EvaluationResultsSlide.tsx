@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
@@ -70,7 +69,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
           justifyContent: 'space-evenly'
         }}>
           {/* Heavily Modified Queries */}
-          <Card className="border-l-4 border-l-blue-500 shadow-lg">
+          <Card className="border-l-4 border-l-blue-500 shadow-lg" style={{ marginBottom: '17px' }}>
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3 mb-2">
                 <Target className="w-6 h-6 text-blue-600" />
@@ -93,7 +92,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </Card>
 
           {/* Processing Speed */}
-          <Card className="border-l-4 border-l-orange-500 shadow-lg">
+          <Card className="border-l-4 border-l-orange-500 shadow-lg" style={{ marginBottom: '17px' }}>
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3 mb-2">
                 <Clock className="w-6 h-6 text-orange-600" />
@@ -123,7 +122,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
           justifyContent: 'space-evenly'
         }}>
           {/* Company Use Case Simulation */}
-          <Card className="border-l-4 border-l-green-500 shadow-lg">
+          <Card className="border-l-4 border-l-green-500 shadow-lg" style={{ marginBottom: '17px' }}>
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3 mb-2">
                 <TrendingUp className="w-6 h-6 text-green-600" />
@@ -146,7 +145,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </Card>
 
           {/* Memory Efficiency */}
-          <Card className="border-l-4 border-l-purple-500 shadow-lg">
+          <Card className="border-l-4 border-l-purple-500 shadow-lg" style={{ marginBottom: '17px' }}>
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3 mb-2">
                 <Database className="w-6 h-6 text-purple-600" />
