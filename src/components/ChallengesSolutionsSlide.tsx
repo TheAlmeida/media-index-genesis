@@ -32,7 +32,7 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
       icon: File,
       title: "Report Writing",
       borderColor: "border-l-blue-500",
-      description: "Resumir descobertas técnicas de forma clara e coerente foi exigente, requerindo precisão, estrutura e competências de comunicação."
+      description: "Resumir descobertas técnicas de forma clara e coerente foi exigente, requerendo precisão, estrutura e competências de comunicação."
     }
   ];
 
@@ -94,48 +94,48 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
   ];
 
   return (
-    <div className={`min-h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 ${isActive ? 'animate-fade-in' : ''}`}>
-      {/* Header Section */}
-      <div className="mb-8">
-        <div className="flex justify-between items-start mb-6">
+    <div className={`h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-4 pb-[9vh] flex flex-col overflow-hidden ${isActive ? 'animate-fade-in' : ''}`}>
+      {/* Header Section - Fixed height */}
+      <div className="flex-shrink-0 mb-4">
+        <div className="flex justify-between items-start mb-4">
           <div className="flex-1">
-            <h1 className="text-4xl font-bold text-center text-slate-800 mb-3">
+            <h1 className="text-3xl font-bold text-center text-slate-800 mb-2">
               Challenges & Solutions
             </h1>
-            <p className="text-lg text-center text-slate-600 max-w-4xl mx-auto">
+            <p className="text-base text-center text-slate-600 max-w-4xl mx-auto">
               Summary of difficulties encountered during the internship and solutions implemented
             </p>
           </div>
-          <Badge className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 text-sm font-medium">
+          <Badge className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 text-sm font-medium">
             <AlertTriangle className="w-4 h-4 mr-2" />
             Problem Solving
           </Badge>
         </div>
       </div>
 
-      {/* Main Content Container - 60% for challenges, 40% for future work */}
-      <div className="flex flex-col space-y-8" style={{ height: 'calc(100vh - 200px)' }}>
+      {/* Main Content Container - Flexible height */}
+      <div className="flex-1 flex flex-col space-y-4 min-h-0">
         
-        {/* Challenges Section - 60% height */}
-        <div className="flex-shrink-0" style={{ height: '60%' }}>
-          <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">Project Challenges</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full">
+        {/* Challenges Section - 35% of remaining height */}
+        <div className="flex-shrink-0" style={{ height: '35%' }}>
+          <h2 className="text-xl font-bold text-slate-800 mb-3 text-center">Project Challenges</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 h-full">
             {challenges.map((challenge, index) => {
               const IconComponent = challenge.icon;
               return (
                 <Card key={index} className={`border-l-4 ${challenge.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col`}>
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center space-x-3 mb-2">
-                      <div className="p-2 rounded-lg bg-slate-100">
-                        <IconComponent className="w-5 h-5 text-slate-700" />
+                  <CardHeader className="pb-2 p-4">
+                    <div className="flex items-center space-x-2 mb-1">
+                      <div className="p-1.5 rounded-lg bg-slate-100">
+                        <IconComponent className="w-4 h-4 text-slate-700" />
                       </div>
-                      <CardTitle className="text-lg font-semibold text-slate-800">
+                      <CardTitle className="text-base font-semibold text-slate-800">
                         {challenge.title}
                       </CardTitle>
                     </div>
                   </CardHeader>
-                  <CardContent className="pt-0 flex-1">
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                  <CardContent className="pt-0 p-4 flex-1">
+                    <p className="text-xs text-slate-600 leading-relaxed">
                       {challenge.description}
                     </p>
                   </CardContent>
@@ -145,39 +145,39 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
           </div>
         </div>
 
-        {/* Future Work Section - 40% height */}
-        <div className="flex-1 min-h-0">
-          <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">Future Work Recommendations</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
+        {/* Future Work Section - 35% of remaining height */}
+        <div className="flex-shrink-0" style={{ height: '35%' }}>
+          <h2 className="text-xl font-bold text-slate-800 mb-3 text-center">Future Work Recommendations</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 h-full">
             {futureWork.map((work, index) => {
               const IconComponent = work.icon;
               return (
                 <Card key={index} className={`border-l-4 ${work.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col`}>
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <div className="p-2 rounded-lg bg-slate-100">
-                        <IconComponent className="w-5 h-5 text-slate-700" />
+                  <CardHeader className="pb-2 p-3">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <div className="p-1.5 rounded-lg bg-slate-100">
+                        <IconComponent className="w-4 h-4 text-slate-700" />
                       </div>
-                      <CardTitle className="text-lg font-semibold text-slate-800">
+                      <CardTitle className="text-sm font-semibold text-slate-800">
                         {work.title}
                       </CardTitle>
                     </div>
-                    <div className="flex flex-wrap gap-2 mb-2">
-                      <Badge variant="secondary" className="text-xs">
+                    <div className="flex flex-wrap gap-1 mb-1">
+                      <Badge variant="secondary" className="text-xs px-2 py-0.5">
                         {work.priority}
                       </Badge>
-                      <Badge variant="outline" className="text-xs">
+                      <Badge variant="outline" className="text-xs px-2 py-0.5">
                         {work.impact}
                       </Badge>
                     </div>
                   </CardHeader>
-                  <CardContent className="pt-0 flex-1 flex flex-col">
-                    <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-1">
+                  <CardContent className="pt-0 p-3 flex-1 flex flex-col">
+                    <p className="text-xs text-slate-600 leading-relaxed mb-2 flex-1">
                       {work.description}
                     </p>
-                    <div className="grid grid-cols-2 gap-3 mt-auto">
+                    <div className="grid grid-cols-2 gap-2 mt-auto">
                       <div className="text-center">
-                        <span className="text-xs font-medium text-slate-500 uppercase tracking-wide block mb-1">
+                        <span className="text-xs font-medium text-slate-500 uppercase tracking-wide block mb-0.5">
                           Cronograma
                         </span>
                         <span className="text-xs text-slate-700 font-medium">
@@ -185,7 +185,7 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
                         </span>
                       </div>
                       <div className="text-center">
-                        <span className="text-xs font-medium text-slate-500 uppercase tracking-wide block mb-1">
+                        <span className="text-xs font-medium text-slate-500 uppercase tracking-wide block mb-0.5">
                           Viabilidade
                         </span>
                         <span className="text-xs text-slate-700 font-medium">
@@ -199,40 +199,40 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
             })}
           </div>
         </div>
-      </div>
 
-      {/* Key Learning Section - Reworked */}
-      <div className="mt-8">
-        <Card className="shadow-lg">
-          <CardHeader>
-            <div className="flex items-center justify-center space-x-3 mb-4">
-              <TrendingUp className="w-6 h-6 text-slate-700" />
-              <CardTitle className="text-xl font-semibold text-slate-800 text-center">
-                Key Learning Outcomes
-              </CardTitle>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {keyLearnings.map((learning, index) => {
-                const IconComponent = learning.icon;
-                return (
-                  <div key={index} className={`p-6 rounded-lg border-2 ${learning.color} text-center hover:shadow-md transition-shadow duration-300`}>
-                    <div className={`w-12 h-12 ${learning.iconColor} mx-auto mb-4 flex items-center justify-center rounded-full bg-white shadow-sm`}>
-                      <IconComponent className="w-6 h-6" />
+        {/* Key Learning Section - 30% of remaining height */}
+        <div className="flex-1 min-h-0">
+          <Card className="shadow-lg h-full flex flex-col">
+            <CardHeader className="pb-2 p-4">
+              <div className="flex items-center justify-center space-x-2 mb-2">
+                <TrendingUp className="w-5 h-5 text-slate-700" />
+                <CardTitle className="text-lg font-semibold text-slate-800 text-center">
+                  Key Learning Outcomes
+                </CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent className="p-4 pt-0 flex-1">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-full">
+                {keyLearnings.map((learning, index) => {
+                  const IconComponent = learning.icon;
+                  return (
+                    <div key={index} className={`p-4 rounded-lg border-2 ${learning.color} text-center hover:shadow-md transition-shadow duration-300 flex flex-col`}>
+                      <div className={`w-10 h-10 ${learning.iconColor} mx-auto mb-2 flex items-center justify-center rounded-full bg-white shadow-sm`}>
+                        <IconComponent className="w-5 h-5" />
+                      </div>
+                      <h3 className="text-sm font-semibold text-slate-800 mb-2">
+                        {learning.title}
+                      </h3>
+                      <p className="text-xs text-slate-600 leading-relaxed flex-1">
+                        {learning.description}
+                      </p>
                     </div>
-                    <h3 className="text-lg font-semibold text-slate-800 mb-3">
-                      {learning.title}
-                    </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      {learning.description}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </CardContent>
-        </Card>
+                  );
+                })}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
