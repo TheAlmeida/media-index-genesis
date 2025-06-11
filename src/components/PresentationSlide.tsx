@@ -113,7 +113,7 @@ const PresentationSlide: React.FC<SlideProps> = ({ isActive = true, className })
             <div className="bg-gradient-to-br from-slate-800/80 to-blue-900/60 backdrop-blur-sm border border-blue-400/20 rounded-2xl p-4 sm:p-6 lg:p-8 text-center hover:scale-105 transition-all duration-300 shadow-xl">
               <div className="mb-4 sm:mb-6">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full flex items-center justify-center shadow-lg">
-                  <AudioWaveform className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  <User className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
               </div>
               <div className="space-y-2 sm:space-y-3">
