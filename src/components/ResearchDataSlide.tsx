@@ -129,18 +129,27 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
   ];
 
   const CustomLegend = ({ payload }: any) => (
-    <div className="flex flex-wrap justify-center gap-2 mt-2">
+    <div className="flex flex-col gap-2 ml-4">
       {payload?.map((entry: any, index: number) => (
-        <div key={index} className="flex items-center gap-1">
+        <div key={index} className="flex items-center gap-2">
           <div 
             className="w-3 h-3 rounded-sm"
             style={{ backgroundColor: entry.color }}
           />
-          <span className="text-xs text-gray-600">{entry.value}</span>
+          <span className="text-sm text-gray-600">{entry.value}</span>
         </div>
       ))}
     </div>
   );
+
+  // Get unique categories for each dataset to avoid duplicate legends
+  const getUniqueCategories = (charts: any[]) => {
+    const allCategories = new Set();
+    charts.forEach(chart => {
+      chart.data.forEach((item: any) => allCategories.add(item.name));
+    });
+    return Array.from(allCategories);
+  };
 
   return (
     <div className={cn(
@@ -163,6 +172,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
           <div className="grid grid-cols-3 gap-[2vw] max-w-[90vw] w-full">
             {datasets.map((dataset, index) => {
               const Icon = dataset.icon;
+              const uniqueCategories = getUniqueCategories(dataset.charts);
               
               return (
                 <div 
@@ -192,49 +202,46 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                     </div>
                   </div>
 
-                  {/* Charts Grid - Takes remaining height */}
-                  <div className={cn(
-                    "flex-1 grid gap-4",
-                    dataset.charts.length === 2 ? "grid-cols-2" : "grid-cols-1 grid-rows-3"
-                  )}>
+                  {/* Charts arranged vertically */}
+                  <div className="flex-1 flex flex-col gap-4">
                     {dataset.charts.map((chart, chartIndex) => (
-                      <div key={chartIndex} className="flex flex-col">
+                      <div key={chartIndex} className="flex flex-col flex-1">
                         <h4 className="text-[clamp(0.9rem,1.2vw,1.2rem)] font-semibold text-gray-700 mb-2 text-center">
                           {chart.title}
                         </h4>
-                        <div className="flex-1 min-h-[120px]">
-                          <ResponsiveContainer width="100%" height="100%">
-                            <PieChart>
-                              <Pie
-                                data={chart.data}
-                                cx="50%"
-                                cy="50%"
-                                outerRadius={dataset.charts.length === 3 ? 35 : 45}
-                                dataKey="value"
-                                label={chart.data.length === 1 ? false : ({ value }) => `${value}%`}
-                                labelLine={false}
-                              >
-                                {chart.data.map((entry, entryIndex) => (
-                                  <Cell key={`cell-${entryIndex}`} fill={entry.fill} />
-                                ))}
-                              </Pie>
-                              <Tooltip 
-                                formatter={(value) => [`${value}%`, '']}
-                                contentStyle={{ 
-                                  backgroundColor: 'white', 
-                                  border: `2px solid ${dataset.color}`,
-                                  borderRadius: '8px',
-                                  fontSize: '12px'
-                                }}
-                              />
-                              {chart.data.length > 1 && (
-                                <Legend 
-                                  content={<CustomLegend />}
-                                  wrapperStyle={{ paddingTop: '10px' }}
+                        <div className="flex-1 flex items-center min-h-[120px]">
+                          <div className="flex-1">
+                            <ResponsiveContainer width="100%" height={120}>
+                              <PieChart>
+                                <Pie
+                                  data={chart.data}
+                                  cx="50%"
+                                  cy="50%"
+                                  outerRadius={40}
+                                  dataKey="value"
+                                  label={chart.data.length === 1 ? false : ({ value }) => `${value}%`}
+                                  labelLine={false}
+                                >
+                                  {chart.data.map((entry, entryIndex) => (
+                                    <Cell key={`cell-${entryIndex}`} fill={entry.fill} />
+                                  ))}
+                                </Pie>
+                                <Tooltip 
+                                  formatter={(value) => [`${value}%`, '']}
+                                  contentStyle={{ 
+                                    backgroundColor: 'white', 
+                                    border: `2px solid ${dataset.color}`,
+                                    borderRadius: '8px',
+                                    fontSize: '12px'
+                                  }}
                                 />
-                              )}
-                            </PieChart>
-                          </ResponsiveContainer>
+                              </PieChart>
+                            </ResponsiveContainer>
+                          </div>
+                          {/* Legend to the right of the chart */}
+                          {chart.data.length > 1 && (
+                            <CustomLegend payload={chart.data.map(item => ({ value: item.name, color: item.fill }))} />
+                          )}
                         </div>
                       </div>
                     ))}
