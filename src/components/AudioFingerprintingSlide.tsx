@@ -145,7 +145,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
                       )}>
                         {/* Step Number Badge */}
                         <div className={cn(
-                          "absolute top-[0.2vw] right-[0.2vw] w-[1.4vw] h-[1.4vw] min-w-[16px] min-h-[16px] rounded-full text-white text-[clamp(0.5rem,0.8vw,0.8rem)] font-bold flex items-center justify-center",
+                          "absolute top-[0.2vw] right-[0.2vw] w-[1.4vw] h-[1.4vw] min-w-[16px] min-h-[16px] rounded-full text-white text-[clamp(0.6rem,0.9vw,0.9rem)] font-bold flex items-center justify-center",
                           step.color
                         )}>
                           {step.id}
@@ -163,13 +163,13 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
 
                         {/* Content */}
                         <div className="flex-1 flex flex-col justify-center">
-                          <h3 className="text-[clamp(0.7rem,1vw,1rem)] font-bold text-gray-800 mb-[0.1vh]">
+                          <h3 className="text-[clamp(0.8rem,1.2vw,1.2rem)] font-bold text-gray-800 mb-[0.1vh]">
                             {step.title}
                           </h3>
-                          <p className="text-[clamp(0.55rem,0.8vw,0.8rem)] font-medium text-gray-700 mb-[0.2vh]">
+                          <p className="text-[clamp(0.65rem,0.95vw,0.95rem)] font-medium text-gray-700 mb-[0.2vh]">
                             {step.function}
                           </p>
-                          <p className="text-[clamp(0.5rem,0.7vw,0.7rem)] text-gray-600 font-light">
+                          <p className="text-[clamp(0.6rem,0.85vw,0.85rem)] text-gray-600 font-light">
                             {step.technical}
                           </p>
                         </div>
@@ -201,12 +201,12 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
             "flex-1 transition-all duration-700 transform",
             animationStep >= 8 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           )}>
-            <div className="bg-white rounded-[1vw] shadow-lg border border-gray-200 p-[1vw] h-full flex flex-col">
+            <div className="flex flex-col h-full">
               <div className="flex-1 flex items-center justify-center">
                 <img 
                   src="https://github.com/worldveil/dejavu/blob/master/plots/spectrogram_peaks.png?raw=true"
                   alt="Spectrogram with peaks highlighted"
-                  className="max-w-full h-[25vh] object-contain rounded-[0.5vw]"
+                  className="max-w-full h-[30vh] object-contain rounded-[0.5vw]"
                 />
               </div>
               <div className="mt-[1vh] text-center">
@@ -225,12 +225,12 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
             "flex-1 transition-all duration-700 transform",
             animationStep >= 9 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           )}>
-            <div className="bg-white rounded-[1vw] shadow-lg border border-gray-200 p-[1vw] h-full flex flex-col">
+            <div className="flex flex-col h-full">
               <div className="flex-1 flex items-center justify-center">
                 <img 
                   src="https://github.com/worldveil/dejavu/blob/master/plots/spectrogram_zoomed.png?raw=true"
                   alt="Zoomed spectrogram view"
-                  className="max-w-full h-[25vh] object-contain rounded-[0.5vw]"
+                  className="max-w-full h-[30vh] object-contain rounded-[0.5vw]"
                 />
               </div>
               <div className="mt-[1vh] text-center">
