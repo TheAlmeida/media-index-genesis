@@ -78,12 +78,12 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </CardHeader>
             <CardContent className="pt-0">
               <div className="space-y-2">
-                <PerformanceBar name="ACRCloud" value={98} maxValue={100} color={algorithmColors.ACRCloud} />
-                <PerformanceBar name="Mediaprobe" value={95} maxValue={100} color={algorithmColors.Mediaprobe} />
-                <PerformanceBar name="Soundfingerprinting" value={93} maxValue={100} color={algorithmColors.Soundfingerprinting} />
-                <PerformanceBar name="Olaf" value={90} maxValue={100} color={algorithmColors.Olaf} />
-                <PerformanceBar name="Audfprint" value={88} maxValue={100} color={algorithmColors.Audfprint} />
-                <PerformanceBar name="Dejavu" value={82} maxValue={100} color={algorithmColors.Dejavu} />
+                <PerformanceBar name="ACRCloud" value={74} maxValue={100} color={algorithmColors.ACRCloud} />
+                <PerformanceBar name="Mediaprobe" value={48} maxValue={100} color={algorithmColors.Mediaprobe} />
+                <PerformanceBar name="Soundfingerprinting" value={77} maxValue={100} color={algorithmColors.Soundfingerprinting} />
+                <PerformanceBar name="Olaf" value={46} maxValue={100} color={algorithmColors.Olaf} />
+                <PerformanceBar name="Audfprint" value={27} maxValue={100} color={algorithmColors.Audfprint} />
+                <PerformanceBar name="Dejavu" value={62} maxValue={100} color={algorithmColors.Dejavu} />
               </div>
             </CardContent>
           </Card>
