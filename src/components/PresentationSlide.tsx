@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { AudioWaveform, Mic, MicOff } from 'lucide-react';
+import { AudioWaveform, Mic, MicOff, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface SlideProps {
