@@ -190,7 +190,7 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
       </div>
 
       {/* Comparison Table */}
-      <div className="flex-shrink-0 px-[2vw] pb-[2vh] h-[80px]">
+      <div className="flex-1 px-[2vw] pb-[2vh] min-h-0" style={{ height: 'calc(100% - 80px)' }}>
         <div className={cn(
           "bg-white/80 backdrop-blur-sm rounded-[1vw] shadow-xl border-2 border-slate-200 p-[1vw] h-full flex flex-col transition-all duration-700 transform",
           animationStep >= 3 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
