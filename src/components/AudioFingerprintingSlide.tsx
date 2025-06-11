@@ -46,8 +46,8 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
     {
       id: 2,
       icon: Settings,
-      title: "Pre-processing",
-      function: "Condicionamento do sinal",
+      title: "Pré-Processamento",
+      function: "Acondicionamento do sinal",
       technical: "Redução de ruído, normalização",
       color: "bg-green-500",
       borderColor: "border-green-200",
@@ -56,7 +56,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
     {
       id: 3,
       icon: AudioWaveform,
-      title: "Feature Extraction",
+      title: "Extração de Características",
       function: "Análise espectral",
       technical: "STFT, MFCC, deteção de picos",
       color: "bg-purple-500",
@@ -76,8 +76,8 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
     {
       id: 5,
       icon: Database,
-      title: "Indexing",
-      function: "Armazenamento na base de dados",
+      title: "Armazenamento",
+      function: "Inddexação na base de dados",
       technical: "Estruturas de recuperação eficientes",
       color: "bg-red-500",
       borderColor: "border-red-200",
@@ -110,7 +110,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
             Audio Fingerprinting Pipeline
           </h1>
           <p className="text-[clamp(0.9rem,1.5vw,1.5rem)] text-gray-600 font-light">
-            Understanding the core algorithms and state-of-the-art techniques
+            Fluxo normal de um sistema de audio fingerprinting
           </p>
         </div>
       </div>
