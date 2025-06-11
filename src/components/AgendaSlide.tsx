@@ -116,10 +116,10 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
                   animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                 )}
               >
-                <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200 h-full flex flex-col items-center justify-center text-center hover:shadow-xl transition-shadow duration-300">
+                <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-200 h-full flex flex-col items-center justify-center text-center hover:shadow-xl transition-shadow duration-300">
                   {/* Step Number */}
                   <div className={cn(
-                    "w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4",
+                    "w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-xl mb-6",
                     item.bgColor
                   )}>
                     {index + 1}
@@ -127,14 +127,14 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
                   
                   {/* Icon */}
                   <div className={cn(
-                    "w-16 h-16 rounded-full flex items-center justify-center mb-4",
+                    "w-20 h-20 rounded-full flex items-center justify-center mb-6",
                     item.bgColor
                   )}>
-                    <Icon className="w-8 h-8 text-white" />
+                    <Icon className="w-10 h-10 text-white" />
                   </div>
                   
                   {/* Title */}
-                  <h3 className="text-lg font-semibold text-gray-800 leading-tight">
+                  <h3 className="text-xl font-semibold text-gray-800 leading-tight">
                     {item.title}
                   </h3>
                 </div>
