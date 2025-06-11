@@ -129,7 +129,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 <PerformanceBar name="ACRCloud" value={63} maxValue={100} color={algorithmColors.ACRCloud} />
                 <PerformanceBar name="MP ACR" value={67} maxValue={100} color={algorithmColors.Mediaprobe} />
                 <PerformanceBar name="Soundfingerprinting" value={56} maxValue={100} color={algorithmColors.Soundfingerprinting} />
-                <PerformanceBar name="Olaf" value={87} maxValue={10870} color={algorithmColors.Olaf} />
+                <PerformanceBar name="Olaf" value={87} maxValue={100} color={algorithmColors.Olaf} />
                 <PerformanceBar name="Audfprint" value={100} maxValue={100} color={algorithmColors.Audfprint} />
                 <PerformanceBar name="Dejavu" value={14} maxValue={100} color={algorithmColors.Dejavu} />
               </div>
