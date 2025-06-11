@@ -206,10 +206,10 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
               </div>
               <div className="mt-[1vh] text-center">
                 <h3 className="text-[clamp(0.9rem,1.3vw,1.3rem)] font-bold text-gray-800">
-                  Peak Detection
+                  Deteção de Picos
                 </h3>
                 <p className="text-[clamp(0.7rem,1vw,1rem)] text-gray-600">
-                  Identifying prominent frequencies
+                  Identificação de frequências dominantes
                 </p>
               </div>
             </div>
@@ -230,10 +230,10 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
               </div>
               <div className="mt-[1vh] text-center">
                 <h3 className="text-[clamp(0.9rem,1.3vw,1.3rem)] font-bold text-gray-800">
-                  Detailed Analysis
+                  Emparelhamento de picos
                 </h3>
                 <p className="text-[clamp(0.7rem,1vw,1rem)] text-gray-600">
-                  Zoomed frequency patterns
+                  Determinação dos melhores pares para a âncora
                 </p>
               </div>
             </div>
