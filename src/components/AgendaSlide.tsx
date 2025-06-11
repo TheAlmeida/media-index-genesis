@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { User, Shield, File, Settings, ChartBar, Target, Clock, Check, Database } from 'lucide-react';
+import { User, Shield, File, Settings, ChartBar, Target, Clock, Check, Database, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface AgendaSlideProps {
@@ -37,65 +37,47 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
     {
       icon: User,
       title: "Internship Context",
-      color: "blue",
       bgColor: "bg-blue-500",
-      textColor: "text-blue-500",
     },
     {
       icon: Shield,
       title: "Host Company & State of Art",
-      color: "indigo",
       bgColor: "bg-indigo-500",
-      textColor: "text-indigo-500",
     },
     {
       icon: File,
       title: "Achieved Algorithms",
-      color: "purple",
       bgColor: "bg-purple-500",
-      textColor: "text-purple-500",
     },
     {
       icon: Database,
       title: "Datasets",
-      color: "teal",
       bgColor: "bg-teal-500",
-      textColor: "text-teal-500",
     },
     {
       icon: Settings,
       title: "Evaluation Methodologies",
-      color: "green",
       bgColor: "bg-green-500",
-      textColor: "text-green-500",
     },
     {
       icon: ChartBar,
       title: "Experimental Results",
-      color: "yellow",
       bgColor: "bg-yellow-500",
-      textColor: "text-yellow-500",
     },
     {
       icon: Target,
       title: "Challenges & Solutions",
-      color: "red",
       bgColor: "bg-red-500",
-      textColor: "text-red-500",
     },
     {
       icon: Clock,
       title: "Future Work",
-      color: "orange",
       bgColor: "bg-orange-500",
-      textColor: "text-orange-500",
     },
     {
       icon: Check,
       title: "Conclusions",
-      color: "pink",
       bgColor: "bg-pink-500",
-      textColor: "text-pink-500",
     }
   ];
 
@@ -105,7 +87,7 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       className
     )}>
       {/* Header */}
-      <div className="flex-shrink-0 pt-[2vh] pb-[1vh] px-[2vw]">
+      <div className="flex-shrink-0 pt-[2vh] pb-[2vh] px-[2vw]">
         <div className={cn(
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
@@ -119,50 +101,104 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
         </div>
       </div>
 
-      {/* Cards Container */}
-      <div className="flex-1 px-[2vw] pb-[2vh] flex items-center justify-center">
-        <div className="flex gap-4 overflow-x-auto scrollbar-hide">
-          {agendaItems.map((item, index) => {
-            const Icon = item.icon;
-            
-            return (
-              <div key={index} className={cn(
-                "flex-shrink-0 transition-all duration-700 transform",
-                animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-              )}>
-                {/* Card */}
-                <div className="relative">
-                  {/* Number badge */}
+      {/* Horizontal Timeline - Fixed Width to Fit All */}
+      <div className="flex-1 px-[2vw] pb-[2vh] relative">
+        <div className="relative h-full w-full flex items-center justify-center">
+          <div className="flex items-center justify-between w-full max-w-[95vw] gap-2">
+            {agendaItems.map((item, index) => {
+              const Icon = item.icon;
+              const isAbove = index % 2 === 0;
+              
+              return (
+                <div key={index} className="relative flex flex-col items-center flex-1">
+                  {/* Bubble Container */}
                   <div className={cn(
-                    "absolute -top-2 -right-2 z-10 rounded-full text-white font-bold flex items-center justify-center",
-                    "w-8 h-8 text-sm",
-                    item.bgColor
-                  )}>
-                    {index + 1}
-                  </div>
-                  
-                  {/* Card content */}
-                  <div className="bg-white rounded-lg shadow-lg border-2 border-gray-200 p-6 w-48 h-48 flex flex-col items-center justify-center text-center">
-                    {/* Icon */}
-                    <div className={cn(
-                      "rounded-full flex items-center justify-center mb-4",
-                      "w-16 h-16",
-                      item.bgColor
-                    )}>
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
+                    "relative flex flex-col items-center transition-all duration-700 transform",
+                    animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
+                    isAbove ? "justify-start" : "justify-end flex-col-reverse"
+                  )} style={{
+                    animation: `float 8s ease-in-out infinite`,
+                    animationDelay: `${index * 0.8}s`
+                  }}>
                     
-                    {/* Title */}
-                    <h3 className="text-sm font-bold text-gray-800 leading-tight">
-                      {item.title}
-                    </h3>
+                    {/* Main Bubble - Fixed Size */}
+                    <div className={cn(
+                      "relative w-24 h-24 rounded-full flex flex-col items-center justify-center text-white shadow-lg border-4 border-white",
+                      item.bgColor,
+                      isAbove ? "mb-4" : "mt-4"
+                    )}>
+                      {/* Number Badge */}
+                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-md">
+                        <span className="text-xs font-bold text-gray-800">{index + 1}</span>
+                      </div>
+                      
+                      {/* Icon */}
+                      <Icon className="w-6 h-6 mb-1" />
+                      
+                      {/* Title */}
+                      <div className="text-center px-1">
+                        <h3 className="text-[10px] font-semibold leading-tight">
+                          {item.title}
+                        </h3>
+                      </div>
+                    </div>
                   </div>
+
+                  {/* Curved Zigzag Arrow - Connecting to actual bubbles */}
+                  {index < agendaItems.length - 1 && (
+                    <div className={cn(
+                      "absolute left-[calc(100%-12px)] top-1/2 transform -translate-y-1/2 z-10 transition-all duration-700",
+                      animationStep >= index + 3 ? "opacity-100" : "opacity-0"
+                    )}>
+                      <svg 
+                        width="24" 
+                        height="40" 
+                        viewBox="0 0 24 40" 
+                        className="text-gray-400"
+                      >
+                        <path
+                          d={isAbove ? "M0,20 Q8,8 16,20 Q20,28 24,20" : "M0,20 Q8,32 16,20 Q20,12 24,20"}
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          fill="none"
+                          markerEnd="url(#arrowhead)"
+                        />
+                        <defs>
+                          <marker
+                            id="arrowhead"
+                            markerWidth="8"
+                            markerHeight="6"
+                            refX="7"
+                            refY="3"
+                            orient="auto"
+                          >
+                            <polygon
+                              points="0 0, 8 3, 0 6"
+                              fill="currentColor"
+                            />
+                          </marker>
+                        </defs>
+                      </svg>
+                    </div>
+                  )}
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
+
+      {/* CSS Animation for slower floating effect */}
+      <style>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+      `}</style>
     </div>
   );
 };
