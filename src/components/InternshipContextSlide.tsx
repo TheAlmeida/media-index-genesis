@@ -73,7 +73,7 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
               <Building className="w-[clamp(1.5rem,2.5vw,2.5rem)] h-[clamp(1.5rem,2.5vw,2.5rem)] text-blue-500 mr-[1vw]" />
               <div>
                 <h2 className="text-[clamp(1.8rem,3vw,3rem)] font-bold text-gray-800">Mediaprobe</h2>
-                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-blue-500 font-medium">Empresa de Tecnologia Audio</p>
+                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-blue-500 font-medium">Empresa de Tecnologia</p>
               </div>
             </div>
 
@@ -127,7 +127,7 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
               <ChartBar className="w-[clamp(1.5rem,2.5vw,2.5rem)] h-[clamp(1.5rem,2.5vw,2.5rem)] text-orange-500 mr-[1vw]" />
               <div>
                 <h2 className="text-[clamp(1.8rem,3vw,3rem)] font-bold text-gray-800">Objetivos do Estágio</h2>
-                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-orange-500 font-medium">Projeto de Investigação de 6 Meses</p>
+                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-orange-500 font-medium">Projeto de Investigação de 400h</p>
               </div>
             </div>
 
@@ -143,7 +143,7 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
             <div className="flex items-center mb-[2vh]">
               <Calendar className="w-[clamp(1.2rem,2vw,2rem)] h-[clamp(1.2rem,2vw,2rem)] text-orange-500 mr-[1vw]" />
               <div>
-                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-gray-700 font-medium">Fevereiro - Julho 2024</p>
+                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-gray-700 font-medium">Fevereiro - Abril 2025</p>
                 <p className="text-[clamp(0.8rem,1.2vw,1.2rem)] text-gray-600">Avaliação abrangente de soluções comerciais e open-source de audio fingerprinting</p>
               </div>
             </div>
