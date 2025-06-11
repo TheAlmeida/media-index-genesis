@@ -37,21 +37,21 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
       audfprint: "32-bit int; pares landmark (freq1, freq2, Δt)",
       dejavu: "160-bit SHA1 (80-bit usado); (freq1, freq2, Δt)",
       olaf: "64-bit int; 3 picos (freq, mag, Δt)",
-      soundfingerprinting: "MinHash vector; coeficientes wavelet"
+      soundfingerprinting: "Vector MinHash; coeficientes wavelet"
     },
     {
       feature: "Base de Dados",
       audfprint: "Ficheiro .pkl2 com tabela hash",
       dejavu: "BD Relacional (MySQL/PostgreSQL)",
       olaf: "LMDB",
-      soundfingerprinting: "Em memória ou externa (ex: Emy)"
+      soundfingerprinting: "Em memória RAM ou externa (Emy)"
     },
     {
       feature: "Emparelhamento de Picos",
       audfprint: "Sim",
       dejavu: "Sim",
       olaf: "Sim",
-      soundfingerprinting: "Não (baseado em wavelet)"
+      soundfingerprinting: "Não (wavelets)"
     },
     {
       feature: "Estratégia de Matching",
@@ -74,10 +74,10 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
           <h1 className="text-[clamp(2rem,4vw,4rem)] font-bold text-black mb-[0.5vh]">
-            Analyzed Algorithms
+            Algoritmos Implementados
           </h1>
           <p className="text-[clamp(0.9rem,1.5vw,1.5rem)] text-black font-light">
-            Comprehensive evaluation of commercial and open-source solutions
+            Exposição das diferentes características de cada sistema implementado
           </p>
         </div>
       </div>
@@ -91,7 +91,7 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
           {/* Commercial Solutions Section */}
           <div className="space-y-[0.5vh]">
             <h2 className="text-[clamp(1.2rem,1.8vw,1.8rem)] font-bold text-black text-center mb-[0.5vh]">
-              Commercial Solutions
+              Soluções Fechaads
             </h2>
             <div className="grid grid-cols-2 gap-[0.5vh]">
               {/* MP ACR Card */}
@@ -127,7 +127,7 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
           {/* Open Source Solutions Section */}
           <div className="space-y-[0.5vh]">
             <h2 className="text-[clamp(1.2rem,1.8vw,1.8rem)] font-bold text-black text-center mb-[0.5vh]">
-              Open Source Solutions
+              Soluções Open Source
             </h2>
             <div className="grid grid-cols-2 gap-[0.5vh]">
               {/* Audfprint */}
@@ -185,7 +185,7 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
           animationStep >= 3 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         )}>
           <h2 className="text-[clamp(1.2rem,2vw,2rem)] font-bold text-black mb-[1vh] text-center">
-            Open Source Algorithms Comparison
+            Comparação dos Sistemas Open Source
           </h2>
           
           <div className="flex-1 overflow-auto">
