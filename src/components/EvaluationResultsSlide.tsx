@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
@@ -25,7 +26,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
     color: string;
   }) => (
     <div className="flex items-center justify-between mb-4 last:mb-0 pb-2">
-      <span className="text-lg font-semibold text-gray-700 w-40">{name}:</span>
+      <span className="text-lg font-medium text-gray-700 w-48">{name}:</span>
       <div className="flex-1 mx-4">
         <div className="h-6 bg-gray-200 rounded-full overflow-hidden">
           <div 
@@ -36,7 +37,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
           />
         </div>
       </div>
-      <span className="text-lg font-bold text-gray-800 w-16 text-right">
+      <span className="text-lg font-medium text-gray-800 w-16 text-right">
         {value}{unit}
       </span>
     </div>
