@@ -46,7 +46,7 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
     },
     {
       icon: File,
-      title: "Algorítmos Implementados",
+      title: "Algoritmos Implementados",
       bgColor: "bg-purple-500",
     },
     {
