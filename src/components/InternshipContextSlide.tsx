@@ -30,8 +30,8 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
 
   const technologies = [
     "Audio Fingerprinting",
-    "Media Monitoring", 
-    "Real Time Processing",
+    "Monotorização de media", 
+    "Processamento em tempo real",
     "Análise GSR"
   ];
 
@@ -55,7 +55,7 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
           <h1 className="text-[clamp(2.5rem,5vw,5rem)] font-bold text-gray-800 mb-[1vh]">
-            Internship Context
+            Contexto
           </h1>
           <p className="text-[clamp(1rem,1.8vw,1.8rem)] text-gray-600 font-light">
             Overview of the host company and internship framework
