@@ -12,21 +12,21 @@ const FutureWorkSlide: React.FC<FutureWorkSlideProps> = ({ isActive }) => {
   const futureWorkItems = [
     {
       icon: Clock,
-      title: "AI-Based Algorithms",
+      title: "Algoritmos Baseados em IA",
       borderColor: "border-l-blue-500",
       iconBg: "bg-blue-100",
       description: "Avaliação adicional de sistemas de audio fingerprinting baseados em inteligência artificial, como Neural-Audio-Fingerprint, poderia oferecer insights sobre a sua maturidade, robustez e aplicabilidade no mundo real comparados aos métodos espectrais tradicionais."
     },
     {
       icon: Database,
-      title: "Content-Specific Testing",
+      title: "Testes Específicos de Conteúdo",
       borderColor: "border-l-green-500",
       iconBg: "bg-green-100",
       description: "Expandir o dataset permitiria análise estatística do desempenho dos algoritmos através de diferentes tipos de conteúdo (ex: música, desporto, filme) e tipos de distorção (ex: ruído, reverb, mudanças de pitch). Um aumento de dez vezes no conjunto de referência permitiria conclusões mais granulares e confiáveis."
     },
     {
       icon: Zap,
-      title: "Parameter Harmonization",
+      title: "Harmonização de Parâmetros",
       borderColor: "border-l-orange-500",
       iconBg: "bg-orange-100",
       description: "Retestar todos os algoritmos sob condições técnicas unificadas—como tamanhos idênticos de janela FFT, hop sizes, sampling rates e thresholds de segmentação—garantiria comparações mais justas e revelaria sensibilidade a mudanças de configuração, o que é crítico para integração em pipelines de produção."
@@ -40,10 +40,10 @@ const FutureWorkSlide: React.FC<FutureWorkSlideProps> = ({ isActive }) => {
         <div className="flex justify-between items-start mb-6">
           <div className="flex-1">
             <h1 className="text-4xl font-bold text-center text-slate-800 mb-3">
-              Future Work
+              Trabalho Futuro
             </h1>
             <p className="text-lg text-center text-slate-600 max-w-4xl mx-auto">
-              Strategic directions for continued research and technological advancement
+              Direções estratégicas para investigação contínua e avanço tecnológico
             </p>
           </div>
         </div>

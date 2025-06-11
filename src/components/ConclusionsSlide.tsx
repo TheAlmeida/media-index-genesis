@@ -46,10 +46,10 @@ const ConclusionsSlide: React.FC<ConclusionsSlideProps> = ({ isActive }) => {
         <div className="flex justify-between items-start mb-6">
           <div className="flex-1">
             <h1 className="text-4xl font-bold text-center text-slate-800 mb-3">
-              Conclusions
+              Conclusões
             </h1>
             <p className="text-lg text-center text-slate-600 max-w-4xl mx-auto">
-              Key findings and strategic recommendations based on external comparison
+              Principais descobertas e recomendações estratégicas baseadas na comparação externa
             </p>
           </div>
         </div>
@@ -65,7 +65,7 @@ const ConclusionsSlide: React.FC<ConclusionsSlideProps> = ({ isActive }) => {
               <div className="flex items-center space-x-3 mb-4">
                 <TrendingUp className="w-7 h-7 text-blue-600" />
                 <CardTitle className="text-2xl font-semibold text-slate-800">
-                  Key Findings
+                  Principais Descobertas
                 </CardTitle>
               </div>
             </CardHeader>
@@ -89,11 +89,11 @@ const ConclusionsSlide: React.FC<ConclusionsSlideProps> = ({ isActive }) => {
               <div className="flex items-center space-x-3 mb-4">
                 <Lightbulb className="w-7 h-7 text-purple-600" />
                 <CardTitle className="text-2xl font-semibold text-slate-800">
-                  Main Recommendations
+                  Principais Recomendações
                 </CardTitle>
               </div>
               <p className="text-base text-slate-500 italic">
-                Based on external comparison, without access to Mediaprobe's source code
+                Baseadas na comparação externa, sem acesso ao código fonte da Mediaprobe
               </p>
             </CardHeader>
             <CardContent>
@@ -121,7 +121,7 @@ const ConclusionsSlide: React.FC<ConclusionsSlideProps> = ({ isActive }) => {
             <div className="flex items-center justify-center space-x-3 mb-4">
               <Clipboard className="w-7 h-7 text-slate-700" />
               <CardTitle className="text-2xl font-semibold text-slate-800 text-center">
-                Project Achievement Summary
+                Resumo das Realizações do Projeto
               </CardTitle>
             </div>
           </CardHeader>

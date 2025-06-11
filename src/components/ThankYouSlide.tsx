@@ -25,13 +25,13 @@ const ThankYouSlide: React.FC<ThankYouSlideProps> = ({ isActive }) => {
     },
     {
       icon: Users,
-      title: "Mediaprobe Team",
+      title: "Equipa Mediaprobe",
       name: "Sérgio Martins & Luís Silva", 
       description: ""
     },
     {
       icon: Heart,
-      title: "Family and Friends",
+      title: "Família e Amigos",
       name: "",
       description: "Pelo apoio e encorajamento"
     }

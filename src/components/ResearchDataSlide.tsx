@@ -34,7 +34,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
     {
       icon: FileText,
       title: "pexafb_easy_small",
-      subtitle: "Open Source Dataset",
+      subtitle: "Dataset Open Source",
       color: "#3b82f6",
       charts: [
         {
@@ -53,8 +53,8 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
     },
     {
       icon: Headphones,
-      title: "Experimental Dataset",
-      subtitle: "Custom Mediaprobe Structure",
+      title: "Dataset Experimental",
+      subtitle: "Estrutura Personalizada Mediaprobe",
       color: "#10b981",
       charts: [
         {
@@ -90,8 +90,8 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
     },
     {
       icon: Database,
-      title: "Experimental Dataset",
-      subtitle: "With Advertising Content",
+      title: "Dataset Experimental",
+      subtitle: "Com Conteúdo Publicitário",
       color: "#8b5cf6",
       charts: [
         {
@@ -127,10 +127,10 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
           <h1 className="text-[clamp(3rem,5vw,5rem)] font-bold text-gray-800 mb-[0.3vh]">
-            Research Datasets
+            Datasets de Investigação
           </h1>
           <p className="text-[clamp(1.2rem,1.8vw,1.8rem)] text-gray-600 font-light">
-            Comprehensive audio datasets for algorithm evaluation and testing
+            Datasets de áudio abrangentes para avaliação e teste de algoritmos
           </p>
         </div>
       </div>

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Building, MapPin, Code, ChartBar, Calendar } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -58,7 +59,7 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
             Contexto
           </h1>
           <p className="text-[clamp(1rem,1.8vw,1.8rem)] text-gray-600 font-light">
-            Overview of the host company and internship framework
+            Visão geral da empresa de acolhimento e enquadramento do estágio
           </p>
         </div>
       </div>
@@ -77,7 +78,7 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
               <Building className="w-[clamp(1.5rem,2.5vw,2.5rem)] h-[clamp(1.5rem,2.5vw,2.5rem)] text-blue-500 mr-[1vw]" />
               <div>
                 <h2 className="text-[clamp(1.8rem,3vw,3rem)] font-bold text-gray-800">Mediaprobe</h2>
-                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-blue-500 font-medium">Audio Technology Company</p>
+                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-blue-500 font-medium">Empresa de Tecnologia Audio</p>
               </div>
             </div>
 
@@ -98,7 +99,7 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
             {/* Technology Focus */}
             <div className="flex items-center mb-[2vh]">
               <Code className="w-[clamp(1.2rem,2vw,2rem)] h-[clamp(1.2rem,2vw,2rem)] text-blue-500 mr-[1vw]" />
-              <span className="text-[clamp(1rem,1.5vw,1.5rem)] text-gray-700 font-medium">Audio Recognition & Biometrical Sensors Technology</span>
+              <span className="text-[clamp(1rem,1.5vw,1.5rem)] text-gray-700 font-medium">Tecnologia de Reconhecimento Audio & Sensores Biométricos</span>
             </div>
 
             {/* Main Technologies */}
@@ -130,8 +131,8 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
             <div className="flex items-center mb-[2vh]">
               <ChartBar className="w-[clamp(1.5rem,2.5vw,2.5rem)] h-[clamp(1.5rem,2.5vw,2.5rem)] text-orange-500 mr-[1vw]" />
               <div>
-                <h2 className="text-[clamp(1.8rem,3vw,3rem)] font-bold text-gray-800">Internship Goals</h2>
-                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-orange-500 font-medium">6-Month Research Project</p>
+                <h2 className="text-[clamp(1.8rem,3vw,3rem)] font-bold text-gray-800">Objetivos do Estágio</h2>
+                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-orange-500 font-medium">Projeto de Investigação de 6 Meses</p>
               </div>
             </div>
 
@@ -147,8 +148,8 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
             <div className="flex items-center mb-[2vh]">
               <Calendar className="w-[clamp(1.2rem,2vw,2rem)] h-[clamp(1.2rem,2vw,2rem)] text-orange-500 mr-[1vw]" />
               <div>
-                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-gray-700 font-medium">February - July 2024</p>
-                <p className="text-[clamp(0.8rem,1.2vw,1.2rem)] text-gray-600">Comprehensive evaluation of commercial and open-source audio fingerprinting solutions</p>
+                <p className="text-[clamp(1rem,1.5vw,1.5rem)] text-gray-700 font-medium">Fevereiro - Julho 2024</p>
+                <p className="text-[clamp(0.8rem,1.2vw,1.2rem)] text-gray-600">Avaliação abrangente de soluções comerciais e open-source de audio fingerprinting</p>
               </div>
             </div>
 

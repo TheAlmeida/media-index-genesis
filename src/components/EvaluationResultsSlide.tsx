@@ -49,10 +49,10 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
       <div className="flex justify-between items-start mb-6">
         <div className="flex-1 text-center">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            Experimental Results
+            Resultados Experimentais
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Comprehensive performance metrics and statistical analysis
+            Métricas de desempenho abrangentes e análise estatística
           </p>
         </div>
       </div>
@@ -70,10 +70,10 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3 mb-2">
                 <Target className="w-6 h-6 text-blue-600" />
-                <CardTitle className="text-lg">Heavily Modified Queries</CardTitle>
+                <CardTitle className="text-lg">Queries Fortemente Modificadas</CardTitle>
               </div>
               <Badge variant="outline" className="w-fit bg-blue-50 text-blue-700 border-blue-200">
-                Robustness Test
+                Teste de Robustez
               </Badge>
             </CardHeader>
             <CardContent className="pt-0">
@@ -93,10 +93,10 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3 mb-2">
                 <Clock className="w-6 h-6 text-orange-600" />
-                <CardTitle className="text-lg">Processing Speed</CardTitle>
+                <CardTitle className="text-lg">Velocidade de Processamento</CardTitle>
               </div>
               <Badge variant="outline" className="w-fit bg-orange-50 text-orange-700 border-orange-200">
-                Lower is Better
+                Menor é Melhor
               </Badge>
             </CardHeader>
             <CardContent className="pt-0">
@@ -123,10 +123,10 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3 mb-2">
                 <TrendingUp className="w-6 h-6 text-green-600" />
-                <CardTitle className="text-lg">Company Use Case Simulation</CardTitle>
+                <CardTitle className="text-lg">Simulação de Caso de Uso da Empresa</CardTitle>
               </div>
               <Badge variant="outline" className="w-fit bg-green-50 text-green-700 border-green-200">
-                Real-World Scenario
+                Cenário do Mundo Real
               </Badge>
             </CardHeader>
             <CardContent className="pt-0">
@@ -146,10 +146,10 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3 mb-2">
                 <Database className="w-6 h-6 text-purple-600" />
-                <CardTitle className="text-lg">Memory Efficiency</CardTitle>
+                <CardTitle className="text-lg">Eficiência de Memória</CardTitle>
               </div>
               <Badge variant="outline" className="w-fit bg-purple-50 text-purple-700 border-purple-200">
-                Resource Usage
+                Uso de Recursos
               </Badge>
             </CardHeader>
             <CardContent className="pt-0">

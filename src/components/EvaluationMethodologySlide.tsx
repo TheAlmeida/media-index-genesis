@@ -32,40 +32,40 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
   const methodologySteps = [
     {
       icon: Target,
-      title: "Matching Quality",
-      subtitle: "Precision & Recall Analysis",
+      title: "Qualidade de Matching",
+      subtitle: "Análise de Precisão & Recall",
       color: "bg-blue-600",
-      description: "Comprehensive evaluation using the Audio Fingerprinting Benchmark Toolkit developed by Pexeso (2023)",
+      description: "Avaliação abrangente usando o Audio Fingerprinting Benchmark Toolkit desenvolvido pela Pexeso (2023)",
       metrics: [
-        "Track level evaluation",
-        "Segment level evaluation", 
-        "Bounding Box evaluation",
-        "Ground truth validation using source metadata"
+        "Avaliação ao nível da faixa",
+        "Avaliação ao nível do segmento", 
+        "Avaliação de Bounding Box",
+        "Validação de ground truth usando metadados da fonte"
       ]
     },
     {
       icon: Clock,
-      title: "Execution Time",
-      subtitle: "Performance Analysis",
+      title: "Tempo de Execução",
+      subtitle: "Análise de Desempenho",
       color: "bg-emerald-600",
-      description: "Custom profiling system to measure algorithm performance across different operational phases",
+      description: "Sistema de profiling personalizado para medir o desempenho dos algoritmos através de diferentes fases operacionais",
       metrics: [
-        "Reference indexing time measurement",
-        "Query processing latency analysis",
-        "Matching and retrieval performance",
-        "Scalability assessment on standardized hardware"
+        "Medição do tempo de indexação de referências",
+        "Análise da latência de processamento de queries",
+        "Desempenho de matching e recuperação",
+        "Avaliação de escalabilidade em hardware padronizado"
       ]
     },
     {
       icon: Database,
-      title: "Memory Efficiency",
-      subtitle: "Storage Requirements",
+      title: "Eficiência de Memória",
+      subtitle: "Requisitos de Armazenamento",
       color: "bg-purple-600",
-      description: "Comprehensive analysis of storage requirements and memory optimization strategies",
+      description: "Análise abrangente dos requisitos de armazenamento e estratégias de otimização de memória",
       metrics: [
-        "Indexed database size analysis",
-        "Estimated fingerprint size per second of audio",
-        "Fingerprint compression efficiency"
+        "Análise do tamanho da base de dados indexada",
+        "Estimativa do tamanho de fingerprint por segundo de áudio",
+        "Eficiência de compressão de fingerprint"
       ]
     }
   ];
@@ -82,10 +82,10 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
           <h1 className="text-[clamp(3rem,5vw,5rem)] font-bold text-slate-800 mb-4 leading-tight">
-            Evaluation Framework
+            Metodologia de Avaliação
           </h1>
           <p className="text-[clamp(1.2rem,2vw,2rem)] text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            Three-dimensional approach to comprehensive algorithm benchmarking and performance analysis
+            Abordagem tridimensional para benchmarking abrangente de algoritmos e análise de desempenho
           </p>
         </div>
       </div>
@@ -139,7 +139,7 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
                   <div className="space-y-4 flex-1">
                     <h4 className="text-base font-semibold text-slate-700 mb-4 flex items-center gap-3">
                       <ArrowRight className="w-5 h-5 text-slate-400" />
-                      Key Evaluation Metrics
+                      Principais Métricas de Avaliação
                     </h4>
                     {step.metrics.map((metric, idx) => (
                       <div key={idx} className="flex items-start gap-4">
@@ -155,7 +155,7 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
                   <div className="mt-8 pt-6 border-t border-slate-100">
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-slate-400 font-medium">
-                        Metric {index + 1} of 3
+                        Métrica {index + 1} de 3
                       </span>
                       <div className={cn(
                         "w-3 h-3 rounded-full",
