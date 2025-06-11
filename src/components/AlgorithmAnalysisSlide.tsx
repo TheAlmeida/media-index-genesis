@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Code2, FileText, Cloud, Database, Hash, Zap, Music, Cpu, Binary, Waves } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -74,7 +75,6 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
           animationStep >= 1 ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
         )}>
           <Code2 className="w-[clamp(0.8rem,1.2vw,1.2rem)] h-[clamp(0.8rem,1.2vw,1.2rem)]" />
-          Algorithm Analysis
         </div>
       </div>
 

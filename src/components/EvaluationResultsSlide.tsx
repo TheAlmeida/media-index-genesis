@@ -55,10 +55,6 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             Comprehensive performance metrics and statistical analysis
           </p>
         </div>
-        <Badge className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 flex items-center gap-2 text-sm">
-          <TrendingUp className="w-4 h-4" />
-          Performance Analysis
-        </Badge>
       </div>
 
       {/* Performance Metrics Grid */}

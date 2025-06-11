@@ -46,10 +46,6 @@ const FutureWorkSlide: React.FC<FutureWorkSlideProps> = ({ isActive }) => {
               Strategic directions for continued research and technological advancement
             </p>
           </div>
-          <Badge className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 text-sm font-medium">
-            <Rocket className="w-4 h-4 mr-2" />
-            Innovation Roadmap
-          </Badge>
         </div>
       </div>
 

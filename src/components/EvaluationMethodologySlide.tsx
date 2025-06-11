@@ -82,10 +82,6 @@ const EvaluationMethodologySlide: React.FC<EvaluationMethodologySlideProps> = ({
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
-          <div className="inline-flex items-center gap-3 bg-slate-800 text-white px-6 py-2 rounded-full text-sm font-medium mb-4">
-            <Database className="w-4 h-4" />
-            Scientific Methodology
-          </div>
           <h1 className="text-[clamp(2.5rem,4.5vw,4.5rem)] font-bold text-slate-800 mb-3 leading-tight">
             Evaluation Framework
           </h1>

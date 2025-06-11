@@ -67,10 +67,6 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
               Summary of difficulties encountered during the internship and solutions implemented
             </p>
           </div>
-          <Badge className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 text-sm font-medium">
-            <AlertTriangle className="w-4 h-4 mr-2" />
-            Problem Solving
-          </Badge>
         </div>
       </div>
 

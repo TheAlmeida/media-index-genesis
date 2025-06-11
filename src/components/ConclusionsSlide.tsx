@@ -52,10 +52,6 @@ const ConclusionsSlide: React.FC<ConclusionsSlideProps> = ({ isActive }) => {
               Key findings and strategic recommendations based on external comparison
             </p>
           </div>
-          <Badge className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 text-sm font-medium">
-            <Award className="w-4 h-4 mr-2" />
-            Research Outcomes
-          </Badge>
         </div>
       </div>
 
