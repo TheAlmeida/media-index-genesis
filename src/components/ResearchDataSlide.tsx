@@ -126,10 +126,10 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
-          <h1 className="text-[clamp(2rem,3.5vw,3.5rem)] font-bold text-gray-800 mb-[0.3vh]">
+          <h1 className="text-[clamp(3rem,5vw,5rem)] font-bold text-gray-800 mb-[0.3vh]">
             Research Datasets
           </h1>
-          <p className="text-[clamp(0.8rem,1.1vw,1.1rem)] text-gray-600 font-light">
+          <p className="text-[clamp(1.2rem,1.8vw,1.8rem)] text-gray-600 font-light">
             Comprehensive audio datasets for algorithm evaluation and testing
           </p>
         </div>
@@ -137,11 +137,11 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
 
       {/* Main Content */}
       <div className="flex-1 px-[2vw] pb-[9vh] min-h-0">
-        <div className="h-full flex flex-col gap-[1vh]">
+        <div className="h-full flex flex-col gap-[1.5vh]">
           
           {/* Dataset Cards - Main Section */}
           <div className="flex-1 min-h-0">
-            <div className="grid grid-cols-3 gap-[1.2vw] h-full">
+            <div className="grid grid-cols-3 gap-[1.5vw] h-full">
               {datasets.map((dataset, index) => {
                 const Icon = dataset.icon;
                 const colorClasses = getColorClasses(dataset.color);
@@ -150,40 +150,40 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                   <div 
                     key={index}
                     className={cn(
-                      "bg-white rounded-lg shadow-lg border-l-4 p-[0.8vw] transition-all duration-700 transform hover:scale-[1.01] hover:shadow-xl flex flex-col",
+                      "bg-white rounded-lg shadow-lg border-l-4 p-[1.2vw] transition-all duration-700 transform hover:scale-[1.01] hover:shadow-xl flex flex-col",
                       `border-${dataset.color}-500`,
                       animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     )}
                   >
                     {/* Header */}
-                    <div className="flex items-center gap-[0.6vw] mb-[0.8vh] flex-shrink-0">
+                    <div className="flex items-center gap-[0.8vw] mb-[1vh] flex-shrink-0">
                       <div className={cn(
-                        "w-[2vw] h-[2vw] min-w-[24px] min-h-[24px] rounded-full flex items-center justify-center",
+                        "w-[2.5vw] h-[2.5vw] min-w-[32px] min-h-[32px] rounded-full flex items-center justify-center",
                         colorClasses.split(' ')[0]
                       )}>
-                        <Icon className="w-[1vw] h-[1vw] min-w-[12px] min-h-[12px] text-white" />
+                        <Icon className="w-[1.3vw] h-[1.3vw] min-w-[16px] min-h-[16px] text-white" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-[clamp(0.75rem,0.9vw,0.9rem)] font-bold text-gray-800 leading-tight">
+                        <h3 className="text-[clamp(1.1rem,1.4vw,1.4rem)] font-bold text-gray-800 leading-tight">
                           {dataset.title}
                         </h3>
-                        <p className="text-[clamp(0.55rem,0.7vw,0.7rem)] text-gray-500">
+                        <p className="text-[clamp(0.9rem,1.1vw,1.1rem)] text-gray-500">
                           {dataset.subtitle}
                         </p>
                       </div>
                     </div>
 
                     {/* Stats */}
-                    <div className="grid grid-cols-3 gap-1 mb-[0.8vh] flex-shrink-0">
+                    <div className="grid grid-cols-3 gap-2 mb-[1vh] flex-shrink-0">
                       {dataset.stats.map((stat, idx) => (
-                        <div key={idx} className="text-center p-1.5 bg-gray-50 rounded">
+                        <div key={idx} className="text-center p-2 bg-gray-50 rounded">
                           <div className={cn(
-                            "text-[clamp(0.65rem,0.8vw,0.8rem)] font-bold leading-tight",
+                            "text-[clamp(1rem,1.2vw,1.2rem)] font-bold leading-tight",
                             colorClasses.split(' ')[2]
                           )}>
                             {stat.value}
                           </div>
-                          <div className="text-[clamp(0.45rem,0.55vw,0.55rem)] text-gray-600 leading-tight">
+                          <div className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-gray-600 leading-tight">
                             {stat.label}
                           </div>
                         </div>
@@ -191,14 +191,14 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                     </div>
 
                     {/* Features - Fill remaining space */}
-                    <div className="flex-1 space-y-[0.2vh] overflow-hidden">
+                    <div className="flex-1 space-y-[0.4vh] overflow-hidden">
                       {dataset.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-start gap-1.5">
+                        <div key={idx} className="flex items-start gap-2">
                           <div className={cn(
-                            "w-1 h-1 rounded-full mt-1.5 flex-shrink-0",
+                            "w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0",
                             colorClasses.split(' ')[0]
                           )} />
-                          <p className="text-[clamp(0.55rem,0.7vw,0.7rem)] text-gray-600 leading-tight">
+                          <p className="text-[clamp(0.9rem,1.1vw,1.1rem)] text-gray-600 leading-tight">
                             {feature}
                           </p>
                         </div>
@@ -212,7 +212,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
 
           {/* Methodology Cards - Bottom Section */}
           <div className="flex-shrink-0">
-            <div className="grid grid-cols-3 gap-[1.2vw] h-[12vh]">
+            <div className="grid grid-cols-3 gap-[1.5vw] h-[15vh]">
               {methodologyCards.map((card, index) => {
                 const Icon = card.icon;
                 const colorClasses = getColorClasses(card.color);
@@ -221,23 +221,23 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                   <div 
                     key={index}
                     className={cn(
-                      "bg-white rounded-lg shadow-md border-l-4 p-[0.6vw] transition-all duration-700 transform hover:scale-[1.01] flex",
+                      "bg-white rounded-lg shadow-md border-l-4 p-[1vw] transition-all duration-700 transform hover:scale-[1.01] flex",
                       `border-${card.color}-500`,
                       animationStep >= 5 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     )}
                   >
-                    <div className="flex items-start gap-[0.6vw] h-full w-full">
+                    <div className="flex items-start gap-[0.8vw] h-full w-full">
                       <div className={cn(
-                        "w-[1.5vw] h-[1.5vw] min-w-[18px] min-h-[18px] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5",
+                        "w-[2vw] h-[2vw] min-w-[24px] min-h-[24px] rounded-full flex items-center justify-center flex-shrink-0 mt-1",
                         colorClasses.split(' ')[0]
                       )}>
-                        <Icon className="w-[0.8vw] h-[0.8vw] min-w-[10px] min-h-[10px] text-white" />
+                        <Icon className="w-[1vw] h-[1vw] min-w-[12px] min-h-[12px] text-white" />
                       </div>
                       <div className="flex-1 flex flex-col h-full">
-                        <h4 className="text-[clamp(0.7rem,0.85vw,0.85rem)] font-semibold text-gray-800 mb-1 flex-shrink-0">
+                        <h4 className="text-[clamp(1rem,1.3vw,1.3rem)] font-semibold text-gray-800 mb-2 flex-shrink-0">
                           {card.title}
                         </h4>
-                        <p className="text-[clamp(0.55rem,0.65vw,0.65rem)] text-gray-600 leading-tight flex-1 overflow-hidden">
+                        <p className="text-[clamp(0.8rem,1vw,1rem)] text-gray-600 leading-tight flex-1 overflow-hidden">
                           {card.description}
                         </p>
                       </div>
