@@ -145,7 +145,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
                       )}>
                         {/* Step Number Badge */}
                         <div className={cn(
-                          "absolute top-[0.2vw] right-[0.2vw] w-[1.4vw] h-[1.4vw] min-w-[16px] min-h-[16px] rounded-full text-white text-[clamp(0.6rem,0.9vw,0.9rem)] font-bold flex items-center justify-center",
+                          "absolute top-[0.2vw] right-[0.2vw] w-[1.4vw] h-[1.4vw] min-w-[16px] min-h-[16px] rounded-full text-white text-[clamp(0.7rem,1vw,1rem)] font-bold flex items-center justify-center",
                           step.color
                         )}>
                           {step.id}
@@ -163,13 +163,13 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
 
                         {/* Content */}
                         <div className="flex-1 flex flex-col justify-center">
-                          <h3 className="text-[clamp(0.8rem,1.2vw,1.2rem)] font-bold text-gray-800 mb-[0.1vh]">
+                          <h3 className="text-[clamp(0.9rem,1.4vw,1.4rem)] font-bold text-gray-800 mb-[0.1vh]">
                             {step.title}
                           </h3>
-                          <p className="text-[clamp(0.65rem,0.95vw,0.95rem)] font-medium text-gray-700 mb-[0.2vh]">
+                          <p className="text-[clamp(0.7rem,1.1vw,1.1rem)] font-medium text-gray-700 mb-[0.2vh]">
                             {step.function}
                           </p>
-                          <p className="text-[clamp(0.6rem,0.85vw,0.85rem)] text-gray-600 font-light">
+                          <p className="text-[clamp(0.65rem,0.95vw,0.95rem)] text-gray-600 font-light">
                             {step.technical}
                           </p>
                         </div>
