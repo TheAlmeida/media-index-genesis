@@ -2,7 +2,7 @@
 import React from 'react';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Wrench, Book, Target, File, User, AlertTriangle, TrendingUp, Check } from 'lucide-react';
+import { Wrench, Book, Target, File, User, AlertTriangle } from 'lucide-react';
 
 interface ChallengesSolutionsSlideProps {
   isActive: boolean;
@@ -55,10 +55,10 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
   ];
 
   return (
-    <div className={`h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 pb-[9vh] flex flex-col ${isActive ? 'animate-fade-in' : ''}`}>
+    <div className={`h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 pb-[9vh] flex flex-col justify-center ${isActive ? 'animate-fade-in' : ''}`}>
       {/* Header Section */}
-      <div className="mb-6 flex-shrink-0">
-        <div className="flex justify-between items-start mb-4">
+      <div className="mb-8 flex-shrink-0">
+        <div className="flex justify-between items-start mb-6">
           <div className="flex-1">
             <h1 className="text-4xl font-bold text-center text-slate-800 mb-3">
               Challenges & Solutions
@@ -74,24 +74,24 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
         </div>
       </div>
 
-      {/* Challenges Grid - Taking up more vertical space */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 flex-grow">
+      {/* Challenges Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12 flex-shrink-0">
         {challenges.map((challenge, index) => {
           const IconComponent = challenge.icon;
           return (
-            <Card key={index} className={`border-l-4 ${challenge.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col`}>
-              <CardHeader className="pb-3 flex-shrink-0">
+            <Card key={index} className={`border-l-4 ${challenge.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300`}>
+              <CardHeader className="pb-3">
                 <div className="flex items-center space-x-3 mb-2">
                   <div className="p-2 rounded-lg bg-slate-100">
                     <IconComponent className="w-5 h-5 text-slate-700" />
                   </div>
-                  <CardTitle className="text-xl font-semibold text-slate-800">
+                  <CardTitle className="text-lg font-semibold text-slate-800">
                     {challenge.title}
                   </CardTitle>
                 </div>
               </CardHeader>
-              <CardContent className="pt-0 flex-grow flex flex-col justify-center">
-                <p className="text-base text-slate-600 leading-relaxed">
+              <CardContent className="pt-0">
+                <p className="text-sm text-slate-600 leading-relaxed">
                   {challenge.description}
                 </p>
               </CardContent>
@@ -100,17 +100,17 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
         })}
       </div>
 
-      {/* Learning Outcomes Section - Fixed height at bottom */}
+      {/* Learning Outcomes Section */}
       <Card className="shadow-lg flex-shrink-0">
-        <CardHeader className="pb-4">
-          <div className="flex items-center space-x-3">
+        <CardHeader>
+          <div className="flex items-center space-x-3 mb-4">
             <User className="w-6 h-6 text-slate-700" />
             <CardTitle className="text-xl font-semibold text-slate-800">
               Key Learning Outcomes
             </CardTitle>
           </div>
         </CardHeader>
-        <CardContent className="pt-0">
+        <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {learningOutcomes.map((outcome, index) => (
               <div key={index} className="text-center">
