@@ -1,14 +1,34 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Wrench, Book, Target, File, User, AlertTriangle } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface ChallengesSolutionsSlideProps {
-  isActive: boolean;
+  isActive?: boolean;
+  className?: string;
 }
 
-const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isActive }) => {
+const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isActive = true, className }) => {
+  const [animationStep, setAnimationStep] = useState(0);
+
+  useEffect(() => {
+    if (isActive) {
+      setAnimationStep(0);
+      
+      const timeouts = [
+        setTimeout(() => setAnimationStep(1), 200),
+        setTimeout(() => setAnimationStep(2), 400),
+        setTimeout(() => setAnimationStep(3), 600),
+      ];
+
+      return () => timeouts.forEach(clearTimeout);
+    } else {
+      setAnimationStep(0);
+    }
+  }, [isActive]);
+
   const challenges = [
     {
       icon: Wrench,
@@ -55,78 +75,99 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
   ];
 
   return (
-    <div className={`h-screen w-full bg-gradient-to-br from-slate-50 to-slate-100 p-8 pb-[9vh] flex flex-col ${isActive ? 'animate-fade-in' : ''}`}>
-      {/* Header Section - stays at top */}
-      <div className="mb-8 flex-shrink-0">
-        <div className="flex justify-between items-start mb-6">
-          <div className="flex-1">
-            <h1 className="text-4xl font-bold text-center text-slate-800 mb-3">
-              Challenges & Solutions
-            </h1>
-            <p className="text-lg text-center text-slate-600 max-w-4xl mx-auto">
-              Summary of difficulties encountered during the internship and solutions implemented
-            </p>
-          </div>
+    <div className={cn(
+      "h-[100dvh] w-[100dvw] bg-gradient-to-br from-slate-50 via-white to-slate-100 relative overflow-hidden",
+      className
+    )}>
+      {/* Header Section */}
+      <div className="pt-[4vh] pb-[3vh] px-[4vw]">
+        <div className={cn(
+          "text-center transition-all duration-700 transform",
+          animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
+        )}>
+          <h1 className="text-[clamp(3rem,5vw,5rem)] font-bold text-slate-800 mb-4 leading-tight">
+            Challenges & Solutions
+          </h1>
+          <p className="text-[clamp(1.2rem,2vw,2rem)] text-slate-600 max-w-4xl mx-auto leading-relaxed">
+            Summary of difficulties encountered during the internship and solutions implemented
+          </p>
         </div>
       </div>
 
-      {/* Main Content - centered vertically in remaining space */}
-      <div className="flex-1 flex flex-col justify-center">
-        {/* Challenges Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
-          {challenges.map((challenge, index) => {
-            const IconComponent = challenge.icon;
-            return (
-              <Card key={index} className={`border-l-4 ${challenge.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300`}>
-                <CardHeader className="pb-3">
-                  <div className="flex items-center space-x-3 mb-2">
-                    <div className="p-2 rounded-lg bg-slate-100">
-                      <IconComponent className="w-5 h-5 text-slate-700" />
-                    </div>
-                    <CardTitle className="text-lg font-semibold text-slate-800">
-                      {challenge.title}
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {challenge.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-
-        {/* Learning Outcomes Section */}
-        <Card className="shadow-lg">
-          <CardHeader>
-            <div className="flex items-center space-x-3 mb-4">
-              <User className="w-6 h-6 text-slate-700" />
-              <CardTitle className="text-xl font-semibold text-slate-800">
-                Key Learning Outcomes
-              </CardTitle>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {learningOutcomes.map((outcome, index) => (
-                <div key={index} className="text-center">
-                  <div className={`inline-flex px-3 py-1 rounded-full text-sm font-medium mb-3 ${outcome.color}`}>
-                    {outcome.category}
-                  </div>
-                  <div className="space-y-2">
-                    {outcome.areas.map((area, areaIndex) => (
-                      <div key={areaIndex} className="text-sm text-slate-600 font-medium">
-                        {area}
+      {/* Main Content */}
+      <div className="flex-1 px-[4vw] pb-[4vh]">
+        <div className="max-w-7xl mx-auto">
+          {/* Challenges Grid */}
+          <div className={cn(
+            "grid grid-cols-1 lg:grid-cols-2 gap-[3vw] mb-12 transition-all duration-700 transform",
+            animationStep >= 2 ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+          )}>
+            {challenges.map((challenge, index) => {
+              const IconComponent = challenge.icon;
+              return (
+                <Card key={index} className={`border-l-4 ${challenge.borderColor} shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-white rounded-2xl`}>
+                  <CardHeader className="p-8 pb-6">
+                    <div className="flex items-start gap-5">
+                      <div className="p-3 rounded-xl bg-slate-100 flex-shrink-0">
+                        <IconComponent className="w-8 h-8 text-slate-700" />
                       </div>
-                    ))}
-                  </div>
+                      <div className="flex-1">
+                        <CardTitle className="text-2xl font-bold text-slate-800 mb-2">
+                          {challenge.title}
+                        </CardTitle>
+                      </div>
+                      <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0">
+                        <span className="text-base font-bold text-slate-600">
+                          {index + 1}
+                        </span>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="px-8 pb-8">
+                    <p className="text-base text-slate-600 leading-relaxed">
+                      {challenge.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+
+          {/* Learning Outcomes Section */}
+          <Card className={cn(
+            "shadow-xl bg-white rounded-2xl transition-all duration-700 transform",
+            animationStep >= 3 ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+          )}>
+            <CardHeader className="p-8 pb-6">
+              <div className="flex items-center space-x-4">
+                <div className="p-3 rounded-xl bg-slate-100">
+                  <User className="w-8 h-8 text-slate-700" />
                 </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+                <CardTitle className="text-2xl font-bold text-slate-800">
+                  Key Learning Outcomes
+                </CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent className="p-8 pt-0">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {learningOutcomes.map((outcome, index) => (
+                  <div key={index} className="text-center">
+                    <div className={`inline-flex px-4 py-2 rounded-full text-base font-semibold mb-4 ${outcome.color}`}>
+                      {outcome.category}
+                    </div>
+                    <div className="space-y-3">
+                      {outcome.areas.map((area, areaIndex) => (
+                        <div key={areaIndex} className="text-base text-slate-600 font-medium">
+                          {area}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
