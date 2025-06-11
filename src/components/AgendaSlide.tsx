@@ -93,7 +93,7 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
           <h1 className="text-5xl font-bold text-gray-800 mb-2">
-            Presentation Timeline
+            Conteúdo da Apresentação
           </h1>
           <p className="text-xl text-gray-600 font-light">
             Journey through the audio fingerprinting analysis
