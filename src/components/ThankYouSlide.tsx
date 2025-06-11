@@ -40,14 +40,14 @@ const ThankYouSlide: React.FC<ThankYouSlideProps> = ({ isActive }) => {
   return (
     <div className={`min-h-screen w-full relative overflow-hidden p-8 flex flex-col items-center justify-center text-white ${isActive ? 'animate-fade-in' : ''}`}>
       {/* Enhanced Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-purple-700 to-indigo-800"></div>
-      <div className="absolute inset-0 bg-gradient-to-tl from-blue-900/30 via-transparent to-purple-600/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-700 to-teal-800"></div>
+      <div className="absolute inset-0 bg-gradient-to-tl from-indigo-900/30 via-transparent to-cyan-600/20"></div>
       
       {/* Animated Background Elements */}
       <div className="absolute top-10 left-10 w-32 h-32 bg-white/5 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute top-1/3 right-20 w-24 h-24 bg-blue-400/10 rounded-full blur-lg animate-pulse delay-1000"></div>
-      <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-purple-300/5 rounded-full blur-2xl animate-pulse delay-500"></div>
-      <div className="absolute bottom-1/3 right-1/3 w-20 h-20 bg-indigo-400/10 rounded-full blur-md animate-pulse delay-700"></div>
+      <div className="absolute top-1/3 right-20 w-24 h-24 bg-teal-400/10 rounded-full blur-lg animate-pulse delay-1000"></div>
+      <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-blue-300/5 rounded-full blur-2xl animate-pulse delay-500"></div>
+      <div className="absolute bottom-1/3 right-1/3 w-20 h-20 bg-cyan-400/10 rounded-full blur-md animate-pulse delay-700"></div>
       
       {/* Geometric Pattern Overlay */}
       <div className="absolute inset-0 opacity-10">
