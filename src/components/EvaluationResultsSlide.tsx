@@ -79,7 +79,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             <CardContent className="pt-0">
               <div className="space-y-2">
                 <PerformanceBar name="ACRCloud" value={74} maxValue={100} color={algorithmColors.ACRCloud} />
-                <PerformanceBar name="Mediaprobe" value={48} maxValue={100} color={algorithmColors.Mediaprobe} />
+                <PerformanceBar name="MP ACR" value={48} maxValue={100} color={algorithmColors.Mediaprobe} />
                 <PerformanceBar name="Soundfingerprinting" value={77} maxValue={100} color={algorithmColors.Soundfingerprinting} />
                 <PerformanceBar name="Olaf" value={46} maxValue={100} color={algorithmColors.Olaf} />
                 <PerformanceBar name="Audfprint" value={27} maxValue={100} color={algorithmColors.Audfprint} />
@@ -103,7 +103,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
               <div className="space-y-2">
                 <PerformanceBar name="ACRCloud" value={80} maxValue={350} unit="ms" color={algorithmColors.ACRCloud} />
                 <PerformanceBar name="Soundfingerprinting" value={110} maxValue={350} unit="ms" color={algorithmColors.Soundfingerprinting} />
-                <PerformanceBar name="Mediaprobe" value={120} maxValue={350} unit="ms" color={algorithmColors.Mediaprobe} />
+                <PerformanceBar name="MP ACR" value={120} maxValue={350} unit="ms" color={algorithmColors.Mediaprobe} />
                 <PerformanceBar name="Olaf" value={150} maxValue={350} unit="ms" color={algorithmColors.Olaf} />
                 <PerformanceBar name="Audfprint" value={200} maxValue={350} unit="ms" color={algorithmColors.Audfprint} />
                 <PerformanceBar name="Dejavu" value={350} maxValue={350} unit="ms" color={algorithmColors.Dejavu} />
@@ -131,12 +131,12 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </CardHeader>
             <CardContent className="pt-0">
               <div className="space-y-2">
-                <PerformanceBar name="ACRCloud" value={94} maxValue={100} color={algorithmColors.ACRCloud} />
-                <PerformanceBar name="Mediaprobe" value={92} maxValue={100} color={algorithmColors.Mediaprobe} />
-                <PerformanceBar name="Soundfingerprinting" value={89} maxValue={100} color={algorithmColors.Soundfingerprinting} />
-                <PerformanceBar name="Olaf" value={87} maxValue={100} color={algorithmColors.Olaf} />
-                <PerformanceBar name="Audfprint" value={85} maxValue={100} color={algorithmColors.Audfprint} />
-                <PerformanceBar name="Dejavu" value={78} maxValue={100} color={algorithmColors.Dejavu} />
+                <PerformanceBar name="ACRCloud" value={63} maxValue={100} color={algorithmColors.ACRCloud} />
+                <PerformanceBar name="MP ACR" value={67} maxValue={100} color={algorithmColors.Mediaprobe} />
+                <PerformanceBar name="Soundfingerprinting" value={56} maxValue={100} color={algorithmColors.Soundfingerprinting} />
+                <PerformanceBar name="Olaf" value={87} maxValue={10} color={algorithmColors.Olaf} />
+                <PerformanceBar name="Audfprint" value={100} maxValue={100} color={algorithmColors.Audfprint} />
+                <PerformanceBar name="Dejavu" value={14} maxValue={100} color={algorithmColors.Dejavu} />
               </div>
             </CardContent>
           </Card>
@@ -156,7 +156,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
               <div className="space-y-2">
                 <PerformanceBar name="ACRCloud" value={60} maxValue={200} unit="MB" color={algorithmColors.ACRCloud} />
                 <PerformanceBar name="Soundfingerprinting" value={75} maxValue={200} unit="MB" color={algorithmColors.Soundfingerprinting} />
-                <PerformanceBar name="Mediaprobe" value={85} maxValue={200} unit="MB" color={algorithmColors.Mediaprobe} />
+                <PerformanceBar name="MP ACR" value={85} maxValue={200} unit="MB" color={algorithmColors.Mediaprobe} />
                 <PerformanceBar name="Olaf" value={90} maxValue={200} unit="MB" color={algorithmColors.Olaf} />
                 <PerformanceBar name="Audfprint" value={120} maxValue={200} unit="MB" color={algorithmColors.Audfprint} />
                 <PerformanceBar name="Dejavu" value={200} maxValue={200} unit="MB" color={algorithmColors.Dejavu} />
