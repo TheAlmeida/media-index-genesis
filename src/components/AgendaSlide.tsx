@@ -25,6 +25,7 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
         setTimeout(() => setAnimationStep(7), 1400),
         setTimeout(() => setAnimationStep(8), 1600),
         setTimeout(() => setAnimationStep(9), 1800),
+        setTimeout(() => setAnimationStep(10), 2000),
       ];
 
       return () => timeouts.forEach(clearTimeout);
