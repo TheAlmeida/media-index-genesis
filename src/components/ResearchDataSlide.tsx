@@ -152,7 +152,6 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                           outerRadius={80}
                           dataKey="value"
                           label={({ name, value }) => `${name}: ${value}`}
-                          labelStyle={{ fontSize: '12px', fill: '#374151' }}
                         >
                           {dataset.data.map((entry, index) => (
                             <Cell key={`cell-${index}`} fill={entry.fill} />
