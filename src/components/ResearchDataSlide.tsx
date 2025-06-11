@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Database, FileText, Headphones } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 
 interface ResearchDataSlideProps {
   isActive?: boolean;
@@ -34,11 +35,11 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
       icon: FileText,
       title: "Open Source Dataset",
       subtitle: "pexafb_easy_small",
-      color: "blue",
-      stats: [
-        { label: "Reference Tracks", value: "99" },
-        { label: "Query Files", value: "21" },
-        { label: "Audio Segments", value: "~100" }
+      color: "#3b82f6",
+      data: [
+        { name: "Reference Tracks", value: 99, fill: "#3b82f6" },
+        { name: "Query Files", value: 21, fill: "#60a5fa" },
+        { name: "Audio Segments", value: 100, fill: "#93c5fd" }
       ],
       features: [
         "Free Music Archive (FMA) tracks",
@@ -51,11 +52,11 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
       icon: Headphones,
       title: "Experimental Dataset",
       subtitle: "Custom Mediaprobe Structure",
-      color: "green",
-      stats: [
-        { label: "Reference Files", value: "163" },
-        { label: "Music Content", value: "81%" },
-        { label: "Query Duration", value: "5-10s" }
+      color: "#10b981",
+      data: [
+        { name: "Music Content", value: 81, fill: "#10b981" },
+        { name: "Other Content", value: 19, fill: "#34d399" },
+        { name: "Total Files", value: 163, fill: "#6ee7b7" }
       ],
       features: [
         "Reflects Mediaprobe's internal database structure",
@@ -68,11 +69,11 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
       icon: Database,
       title: "Expanded Version",
       subtitle: "With Advertising Content",
-      color: "purple",
-      stats: [
-        { label: "Total Files", value: "182" },
-        { label: "Total Duration", value: "90+ min" },
-        { label: "Advertisements", value: "18" }
+      color: "#8b5cf6",
+      data: [
+        { name: "Regular Content", value: 164, fill: "#8b5cf6" },
+        { name: "Advertisements", value: 18, fill: "#a78bfa" },
+        { name: "Total Duration (min)", value: 90, fill: "#c4b5fd" }
       ],
       features: [
         "Integrated Super Bowl advertisements",
@@ -83,15 +84,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
     }
   ];
 
-  const getColorClasses = (color: string) => {
-    const colorMap = {
-      blue: "bg-blue-500 border-blue-500 text-blue-600",
-      green: "bg-green-500 border-green-500 text-green-600", 
-      purple: "bg-purple-500 border-purple-500 text-purple-600",
-      orange: "bg-orange-500 border-orange-500 text-orange-600"
-    };
-    return colorMap[color as keyof typeof colorMap] || colorMap.blue;
-  };
+  const COLORS = ['#3b82f6', '#10b981', '#8b5cf6'];
 
   return (
     <div className={cn(
@@ -113,29 +106,29 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
         </div>
       </div>
 
-      {/* Main Content - Dataset Cards Only */}
-      <div className="flex-1 px-[2vw] pb-[9vh] min-h-0">
+      {/* Main Content - Dataset Charts */}
+      <div className="flex-1 px-[2vw] pb-[4vh] min-h-0">
         <div className="h-full flex items-center justify-center">
           <div className="grid grid-cols-3 gap-[2vw] max-w-[90vw] w-full">
             {datasets.map((dataset, index) => {
               const Icon = dataset.icon;
-              const colorClasses = getColorClasses(dataset.color);
               
               return (
                 <div 
                   key={index}
                   className={cn(
-                    "bg-white rounded-lg shadow-lg border-l-4 p-[1.5vw] transition-all duration-700 transform hover:scale-[1.01] hover:shadow-xl flex flex-col h-[60vh]",
-                    `border-${dataset.color}-500`,
+                    "bg-white rounded-lg shadow-lg border-l-4 p-[1.5vw] transition-all duration-700 transform hover:scale-[1.01] hover:shadow-xl flex flex-col h-[70vh]",
+                    `border-[${dataset.color}]`,
                     animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   )}
+                  style={{ borderLeftColor: dataset.color }}
                 >
                   {/* Header */}
                   <div className="flex items-center gap-[0.8vw] mb-[2vh] flex-shrink-0">
-                    <div className={cn(
-                      "w-[3.2vw] h-[3.2vw] min-w-[40px] min-h-[40px] rounded-full flex items-center justify-center",
-                      colorClasses.split(' ')[0]
-                    )}>
+                    <div 
+                      className="w-[3.2vw] h-[3.2vw] min-w-[40px] min-h-[40px] rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: dataset.color }}
+                    >
                       <Icon className="w-[1.8vw] h-[1.8vw] min-w-[22px] min-h-[22px] text-white" />
                     </div>
                     <div className="flex-1">
@@ -148,31 +141,43 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                     </div>
                   </div>
 
-                  {/* Stats */}
-                  <div className="grid grid-cols-3 gap-3 mb-[2vh] flex-shrink-0">
-                    {dataset.stats.map((stat, idx) => (
-                      <div key={idx} className="text-center p-3 bg-gray-50 rounded">
-                        <div className={cn(
-                          "text-[clamp(1.4rem,1.8vw,1.8rem)] font-bold leading-tight",
-                          colorClasses.split(' ')[2]
-                        )}>
-                          {stat.value}
-                        </div>
-                        <div className="text-[clamp(1rem,1.3vw,1.3rem)] text-gray-600 leading-tight">
-                          {stat.label}
-                        </div>
-                      </div>
-                    ))}
+                  {/* Pie Chart */}
+                  <div className="h-[30vh] w-full mb-[2vh] flex-shrink-0">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <PieChart>
+                        <Pie
+                          data={dataset.data}
+                          cx="50%"
+                          cy="50%"
+                          outerRadius={80}
+                          dataKey="value"
+                          label={({ name, value }) => `${name}: ${value}`}
+                          labelStyle={{ fontSize: '12px', fill: '#374151' }}
+                        >
+                          {dataset.data.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={entry.fill} />
+                          ))}
+                        </Pie>
+                        <Tooltip 
+                          contentStyle={{ 
+                            backgroundColor: 'white', 
+                            border: `2px solid ${dataset.color}`,
+                            borderRadius: '8px',
+                            fontSize: '14px'
+                          }}
+                        />
+                      </PieChart>
+                    </ResponsiveContainer>
                   </div>
 
                   {/* Features - Fill remaining space */}
                   <div className="flex-1 space-y-[1vh] overflow-hidden">
                     {dataset.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-3">
-                        <div className={cn(
-                          "w-2 h-2 rounded-full mt-2 flex-shrink-0",
-                          colorClasses.split(' ')[0]
-                        )} />
+                        <div 
+                          className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
+                          style={{ backgroundColor: dataset.color }}
+                        />
                         <p className="text-[clamp(1.2rem,1.6vw,1.6rem)] text-gray-600 leading-relaxed">
                           {feature}
                         </p>
