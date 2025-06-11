@@ -81,7 +81,7 @@ const InternshipContextSlide: React.FC<InternshipContextSlideProps> = ({ isActiv
             <div className="mb-[2vh]">
               <h3 className="text-[clamp(1.2rem,2vw,2rem)] font-semibold text-gray-700 mb-[1vh]">Visão Geral da Empresa</h3>
               <p className="text-[clamp(0.9rem,1.3vw,1.3rem)] text-gray-600 leading-relaxed">
-                Empresa líder portuguesa de tecnologia especializada na avaliação do impacto emocional de conteúdo audiovisual (EIS - Emotional Impact Score)
+                Empresa líder portuguesa de tecnologia especializada na medição do envolvimento emocional de conteúdo audiovisual (EIS - Emotional Impact Score)
               </p>
             </div>
 
