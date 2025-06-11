@@ -21,11 +21,11 @@ const ConclusionsSlide: React.FC<ConclusionsSlideProps> = ({ isActive }) => {
   const recommendations = [
     {
       number: "1",
-      title: "Implementar um mecanismo de votação temporal (como no Audfprint e Olaf) para melhorar o recall sob condições ruidosas",
+      title: "Implementar um mecanismo de votação temporal (como no Audfprint) para tentar melhorar o recall sob condições ruidosas",
     },
     {
       number: "2",
-      title: "Rever a estratégia de codificação de fingerprint, adotando estruturas landmark robustas para melhorar a resistência à variação de áudio",
+      title: "Rever a estratégia de codificação de fingerprint, estruturas landmark mais robustas podem melhorar a resistência à variação de áudio",
     },
     {
       number: "3",
