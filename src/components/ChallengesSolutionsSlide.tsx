@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Wrench, Book, Target, File, User, AlertTriangle, TrendingUp, Check } from 'lucide-react';
+import { Wrench, Book, Target, File, Brain, Search, Settings, AlertTriangle, TrendingUp, Trophy, Zap, Users } from 'lucide-react';
 
 interface ChallengesSolutionsSlideProps {
   isActive: boolean;
@@ -31,25 +32,64 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
       icon: File,
       title: "Report Writing",
       borderColor: "border-l-blue-500",
-      description: "Resumir descobertas técnicas de forma clara e coerente foi exigente, requerendo precisão, estrutura e competências de comunicação."
+      description: "Resumir descobertas técnicas de forma clara e coerente foi exigente, requerindo precisão, estrutura e competências de comunicação."
     }
   ];
 
-  const learningOutcomes = [
+  const futureWork = [
     {
-      category: "Technical",
-      color: "bg-blue-100 text-blue-800",
-      areas: ["Autonomia", "Competências de resolução de problemas"]
+      icon: Brain,
+      title: "AI-Based Algorithms",
+      priority: "High Priority",
+      impact: "Revolutionary",
+      timeline: "Médio prazo",
+      viability: "Alta",
+      borderColor: "border-l-purple-500",
+      description: "Avaliação adicional de sistemas de audio fingerprinting baseados em inteligência artificial, como Neural-Audio-Fingerprint, poderia oferecer insights sobre a sua maturidade, robustez e aplicabilidade no mundo real comparados aos métodos espectrais tradicionais."
     },
     {
-      category: "Research",
-      color: "bg-green-100 text-green-800",
-      areas: ["Metodologia", "Análise aprofundada"]
+      icon: Search,
+      title: "Content-Specific Testing",
+      priority: "High Priority",
+      impact: "Significant",
+      timeline: "Longo prazo",
+      viability: "Média",
+      borderColor: "border-l-green-500",
+      description: "Expandir o dataset permitiria análise estatística do desempenho dos algoritmos através de diferentes tipos de conteúdo (ex: música, desporto, filme) e tipos de distorção (ex: ruído, reverb, mudanças de pitch). Um aumento de dez vezes no conjunto de referência permitiria conclusões mais granulares e confiáveis."
     },
     {
-      category: "Communication",
-      color: "bg-purple-100 text-purple-800",
-      areas: ["Competências", "Escrita técnica"]
+      icon: Settings,
+      title: "Parameter Harmonization",
+      priority: "Medium Priority",
+      impact: "High",
+      timeline: "Curto prazo",
+      viability: "Alta",
+      borderColor: "border-l-blue-500",
+      description: "Retestar todos os algoritmos sob condições técnicas unificadas—como tamanhos idênticos de janela FFT, hop sizes, sampling rates e thresholds de segmentação—garantiria comparações mais justas e revelaria sensibilidade a mudanças de configuração, o que é crítico para integração em pipelines de produção."
+    }
+  ];
+
+  const keyLearnings = [
+    {
+      icon: Trophy,
+      title: "Technical Excellence",
+      description: "Desenvolveu autonomia técnica avançada e competências de resolução de problemas complexos",
+      color: "bg-blue-50 border-blue-200",
+      iconColor: "text-blue-600"
+    },
+    {
+      icon: Zap,
+      title: "Research Methodology",
+      description: "Aplicou métodos de investigação rigorosos e análise aprofundada de sistemas complexos",
+      color: "bg-green-50 border-green-200",
+      iconColor: "text-green-600"
+    },
+    {
+      icon: Users,
+      title: "Professional Communication",
+      description: "Aperfeiçoou competências de comunicação técnica e escrita científica estruturada",
+      color: "bg-purple-50 border-purple-200",
+      iconColor: "text-purple-600"
     }
   ];
 
@@ -73,67 +113,127 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
         </div>
       </div>
 
-      {/* Challenges Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
-        {challenges.map((challenge, index) => {
-          const IconComponent = challenge.icon;
-          return (
-            <Card key={index} className={`border-l-4 ${challenge.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300`}>
-              <CardHeader className="pb-3">
-                <div className="flex items-center space-x-3 mb-2">
-                  <div className="p-2 rounded-lg bg-slate-100">
-                    <IconComponent className="w-5 h-5 text-slate-700" />
-                  </div>
-                  <CardTitle className="text-lg font-semibold text-slate-800">
-                    {challenge.title}
-                  </CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <p className="text-sm text-slate-600 mb-4 leading-relaxed">
-                  {challenge.description}
-                </p>
-                <div className="flex items-center space-x-2 text-green-600">
-                  <Check className="w-4 h-4" />
-                  <span className="text-sm font-medium">
-                    Resolvido com sucesso através de abordagem estratégica e persistência
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-          );
-        })}
+      {/* Main Content Container - 60% for challenges, 40% for future work */}
+      <div className="flex flex-col space-y-8" style={{ height: 'calc(100vh - 200px)' }}>
+        
+        {/* Challenges Section - 60% height */}
+        <div className="flex-shrink-0" style={{ height: '60%' }}>
+          <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">Project Challenges</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full">
+            {challenges.map((challenge, index) => {
+              const IconComponent = challenge.icon;
+              return (
+                <Card key={index} className={`border-l-4 ${challenge.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col`}>
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center space-x-3 mb-2">
+                      <div className="p-2 rounded-lg bg-slate-100">
+                        <IconComponent className="w-5 h-5 text-slate-700" />
+                      </div>
+                      <CardTitle className="text-lg font-semibold text-slate-800">
+                        {challenge.title}
+                      </CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-0 flex-1">
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {challenge.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Future Work Section - 40% height */}
+        <div className="flex-1 min-h-0">
+          <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">Future Work Recommendations</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
+            {futureWork.map((work, index) => {
+              const IconComponent = work.icon;
+              return (
+                <Card key={index} className={`border-l-4 ${work.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col`}>
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <div className="p-2 rounded-lg bg-slate-100">
+                        <IconComponent className="w-5 h-5 text-slate-700" />
+                      </div>
+                      <CardTitle className="text-lg font-semibold text-slate-800">
+                        {work.title}
+                      </CardTitle>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      <Badge variant="secondary" className="text-xs">
+                        {work.priority}
+                      </Badge>
+                      <Badge variant="outline" className="text-xs">
+                        {work.impact}
+                      </Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-0 flex-1 flex flex-col">
+                    <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-1">
+                      {work.description}
+                    </p>
+                    <div className="grid grid-cols-2 gap-3 mt-auto">
+                      <div className="text-center">
+                        <span className="text-xs font-medium text-slate-500 uppercase tracking-wide block mb-1">
+                          Cronograma
+                        </span>
+                        <span className="text-xs text-slate-700 font-medium">
+                          {work.timeline}
+                        </span>
+                      </div>
+                      <div className="text-center">
+                        <span className="text-xs font-medium text-slate-500 uppercase tracking-wide block mb-1">
+                          Viabilidade
+                        </span>
+                        <span className="text-xs text-slate-700 font-medium">
+                          {work.viability}
+                        </span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
-      {/* Learning Outcomes Section */}
-      <Card className="shadow-lg">
-        <CardHeader>
-          <div className="flex items-center space-x-3 mb-4">
-            <User className="w-6 h-6 text-slate-700" />
-            <CardTitle className="text-xl font-semibold text-slate-800">
-              Key Learning Outcomes
-            </CardTitle>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {learningOutcomes.map((outcome, index) => (
-              <div key={index} className="text-center">
-                <div className={`inline-flex px-3 py-1 rounded-full text-sm font-medium mb-3 ${outcome.color}`}>
-                  {outcome.category}
-                </div>
-                <div className="space-y-2">
-                  {outcome.areas.map((area, areaIndex) => (
-                    <div key={areaIndex} className="text-sm text-slate-600 font-medium">
-                      {area}
+      {/* Key Learning Section - Reworked */}
+      <div className="mt-8">
+        <Card className="shadow-lg">
+          <CardHeader>
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <TrendingUp className="w-6 h-6 text-slate-700" />
+              <CardTitle className="text-xl font-semibold text-slate-800 text-center">
+                Key Learning Outcomes
+              </CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {keyLearnings.map((learning, index) => {
+                const IconComponent = learning.icon;
+                return (
+                  <div key={index} className={`p-6 rounded-lg border-2 ${learning.color} text-center hover:shadow-md transition-shadow duration-300`}>
+                    <div className={`w-12 h-12 ${learning.iconColor} mx-auto mb-4 flex items-center justify-center rounded-full bg-white shadow-sm`}>
+                      <IconComponent className="w-6 h-6" />
                     </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+                    <h3 className="text-lg font-semibold text-slate-800 mb-3">
+                      {learning.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {learning.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };
