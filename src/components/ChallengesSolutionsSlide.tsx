@@ -73,61 +73,65 @@ const ChallengesSolutionsSlide: React.FC<ChallengesSolutionsSlideProps> = ({ isA
         </div>
       </div>
 
-      {/* Challenges Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12 flex-shrink-0">
-        {challenges.map((challenge, index) => {
-          const IconComponent = challenge.icon;
-          return (
-            <Card key={index} className={`border-l-4 ${challenge.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300`}>
-              <CardHeader className="pb-3">
-                <div className="flex items-center space-x-3 mb-2">
-                  <div className="p-2 rounded-lg bg-slate-100">
-                    <IconComponent className="w-5 h-5 text-slate-700" />
+      {/* Challenges Grid - Centered */}
+      <div className="flex justify-center mb-12 flex-shrink-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl w-full">
+          {challenges.map((challenge, index) => {
+            const IconComponent = challenge.icon;
+            return (
+              <Card key={index} className={`border-l-4 ${challenge.borderColor} shadow-lg hover:shadow-xl transition-shadow duration-300`}>
+                <CardHeader className="pb-3">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <div className="p-2 rounded-lg bg-slate-100">
+                      <IconComponent className="w-5 h-5 text-slate-700" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-slate-800">
+                      {challenge.title}
+                    </CardTitle>
                   </div>
-                  <CardTitle className="text-lg font-semibold text-slate-800">
-                    {challenge.title}
-                  </CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {challenge.description}
-                </p>
-              </CardContent>
-            </Card>
-          );
-        })}
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {challenge.description}
+                  </p>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Learning Outcomes Section */}
-      <Card className="shadow-lg flex-shrink-0">
-        <CardHeader>
-          <div className="flex items-center space-x-3 mb-4">
-            <User className="w-6 h-6 text-slate-700" />
-            <CardTitle className="text-xl font-semibold text-slate-800">
-              Key Learning Outcomes
-            </CardTitle>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {learningOutcomes.map((outcome, index) => (
-              <div key={index} className="text-center">
-                <div className={`inline-flex px-3 py-1 rounded-full text-sm font-medium mb-3 ${outcome.color}`}>
-                  {outcome.category}
+      {/* Learning Outcomes Section - Centered */}
+      <div className="flex justify-center flex-shrink-0">
+        <Card className="shadow-lg max-w-4xl w-full">
+          <CardHeader>
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <User className="w-6 h-6 text-slate-700" />
+              <CardTitle className="text-xl font-semibold text-slate-800">
+                Key Learning Outcomes
+              </CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {learningOutcomes.map((outcome, index) => (
+                <div key={index} className="text-center">
+                  <div className={`inline-flex px-3 py-1 rounded-full text-sm font-medium mb-3 ${outcome.color}`}>
+                    {outcome.category}
+                  </div>
+                  <div className="space-y-2">
+                    {outcome.areas.map((area, areaIndex) => (
+                      <div key={areaIndex} className="text-sm text-slate-600 font-medium">
+                        {area}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  {outcome.areas.map((area, areaIndex) => (
-                    <div key={areaIndex} className="text-sm text-slate-600 font-medium">
-                      {area}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };
