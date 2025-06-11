@@ -96,12 +96,12 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </CardHeader>
             <CardContent className="pt-0">
               <div className="space-y-2">
-                <PerformanceBar name="ACRCloud" value={100} maxValue={100} unit="%" color={algorithmColors.ACRCloud} />
-                <PerformanceBar name="Soundfingerprinting" value={73} maxValue={100} unit="%" color={algorithmColors.Soundfingerprinting} />
-                <PerformanceBar name="MP ACR" value={67} maxValue={100} unit="%" color={algorithmColors.Mediaprobe} />
-                <PerformanceBar name="Olaf" value={53} maxValue={100} unit="%" color={algorithmColors.Olaf} />
-                <PerformanceBar name="Audfprint" value={40} maxValue={100} unit="%" color={algorithmColors.Audfprint} />
-                <PerformanceBar name="Dejavu" value={23} maxValue={100} unit="%" color={algorithmColors.Dejavu} />
+                <PerformanceBar name="ACRCloud" value={0} maxValue={2.55} unit="%" color={algorithmColors.ACRCloud} />
+                <PerformanceBar name="Soundfingerprinting" value={0.51} maxValue={2.55} unit="%" color={algorithmColors.Soundfingerprinting} />
+                <PerformanceBar name="MP ACR" value={2.55} maxValue={2.55} unit="%" color={algorithmColors.Mediaprobe} />
+                <PerformanceBar name="Olaf" value={0.09} maxValue={2.55} unit="%" color={algorithmColors.Olaf} />
+                <PerformanceBar name="Audfprint" value={2.19} maxValue={2.55} unit="%" color={algorithmColors.Audfprint} />
+                <PerformanceBar name="Dejavu" value={0.92} maxValue={2.55} unit="%" color={algorithmColors.Dejavu} />
               </div>
             </CardContent>
           </Card>
