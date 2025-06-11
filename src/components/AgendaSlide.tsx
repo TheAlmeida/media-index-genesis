@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { User, Shield, File, Settings, ChartBar, Target, Clock, Check, Database, ArrowRight } from 'lucide-react';
+import { User, Shield, File, Settings, ChartBar, Target, Clock, Check, Database, ArrowDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface AgendaSlideProps {
@@ -37,47 +37,65 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
     {
       icon: User,
       title: "Internship Context",
+      color: "blue",
       bgColor: "bg-blue-500",
+      textColor: "text-blue-500",
     },
     {
       icon: Shield,
       title: "Host Company & State of Art",
+      color: "indigo",
       bgColor: "bg-indigo-500",
+      textColor: "text-indigo-500",
     },
     {
       icon: File,
       title: "Achieved Algorithms",
+      color: "purple",
       bgColor: "bg-purple-500",
+      textColor: "text-purple-500",
     },
     {
       icon: Database,
       title: "Datasets",
+      color: "teal",
       bgColor: "bg-teal-500",
+      textColor: "text-teal-500",
     },
     {
       icon: Settings,
       title: "Evaluation Methodologies",
+      color: "green",
       bgColor: "bg-green-500",
+      textColor: "text-green-500",
     },
     {
       icon: ChartBar,
       title: "Experimental Results",
+      color: "yellow",
       bgColor: "bg-yellow-500",
+      textColor: "text-yellow-500",
     },
     {
       icon: Target,
       title: "Challenges & Solutions",
+      color: "red",
       bgColor: "bg-red-500",
+      textColor: "text-red-500",
     },
     {
       icon: Clock,
       title: "Future Work",
+      color: "orange",
       bgColor: "bg-orange-500",
+      textColor: "text-orange-500",
     },
     {
       icon: Check,
       title: "Conclusions",
+      color: "pink",
       bgColor: "bg-pink-500",
+      textColor: "text-pink-500",
     }
   ];
 
@@ -87,7 +105,7 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
       className
     )}>
       {/* Header */}
-      <div className="flex-shrink-0 pt-[2vh] pb-[2vh] px-[2vw]">
+      <div className="flex-shrink-0 pt-[2vh] pb-[1vh] px-[2vw]">
         <div className={cn(
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
@@ -101,104 +119,92 @@ const AgendaSlide: React.FC<AgendaSlideProps> = ({ isActive = true, className })
         </div>
       </div>
 
-      {/* Horizontal Timeline - Fixed Width to Fit All */}
+      {/* Zigzag Timeline */}
       <div className="flex-1 px-[2vw] pb-[2vh] relative">
-        <div className="relative h-full w-full flex items-center justify-center">
-          <div className="flex items-center justify-between w-full max-w-[95vw] gap-2">
-            {agendaItems.map((item, index) => {
-              const Icon = item.icon;
-              const isAbove = index % 2 === 0;
-              
-              return (
-                <div key={index} className="relative flex flex-col items-center flex-1">
-                  {/* Bubble Container */}
-                  <div className={cn(
-                    "relative flex flex-col items-center transition-all duration-700 transform",
-                    animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
-                    isAbove ? "justify-start" : "justify-end flex-col-reverse"
-                  )} style={{
-                    animation: `float 8s ease-in-out infinite`,
-                    animationDelay: `${index * 0.8}s`
-                  }}>
-                    
-                    {/* Main Bubble - Fixed Size */}
-                    <div className={cn(
-                      "relative w-24 h-24 rounded-full flex flex-col items-center justify-center text-white shadow-lg border-4 border-white",
-                      item.bgColor,
-                      isAbove ? "mb-4" : "mt-4"
-                    )}>
-                      {/* Number Badge */}
-                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-md">
-                        <span className="text-xs font-bold text-gray-800">{index + 1}</span>
-                      </div>
-                      
-                      {/* Icon */}
-                      <Icon className="w-6 h-6 mb-1" />
-                      
-                      {/* Title */}
-                      <div className="text-center px-1">
-                        <h3 className="text-[10px] font-semibold leading-tight">
+        <div className="relative h-full">
+          {/* Vertical connecting line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-300 transform -translate-x-1/2"></div>
+          
+          {agendaItems.map((item, index) => {
+            const Icon = item.icon;
+            const isLeft = index % 2 === 0;
+            const rowIndex = Math.floor(index / 2);
+            const topPosition = (index * 10) + 5; // Distribute evenly across height
+            
+            return (
+              <div key={index} className="absolute w-full" style={{ top: `${topPosition}%` }}>
+                {/* Step Container */}
+                <div className={cn(
+                  "flex items-center transition-all duration-700 transform",
+                  isLeft ? "justify-start" : "justify-end",
+                  animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                )}>
+                  {/* Left side content */}
+                  {isLeft && (
+                    <div className="w-[45%] pr-[2vw] text-right">
+                      <div className="bg-white rounded-lg p-[1vw] shadow-md border-l-4" style={{ borderLeftColor: item.bgColor.replace('bg-', '#') }}>
+                        <div className="flex items-center justify-end gap-[0.5vw] mb-[0.5vh]">
+                          <span className={cn(
+                            "inline-flex items-center justify-center rounded-full text-white font-bold",
+                            "w-[2vw] h-[2vw] min-w-[24px] min-h-[24px] text-[clamp(0.7rem,1vw,1rem)]",
+                            item.bgColor
+                          )}>
+                            {index + 1}
+                          </span>
+                        </div>
+                        <h3 className="text-[clamp(0.9rem,1.2vw,1.2rem)] font-bold text-gray-800 leading-tight">
                           {item.title}
                         </h3>
                       </div>
                     </div>
+                  )}
+
+                  {/* Center circle */}
+                  <div className="relative z-10">
+                    <div className={cn(
+                      "rounded-full border-4 border-white shadow-lg flex items-center justify-center",
+                      "w-[4vw] h-[4vw] min-w-[60px] min-h-[60px]",
+                      item.bgColor
+                    )}>
+                      <Icon className="w-[2vw] h-[2vw] min-w-[30px] min-h-[30px] text-white" />
+                    </div>
                   </div>
 
-                  {/* Curved Zigzag Arrow - Connecting to actual bubbles */}
-                  {index < agendaItems.length - 1 && (
-                    <div className={cn(
-                      "absolute left-[calc(100%-12px)] top-1/2 transform -translate-y-1/2 z-10 transition-all duration-700",
-                      animationStep >= index + 3 ? "opacity-100" : "opacity-0"
-                    )}>
-                      <svg 
-                        width="24" 
-                        height="40" 
-                        viewBox="0 0 24 40" 
-                        className="text-gray-400"
-                      >
-                        <path
-                          d={isAbove ? "M0,20 Q8,8 16,20 Q20,28 24,20" : "M0,20 Q8,32 16,20 Q20,12 24,20"}
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          fill="none"
-                          markerEnd="url(#arrowhead)"
-                        />
-                        <defs>
-                          <marker
-                            id="arrowhead"
-                            markerWidth="8"
-                            markerHeight="6"
-                            refX="7"
-                            refY="3"
-                            orient="auto"
-                          >
-                            <polygon
-                              points="0 0, 8 3, 0 6"
-                              fill="currentColor"
-                            />
-                          </marker>
-                        </defs>
-                      </svg>
+                  {/* Right side content */}
+                  {!isLeft && (
+                    <div className="w-[45%] pl-[2vw] text-left">
+                      <div className="bg-white rounded-lg p-[1vw] shadow-md border-r-4" style={{ borderRightColor: item.bgColor.replace('bg-', '#') }}>
+                        <div className="flex items-center gap-[0.5vw] mb-[0.5vh]">
+                          <span className={cn(
+                            "inline-flex items-center justify-center rounded-full text-white font-bold",
+                            "w-[2vw] h-[2vw] min-w-[24px] min-h-[24px] text-[clamp(0.7rem,1vw,1rem)]",
+                            item.bgColor
+                          )}>
+                            {index + 1}
+                          </span>
+                        </div>
+                        <h3 className="text-[clamp(0.9rem,1.2vw,1.2rem)] font-bold text-gray-800 leading-tight">
+                          {item.title}
+                        </h3>
+                      </div>
                     </div>
                   )}
                 </div>
-              );
-            })}
-          </div>
+
+                {/* Arrow to next step */}
+                {index < agendaItems.length - 1 && (
+                  <div className={cn(
+                    "absolute left-1/2 transform -translate-x-1/2 mt-[1vh] transition-all duration-700",
+                    animationStep >= index + 3 ? "opacity-100" : "opacity-0"
+                  )}>
+                    <ArrowDown className="w-[1.5vw] h-[1.5vw] min-w-[20px] min-h-[20px] text-gray-400" />
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
-
-      {/* CSS Animation for slower floating effect */}
-      <style>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-8px);
-          }
-        }
-      `}</style>
     </div>
   );
 };
