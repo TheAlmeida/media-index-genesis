@@ -36,10 +36,21 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
       title: "Open Source Dataset",
       subtitle: "pexafb_easy_small",
       color: "#3b82f6",
-      data: [
-        { name: "Reference Tracks", value: 99, fill: "#3b82f6" },
-        { name: "Query Files", value: 21, fill: "#60a5fa" },
-        { name: "Audio Segments", value: 100, fill: "#93c5fd" }
+      charts: [
+        {
+          title: "Reference vs Query",
+          data: [
+            { name: "Reference Tracks", value: 99, fill: "#3b82f6" },
+            { name: "Query Files", value: 21, fill: "#60a5fa" }
+          ]
+        },
+        {
+          title: "Audio Segments",
+          data: [
+            { name: "Audio Segments", value: 100, fill: "#93c5fd" },
+            { name: "Processed", value: 80, fill: "#dbeafe" }
+          ]
+        }
       ],
       features: [
         "Free Music Archive (FMA) tracks",
@@ -53,10 +64,29 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
       title: "Experimental Dataset",
       subtitle: "Custom Mediaprobe Structure",
       color: "#10b981",
-      data: [
-        { name: "Music Content", value: 81, fill: "#10b981" },
-        { name: "Other Content", value: 19, fill: "#34d399" },
-        { name: "Total Files", value: 163, fill: "#6ee7b7" }
+      charts: [
+        {
+          title: "Content Distribution",
+          data: [
+            { name: "Music Content", value: 81, fill: "#10b981" },
+            { name: "Other Content", value: 19, fill: "#34d399" }
+          ]
+        },
+        {
+          title: "Total Files",
+          data: [
+            { name: "Total Files", value: 163, fill: "#6ee7b7" },
+            { name: "Processed", value: 140, fill: "#a7f3d0" }
+          ]
+        },
+        {
+          title: "Content Types",
+          data: [
+            { name: "Movies", value: 30, fill: "#059669" },
+            { name: "Sports", value: 25, fill: "#10b981" },
+            { name: "Talk Shows", value: 45, fill: "#34d399" }
+          ]
+        }
       ],
       features: [
         "Reflects Mediaprobe's internal database structure",
@@ -70,10 +100,21 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
       title: "Expanded Version",
       subtitle: "With Advertising Content",
       color: "#8b5cf6",
-      data: [
-        { name: "Regular Content", value: 164, fill: "#8b5cf6" },
-        { name: "Advertisements", value: 18, fill: "#a78bfa" },
-        { name: "Total Duration (min)", value: 90, fill: "#c4b5fd" }
+      charts: [
+        {
+          title: "Content vs Ads",
+          data: [
+            { name: "Regular Content", value: 164, fill: "#8b5cf6" },
+            { name: "Advertisements", value: 18, fill: "#a78bfa" }
+          ]
+        },
+        {
+          title: "Duration Analysis",
+          data: [
+            { name: "Total Duration (min)", value: 90, fill: "#c4b5fd" },
+            { name: "Ad Duration (min)", value: 15, fill: "#ddd6fe" }
+          ]
+        }
       ],
       features: [
         "Integrated Super Bowl advertisements",
@@ -83,8 +124,6 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
       ]
     }
   ];
-
-  const COLORS = ['#3b82f6', '#10b981', '#8b5cf6'];
 
   return (
     <div className={cn(
@@ -117,7 +156,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                 <div 
                   key={index}
                   className={cn(
-                    "bg-white rounded-lg shadow-lg border-l-4 p-[1.5vw] transition-all duration-700 transform hover:scale-[1.01] hover:shadow-xl flex flex-col h-[70vh]",
+                    "bg-white rounded-lg shadow-lg border-l-4 p-[1.5vw] transition-all duration-700 transform hover:scale-[1.01] hover:shadow-xl flex flex-col h-[75vh]",
                     `border-[${dataset.color}]`,
                     animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   )}
@@ -141,32 +180,44 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                     </div>
                   </div>
 
-                  {/* Pie Chart */}
-                  <div className="h-[30vh] w-full mb-[2vh] flex-shrink-0">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <PieChart>
-                        <Pie
-                          data={dataset.data}
-                          cx="50%"
-                          cy="50%"
-                          outerRadius={80}
-                          dataKey="value"
-                          label={({ name, value }) => `${name}: ${value}`}
-                        >
-                          {dataset.data.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={entry.fill} />
-                          ))}
-                        </Pie>
-                        <Tooltip 
-                          contentStyle={{ 
-                            backgroundColor: 'white', 
-                            border: `2px solid ${dataset.color}`,
-                            borderRadius: '8px',
-                            fontSize: '14px'
-                          }}
-                        />
-                      </PieChart>
-                    </ResponsiveContainer>
+                  {/* Charts Grid */}
+                  <div className={cn(
+                    "flex-1 grid gap-4 mb-[2vh]",
+                    dataset.charts.length === 2 ? "grid-cols-2" : "grid-cols-1 grid-rows-3"
+                  )}>
+                    {dataset.charts.map((chart, chartIndex) => (
+                      <div key={chartIndex} className="flex flex-col">
+                        <h4 className="text-sm font-semibold text-gray-700 mb-2 text-center">
+                          {chart.title}
+                        </h4>
+                        <div className="flex-1 min-h-[120px]">
+                          <ResponsiveContainer width="100%" height="100%">
+                            <PieChart>
+                              <Pie
+                                data={chart.data}
+                                cx="50%"
+                                cy="50%"
+                                outerRadius={dataset.charts.length === 3 ? 50 : 60}
+                                dataKey="value"
+                                label={({ name, value }) => `${value}`}
+                              >
+                                {chart.data.map((entry, entryIndex) => (
+                                  <Cell key={`cell-${entryIndex}`} fill={entry.fill} />
+                                ))}
+                              </Pie>
+                              <Tooltip 
+                                contentStyle={{ 
+                                  backgroundColor: 'white', 
+                                  border: `2px solid ${dataset.color}`,
+                                  borderRadius: '8px',
+                                  fontSize: '12px'
+                                }}
+                              />
+                            </PieChart>
+                          </ResponsiveContainer>
+                        </div>
+                      </div>
+                    ))}
                   </div>
 
                   {/* Features - Fill remaining space */}
@@ -177,7 +228,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                           className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                           style={{ backgroundColor: dataset.color }}
                         />
-                        <p className="text-[clamp(1.2rem,1.6vw,1.6rem)] text-gray-600 leading-relaxed">
+                        <p className="text-[clamp(1rem,1.4vw,1.4rem)] text-gray-600 leading-relaxed">
                           {feature}
                         </p>
                       </div>
