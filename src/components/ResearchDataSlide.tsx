@@ -128,28 +128,21 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
     }
   ];
 
-  const CustomLegend = ({ payload }: any) => (
-    <div className="flex flex-col gap-2 ml-4">
-      {payload?.map((entry: any, index: number) => (
-        <div key={index} className="flex items-center gap-2">
-          <div 
-            className="w-3 h-3 rounded-sm"
-            style={{ backgroundColor: entry.color }}
-          />
-          <span className="text-sm text-gray-600">{entry.value}</span>
-        </div>
-      ))}
-    </div>
-  );
-
-  // Get unique categories for each dataset to avoid duplicate legends
-  const getUniqueCategories = (charts: any[]) => {
-    const allCategories = new Set();
-    charts.forEach(chart => {
-      chart.data.forEach((item: any) => allCategories.add(item.name));
+  // Get all unique categories across all datasets
+  const getAllUniqueCategories = () => {
+    const allCategories = new Set<string>();
+    datasets.forEach(dataset => {
+      dataset.charts.forEach(chart => {
+        chart.data.forEach(item => allCategories.add(item.name));
+      });
     });
-    return Array.from(allCategories);
+    return Array.from(allCategories).map(category => ({
+      name: category,
+      color: categoryColors[category as keyof typeof categoryColors]
+    }));
   };
+
+  const globalLegendData = getAllUniqueCategories();
 
   return (
     <div className={cn(
@@ -168,17 +161,17 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
 
       {/* Main Content - Dataset Charts */}
       <div className="flex-1 px-[2vw] pb-[4vh] min-h-0">
-        <div className="h-full flex items-center justify-center">
-          <div className="grid grid-cols-3 gap-[2vw] max-w-[90vw] w-full">
+        <div className="h-full flex flex-col items-center justify-center">
+          {/* Dataset Cards */}
+          <div className="grid grid-cols-3 gap-[2vw] max-w-[90vw] w-full mb-8">
             {datasets.map((dataset, index) => {
               const Icon = dataset.icon;
-              const uniqueCategories = getUniqueCategories(dataset.charts);
               
               return (
                 <div 
                   key={index}
                   className={cn(
-                    "bg-white rounded-lg shadow-lg border-l-4 p-[1.5vw] transition-all duration-700 transform hover:scale-[1.01] hover:shadow-xl flex flex-col h-[60vh]",
+                    "bg-white rounded-lg shadow-lg border-l-4 p-[1.5vw] transition-all duration-700 transform hover:scale-[1.01] hover:shadow-xl flex flex-col h-[55vh]",
                     `border-[${dataset.color}]`,
                     animationStep >= index + 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   )}
@@ -209,39 +202,33 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                         <h4 className="text-[clamp(0.9rem,1.2vw,1.2rem)] font-semibold text-gray-700 mb-2 text-center">
                           {chart.title}
                         </h4>
-                        <div className="flex-1 flex items-center min-h-[120px]">
-                          <div className="flex-1">
-                            <ResponsiveContainer width="100%" height={120}>
-                              <PieChart>
-                                <Pie
-                                  data={chart.data}
-                                  cx="50%"
-                                  cy="50%"
-                                  outerRadius={40}
-                                  dataKey="value"
-                                  label={chart.data.length === 1 ? false : ({ value }) => `${value}%`}
-                                  labelLine={false}
-                                >
-                                  {chart.data.map((entry, entryIndex) => (
-                                    <Cell key={`cell-${entryIndex}`} fill={entry.fill} />
-                                  ))}
-                                </Pie>
-                                <Tooltip 
-                                  formatter={(value) => [`${value}%`, '']}
-                                  contentStyle={{ 
-                                    backgroundColor: 'white', 
-                                    border: `2px solid ${dataset.color}`,
-                                    borderRadius: '8px',
-                                    fontSize: '12px'
-                                  }}
-                                />
-                              </PieChart>
-                            </ResponsiveContainer>
-                          </div>
-                          {/* Legend to the right of the chart */}
-                          {chart.data.length > 1 && (
-                            <CustomLegend payload={chart.data.map(item => ({ value: item.name, color: item.fill }))} />
-                          )}
+                        <div className="flex-1 flex items-center justify-center min-h-[120px]">
+                          <ResponsiveContainer width="100%" height={120}>
+                            <PieChart>
+                              <Pie
+                                data={chart.data}
+                                cx="50%"
+                                cy="50%"
+                                outerRadius={40}
+                                dataKey="value"
+                                label={chart.data.length === 1 ? false : ({ value }) => `${value}%`}
+                                labelLine={false}
+                              >
+                                {chart.data.map((entry, entryIndex) => (
+                                  <Cell key={`cell-${entryIndex}`} fill={entry.fill} />
+                                ))}
+                              </Pie>
+                              <Tooltip 
+                                formatter={(value) => [`${value}%`, '']}
+                                contentStyle={{ 
+                                  backgroundColor: 'white', 
+                                  border: `2px solid ${dataset.color}`,
+                                  borderRadius: '8px',
+                                  fontSize: '12px'
+                                }}
+                              />
+                            </PieChart>
+                          </ResponsiveContainer>
                         </div>
                       </div>
                     ))}
@@ -249,6 +236,22 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                 </div>
               );
             })}
+          </div>
+
+          {/* Global Legend - Horizontal below middle card */}
+          <div className={cn(
+            "flex items-center justify-center gap-6 transition-all duration-700 transform",
+            animationStep >= 4 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          )}>
+            {globalLegendData.map((item, index) => (
+              <div key={index} className="flex items-center gap-2">
+                <div 
+                  className="w-4 h-4 rounded-sm"
+                  style={{ backgroundColor: item.color }}
+                />
+                <span className="text-sm font-medium text-gray-700">{item.name}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
