@@ -33,22 +33,20 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
   const datasets = [
     {
       icon: FileText,
-      title: "Open Source Dataset",
-      subtitle: "pexafb_easy_small",
+      title: "pexafb_easy_small",
+      subtitle: "Open Source Dataset",
       color: "#3b82f6",
       charts: [
         {
-          title: "Reference vs Query",
+          title: "Referencias (99)",
           data: [
-            { name: "Reference Tracks", value: 99, fill: "#3b82f6" },
-            { name: "Query Files", value: 21, fill: "#60a5fa" }
+            { name: "Musica", value: 100, fill: "#3b82f6" }
           ]
         },
         {
-          title: "Audio Segments",
+          title: "Queries (21 com 100 chunks)",
           data: [
-            { name: "Audio Segments", value: 100, fill: "#93c5fd" },
-            { name: "Processed", value: 80, fill: "#dbeafe" }
+            { name: "Musica", value: 100, fill: "#60a5fa" }
           ]
         }
       ]
@@ -60,47 +58,57 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
       color: "#10b981",
       charts: [
         {
-          title: "Content Distribution",
+          title: "Referencias (163)",
           data: [
-            { name: "Music Content", value: 81, fill: "#10b981" },
-            { name: "Other Content", value: 19, fill: "#34d399" }
+            { name: "Musica", value: 81.0, fill: "#10b981" },
+            { name: "Filmes", value: 7.98, fill: "#34d399" },
+            { name: "Desporto", value: 3.68, fill: "#6ee7b7" },
+            { name: "Esports", value: 3.68, fill: "#a7f3d0" },
+            { name: "Talk-shows", value: 3.68, fill: "#d1fae5" }
           ]
         },
         {
-          title: "Total Files",
+          title: "Queries 10seg (75 com 75 chunks)",
           data: [
-            { name: "Total Files", value: 163, fill: "#6ee7b7" },
-            { name: "Processed", value: 140, fill: "#a7f3d0" }
+            { name: "Musica", value: 81.33, fill: "#059669" },
+            { name: "Desporto", value: 9.33, fill: "#10b981" },
+            { name: "Filmes", value: 6.67, fill: "#34d399" },
+            { name: "Esports", value: 2.67, fill: "#6ee7b7" }
           ]
         },
         {
-          title: "Content Types",
+          title: "Queries 5seg (128 com 75 chunks)",
           data: [
-            { name: "Movies", value: 30, fill: "#059669" },
-            { name: "Sports", value: 25, fill: "#10b981" },
-            { name: "Talk Shows", value: 45, fill: "#34d399" }
+            { name: "Musica", value: 75.0, fill: "#047857" },
+            { name: "Filmes", value: 10.9, fill: "#059669" },
+            { name: "Desporto", value: 7.03, fill: "#10b981" },
+            { name: "Talk-shows", value: 3.90, fill: "#34d399" },
+            { name: "Esports", value: 3.13, fill: "#6ee7b7" }
           ]
         }
       ]
     },
     {
       icon: Database,
-      title: "Expanded Version",
+      title: "Experimental Dataset",
       subtitle: "With Advertising Content",
       color: "#8b5cf6",
       charts: [
         {
-          title: "Content vs Ads",
+          title: "Referencias (181)",
           data: [
-            { name: "Regular Content", value: 164, fill: "#8b5cf6" },
-            { name: "Advertisements", value: 18, fill: "#a78bfa" }
+            { name: "Musica", value: 72.5, fill: "#8b5cf6" },
+            { name: "Anuncios", value: 9.89, fill: "#a78bfa" },
+            { name: "Filmes", value: 7.14, fill: "#c4b5fd" },
+            { name: "Desporto", value: 3.30, fill: "#ddd6fe" },
+            { name: "Esports", value: 3.30, fill: "#ede9fe" },
+            { name: "Talk-shows", value: 3.30, fill: "#f3f4f6" }
           ]
         },
         {
-          title: "Duration Analysis",
+          title: "Queries (1 com 18 chunks)",
           data: [
-            { name: "Total Duration (min)", value: 90, fill: "#c4b5fd" },
-            { name: "Ad Duration (min)", value: 15, fill: "#ddd6fe" }
+            { name: "Anuncios", value: 100, fill: "#7c3aed" }
           ]
         }
       ]
@@ -169,6 +177,9 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                   )}>
                     {dataset.charts.map((chart, chartIndex) => (
                       <div key={chartIndex} className="flex flex-col">
+                        <h4 className="text-[clamp(0.9rem,1.2vw,1.2rem)] font-semibold text-gray-700 mb-2 text-center">
+                          {chart.title}
+                        </h4>
                         <div className="flex-1 min-h-[120px]">
                           <ResponsiveContainer width="100%" height="100%">
                             <PieChart>
@@ -176,15 +187,17 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                                 data={chart.data}
                                 cx="50%"
                                 cy="50%"
-                                outerRadius={dataset.charts.length === 3 ? 50 : 60}
+                                outerRadius={dataset.charts.length === 3 ? 45 : 55}
                                 dataKey="value"
-                                label={({ name, value }) => `${value}`}
+                                label={({ name, value }) => `${value}%`}
+                                labelLine={false}
                               >
                                 {chart.data.map((entry, entryIndex) => (
                                   <Cell key={`cell-${entryIndex}`} fill={entry.fill} />
                                 ))}
                               </Pie>
                               <Tooltip 
+                                formatter={(value) => [`${value}%`, '']}
                                 contentStyle={{ 
                                   backgroundColor: 'white', 
                                   border: `2px solid ${dataset.color}`,
