@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Info, Mic, Settings, AudioWaveform, Hash, Database, Search, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -119,76 +118,72 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
       {/* Pipeline Section */}
       <div className="flex-shrink-0 px-[1vw] pt-[6vh] pb-[2vh]">
         <div className="w-full max-w-[98vw] mx-auto">
-          {/* Pipeline Card Container */}
+          {/* Pipeline Steps */}
           <div className={cn(
-            "bg-white rounded-[1.2vw] shadow-xl border border-gray-200 p-[1.2vw] transition-all duration-700 transform",
+            "flex items-center justify-between w-full gap-[0.3vw] transition-all duration-700 transform",
             animationStep >= 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           )}>
-
-            {/* Pipeline Steps */}
-            <div className="flex items-center justify-between w-full gap-[0.3vw]">
-              {pipelineSteps.map((step, index) => {
-                const StepIcon = step.icon;
-                const isVisible = animationStep >= (index + 3);
-                
-                return (
-                  <React.Fragment key={step.id}>
-                    {/* Step Card */}
+            {pipelineSteps.map((step, index) => {
+              const StepIcon = step.icon;
+              const isVisible = animationStep >= (index + 3);
+              
+              return (
+                <React.Fragment key={step.id}>
+                  {/* Step Card */}
+                  <div className={cn(
+                    "flex-1 max-w-[15vw] min-w-0 transition-all duration-700 transform",
+                    isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                  )}>
                     <div className={cn(
-                      "flex-1 max-w-[15vw] min-w-0 transition-all duration-700 transform",
-                      isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                      "relative rounded-[0.6vw] border-2 p-[0.6vw] text-center h-[20vh] flex flex-col justify-between shadow-lg",
+                      step.borderColor,
+                      step.bgColor
                     )}>
+                      {/* Step Number Badge */}
                       <div className={cn(
-                        "relative rounded-[0.6vw] border-2 p-[0.6vw] text-center h-[20vh] flex flex-col justify-between",
-                        step.borderColor,
-                        step.bgColor
+                        "absolute top-[0.2vw] right-[0.2vw] w-[1.4vw] h-[1.4vw] min-w-[16px] min-h-[16px] rounded-full text-white text-[clamp(0.7rem,1vw,1rem)] font-bold flex items-center justify-center",
+                        step.color
                       )}>
-                        {/* Step Number Badge */}
+                        {step.id}
+                      </div>
+
+                      {/* Icon */}
+                      <div className="flex justify-center mb-[0.2vh]">
                         <div className={cn(
-                          "absolute top-[0.2vw] right-[0.2vw] w-[1.4vw] h-[1.4vw] min-w-[16px] min-h-[16px] rounded-full text-white text-[clamp(0.7rem,1vw,1rem)] font-bold flex items-center justify-center",
+                          "w-[2.5vw] h-[2.5vw] min-w-[30px] min-h-[30px] rounded-full text-white flex items-center justify-center",
                           step.color
                         )}>
-                          {step.id}
+                          <StepIcon className="w-[1.3vw] h-[1.3vw] min-w-[16px] min-h-[16px]" />
                         </div>
+                      </div>
 
-                        {/* Icon */}
-                        <div className="flex justify-center mb-[0.2vh]">
-                          <div className={cn(
-                            "w-[2.5vw] h-[2.5vw] min-w-[30px] min-h-[30px] rounded-full text-white flex items-center justify-center",
-                            step.color
-                          )}>
-                            <StepIcon className="w-[1.3vw] h-[1.3vw] min-w-[16px] min-h-[16px]" />
-                          </div>
-                        </div>
-
-                        {/* Content */}
-                        <div className="flex-1 flex flex-col justify-center">
-                          <h3 className="text-[clamp(0.9rem,1.4vw,1.4rem)] font-bold text-gray-800 mb-[0.1vh]">
-                            {step.title}
-                          </h3>
-                          <p className="text-[clamp(0.7rem,1.1vw,1.1rem)] font-medium text-gray-700 mb-[0.2vh]">
-                            {step.function}
-                          </p>
-                          <p className="text-[clamp(0.65rem,0.95vw,0.95rem)] text-gray-600 font-light">
-                            {step.technical}
-                          </p>
-                        </div>
+                      {/* Content */}
+                      <div className="flex-1 flex flex-col justify-center">
+                        <h3 className="text-[clamp(0.9rem,1.4vw,1.4rem)] font-bold text-gray-800 mb-[0.1vh]">
+                          {step.title}
+                        </h3>
+                        <p className="text-[clamp(0.7rem,1.1vw,1.1rem)] font-medium text-gray-700 mb-[0.2vh]">
+                          {step.function}
+                        </p>
+                        <p className="text-[clamp(0.65rem,0.95vw,0.95rem)] text-gray-600 font-light">
+                          {step.technical}
+                        </p>
                       </div>
                     </div>
+                  </div>
 
-                    {/* Arrow (except after last step) */}
-                    {index < pipelineSteps.length - 1 && (
-                      <div className={cn(
-                        "flex-shrink-0 mx-[0.2vw] transition-all duration-700 transform",
-                        isVisible ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
-                      )}>
-                        <ArrowRight className="w-[1vw] h-[1vw] min-w-[14px] min-h-[14px] text-blue-500" />
-                      </div>
-                    )}
-                  </React.Fragment>
-                );
-              })}
-            </div>
+                  {/* Arrow (except after last step) */}
+                  {index < pipelineSteps.length - 1 && (
+                    <div className={cn(
+                      "flex-shrink-0 mx-[0.2vw] transition-all duration-700 transform",
+                      isVisible ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
+                    )}>
+                      <ArrowRight className="w-[1vw] h-[1vw] min-w-[14px] min-h-[14px] text-blue-500" />
+                    </div>
+                  )}
+                </React.Fragment>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -206,7 +201,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
                 <img 
                   src="https://github.com/worldveil/dejavu/blob/master/plots/spectrogram_peaks.png?raw=true"
                   alt="Spectrogram with peaks highlighted"
-                  className="max-w-full h-[30vh] object-contain rounded-[0.5vw]"
+                  className="max-w-full h-[30vh] object-contain rounded-[0.5vw] shadow-lg"
                 />
               </div>
               <div className="mt-[1vh] text-center">
@@ -230,7 +225,7 @@ const AudioFingerprintingSlide: React.FC<AudioFingerprintingSlideProps> = ({ isA
                 <img 
                   src="https://github.com/worldveil/dejavu/blob/master/plots/spectrogram_zoomed.png?raw=true"
                   alt="Zoomed spectrogram view"
-                  className="max-w-full h-[30vh] object-contain rounded-[0.5vw]"
+                  className="max-w-full h-[30vh] object-contain rounded-[0.5vw] shadow-lg"
                 />
               </div>
               <div className="mt-[1vh] text-center">
