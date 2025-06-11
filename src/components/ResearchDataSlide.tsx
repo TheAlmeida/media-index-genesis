@@ -89,7 +89,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
           ]
         },
         {
-          title: "Queries 5seg (128 com 75 chunks)",
+          title: "Queries 5seg (128 com 128 chunks)",
           data: [
             { name: "Música", value: 75.0, fill: categoryColors["Música"] },
             { name: "Filmes", value: 10.9, fill: categoryColors["Filmes"] },
