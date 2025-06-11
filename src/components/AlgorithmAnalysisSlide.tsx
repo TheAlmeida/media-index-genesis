@@ -34,14 +34,14 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
   const algorithmData = [
     {
       feature: "Tipo de Hash",
-      audfprint: "32-bit int; pares landmark (freq1, freq2, Δt)",
-      dejavu: "160-bit SHA1 (80-bit usado); (freq1, freq2, Δt)",
-      olaf: "64-bit int; 3 picos (freq, mag, Δt)",
+      audfprint: "32-bit; pares landmark (freq1, freq2, Δt)",
+      dejavu: "160-bit (80-bit truncados); (freq1, freq2, Δt)",
+      olaf: "64-bit; 3 picos (freq, mag, Δt)",
       soundfingerprinting: "Vector MinHash; coeficientes wavelet"
     },
     {
       feature: "Base de Dados",
-      audfprint: "Ficheiro .pkl2 com tabela hash",
+      audfprint: "Ficheiro .pklz com tabela hash",
       dejavu: "BD Relacional (MySQL/PostgreSQL)",
       olaf: "LMDB",
       soundfingerprinting: "Em memória RAM ou externa (Emy)"
