@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Code2, FileText, Cloud, Database, Hash, Zap, Music, Cpu, Binary, Waves } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -33,20 +32,6 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
   }, [isActive]);
 
   const algorithmData = [
-    {
-      feature: "Linguagem",
-      audfprint: "Python",
-      dejavu: "Python", 
-      olaf: "C",
-      soundfingerprinting: "C#"
-    },
-    {
-      feature: "Open Source",
-      audfprint: "Sim",
-      dejavu: "Sim",
-      olaf: "Sim", 
-      soundfingerprinting: "Sim"
-    },
     {
       feature: "Tipo de Hash",
       audfprint: "32-bit int; pares landmark (freq1, freq2, Δt)",
@@ -205,12 +190,12 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
       </div>
 
       {/* Comparison Table */}
-      <div className="flex-1 px-[2vw] pb-[2vh] min-h-0">
+      <div className="flex-shrink-0 px-[2vw] pb-[2vh] h-[80px]">
         <div className={cn(
           "bg-white/80 backdrop-blur-sm rounded-[1vw] shadow-xl border-2 border-slate-200 p-[1vw] h-full flex flex-col transition-all duration-700 transform",
           animationStep >= 3 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         )}>
-          <h2 className="text-[clamp(1.2rem,1.8vw,1.8rem)] font-bold text-black mb-[1vh] text-center">
+          <h2 className="text-[clamp(1.2rem,2vw,2rem)] font-bold text-black mb-[1vh] text-center">
             Open Source Algorithms Comparison
           </h2>
           
@@ -218,21 +203,21 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
             <Table>
               <TableHeader>
                 <TableRow className="border-slate-200">
-                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black">Feature</TableHead>
-                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black">Audfprint</TableHead>
-                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black">Dejavu</TableHead>
-                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black">Olaf</TableHead>
-                  <TableHead className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-black">Soundfingerprinting</TableHead>
+                  <TableHead className="text-[clamp(1rem,1.4vw,1.4rem)] font-bold text-black">Feature</TableHead>
+                  <TableHead className="text-[clamp(1rem,1.4vw,1.4rem)] font-bold text-black">Audfprint</TableHead>
+                  <TableHead className="text-[clamp(1rem,1.4vw,1.4rem)] font-bold text-black">Dejavu</TableHead>
+                  <TableHead className="text-[clamp(1rem,1.4vw,1.4rem)] font-bold text-black">Olaf</TableHead>
+                  <TableHead className="text-[clamp(1rem,1.4vw,1.4rem)] font-bold text-black">Soundfingerprinting</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {algorithmData.map((row, index) => (
                   <TableRow key={row.feature} className="border-slate-100 hover:bg-slate-50/50">
-                    <TableCell className="font-medium text-[clamp(0.7rem,0.9vw,0.9rem)] text-black">{row.feature}</TableCell>
-                    <TableCell className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-black">{row.audfprint}</TableCell>
-                    <TableCell className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-black">{row.dejavu}</TableCell>
-                    <TableCell className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-black">{row.olaf}</TableCell>
-                    <TableCell className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-black">{row.soundfingerprinting}</TableCell>
+                    <TableCell className="font-medium text-[clamp(0.9rem,1.2vw,1.2rem)] text-black">{row.feature}</TableCell>
+                    <TableCell className="text-[clamp(0.9rem,1.2vw,1.2rem)] text-black">{row.audfprint}</TableCell>
+                    <TableCell className="text-[clamp(0.9rem,1.2vw,1.2rem)] text-black">{row.dejavu}</TableCell>
+                    <TableCell className="text-[clamp(0.9rem,1.2vw,1.2rem)] text-black">{row.olaf}</TableCell>
+                    <TableCell className="text-[clamp(0.9rem,1.2vw,1.2rem)] text-black">{row.soundfingerprinting}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
