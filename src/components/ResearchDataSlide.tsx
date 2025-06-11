@@ -34,13 +34,12 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
   // Consistent color mapping for categories
   const categoryColors = {
     "Música": "#10b981",
-    "Musica": "#10b981", // Same as Música for consistency
+    "Música": "#10b981", // Same as Música for consistency
     "Filmes": "#3b82f6",
     "Desporto": "#f59e0b",
     "Esports": "#8b5cf6",
     "Talk-shows": "#ef4444",
     "Anúncios": "#6366f1",
-    "Anuncios": "#6366f1", // Same as Anúncios for consistency
   };
 
   const datasets = [
@@ -53,13 +52,13 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
         {
           title: "Referencias (99)",
           data: [
-            { name: "Musica", value: 100, fill: categoryColors["Musica"] }
+            { name: "Música", value: 100, fill: categoryColors["Música"] }
           ]
         },
         {
           title: "Queries (21 com 100 chunks)",
           data: [
-            { name: "Musica", value: 100, fill: categoryColors["Musica"] }
+            { name: "Música", value: 100, fill: categoryColors["Música"] }
           ]
         }
       ]
@@ -121,7 +120,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
         {
           title: "Queries (1 com 18 chunks)",
           data: [
-            { name: "Anuncios", value: 100, fill: categoryColors["Anuncios"] }
+            { name: "Anúncios", value: 100, fill: categoryColors["Anúncios"] }
           ]
         }
       ]
