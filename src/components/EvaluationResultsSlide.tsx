@@ -65,7 +65,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3 mb-2">
                 <Target className="w-6 h-6 text-blue-600" />
-                <CardTitle className="text-lg">Queries Fortemente Modificadas</CardTitle>
+                <CardTitle className="text-lg">Queries 5s Fortemente Modificadas</CardTitle>
               </div>
               <Badge variant="outline" className="w-fit bg-blue-50 text-blue-700 border-blue-200">
                 Teste de Robustez
@@ -88,7 +88,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3 mb-2">
                 <Clock className="w-6 h-6 text-orange-600" />
-                <CardTitle className="text-lg">Velocidade de Processamento</CardTitle>
+                <CardTitle className="text-lg">Percentagem de Tempo Gasto Face à Duração do Áudio</CardTitle>
               </div>
               <Badge variant="outline" className="w-fit bg-orange-50 text-orange-700 border-orange-200">
                 Menor é Melhor
@@ -140,7 +140,7 @@ const EvaluationResultsSlide: React.FC<SlideProps> = ({ isActive }) => {
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3 mb-2">
                 <Database className="w-6 h-6 text-purple-600" />
-                <CardTitle className="text-lg">Eficiência de Memória</CardTitle>
+                <CardTitle className="text-lg">Eficiência de Memória - Espaço de 1s de Áudio</CardTitle>
               </div>
               <Badge variant="outline" className="w-fit bg-purple-50 text-purple-700 border-purple-200">
                 Uso de Recursos
