@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Code2, FileText, Cloud, Database, Hash, Zap, Music, Cpu, Binary, Waves } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -68,16 +67,6 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
       "h-[100dvh] w-[100dvw] bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50 relative overflow-hidden flex flex-col",
       className
     )}>
-      {/* Navigation Badge */}
-      <div className="absolute top-[2vh] right-[2vw] z-10">
-        <div className={cn(
-          "bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-[1.5vw] py-[0.5vh] rounded-full text-[clamp(0.7rem,1vw,1rem)] font-medium transition-all duration-700 flex items-center gap-2 shadow-lg",
-          animationStep >= 1 ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
-        )}>
-          <Code2 className="w-[clamp(0.8rem,1.2vw,1.2rem)] h-[clamp(0.8rem,1.2vw,1.2rem)]" />
-        </div>
-      </div>
-
       {/* Header */}
       <div className="flex-shrink-0 pt-[2vh] pb-[1vh] px-[2vw]">
         <div className={cn(
