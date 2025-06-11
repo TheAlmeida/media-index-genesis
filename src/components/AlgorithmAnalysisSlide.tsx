@@ -74,13 +74,6 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
       dejavu: "Votação por offset",
       olaf: "Histograma de votos (track_id, delta)",
       soundfingerprinting: "Hamming + alinhamento temporal"
-    },
-    {
-      feature: "Robustez ao Ruído",
-      audfprint: "Alta",
-      dejavu: "Média-Alta",
-      olaf: "Alta",
-      soundfingerprinting: "Média"
     }
   ];
 
@@ -116,41 +109,41 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
       </div>
 
       {/* All Solutions Grid */}
-      <div className="flex-shrink-0 px-[2vw] pb-[2vh]">
+      <div className="flex-shrink-0 px-[2vw] pb-[1vh]">
         <div className={cn(
           "grid grid-cols-2 gap-[2vw] transition-all duration-700 transform",
           animationStep >= 2 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         )}>
           {/* Commercial Solutions Section */}
-          <div className="space-y-[1vh]">
-            <h2 className="text-[clamp(1.2rem,1.8vw,1.8rem)] font-bold text-foreground text-center mb-[1vh]">
+          <div className="space-y-[0.5vh]">
+            <h2 className="text-[clamp(1.2rem,1.8vw,1.8rem)] font-bold text-foreground text-center mb-[0.5vh]">
               Commercial Solutions
             </h2>
-            <div className="grid grid-cols-1 gap-[1vh]">
+            <div className="grid grid-cols-1 gap-[0.5vh]">
               {/* MP ACR Card */}
-              <div className="bg-card border border-border rounded-[1vw] p-[1.5vw] text-center hover:scale-105 transition-all duration-300 shadow-xl">
-                <div className="mb-[1vh]">
-                  <div className="w-[3vw] h-[3vw] min-w-[36px] min-h-[36px] mx-auto bg-primary rounded-full flex items-center justify-center shadow-lg">
-                    <FileText className="w-[1.5vw] h-[1.5vw] min-w-[18px] min-h-[18px] text-primary-foreground" />
+              <div className="bg-card border border-border rounded-[1vw] p-[1vw] text-center hover:scale-105 transition-all duration-300 shadow-xl">
+                <div className="mb-[0.5vh]">
+                  <div className="w-[2.5vw] h-[2.5vw] min-w-[30px] min-h-[30px] mx-auto bg-primary rounded-full flex items-center justify-center shadow-lg">
+                    <FileText className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-primary-foreground" />
                   </div>
                 </div>
-                <h3 className="text-[clamp(1rem,1.3vw,1.3rem)] font-bold text-foreground mb-[0.5vh]">MP ACR</h3>
-                <Badge className="bg-primary/20 text-primary mb-[1vh]">Commercial</Badge>
-                <p className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-muted-foreground">
+                <h3 className="text-[clamp(0.9rem,1.1vw,1.1rem)] font-bold text-foreground mb-[0.3vh]">MP ACR</h3>
+                <Badge className="bg-primary/20 text-primary mb-[0.5vh]">Commercial</Badge>
+                <p className="text-[clamp(0.6rem,0.8vw,0.8rem)] text-muted-foreground">
                   Sem acesso ao código fonte
                 </p>
               </div>
 
               {/* ACRCloud Card */}
-              <div className="bg-card border border-border rounded-[1vw] p-[1.5vw] text-center hover:scale-105 transition-all duration-300 shadow-xl">
-                <div className="mb-[1vh]">
-                  <div className="w-[3vw] h-[3vw] min-w-[36px] min-h-[36px] mx-auto bg-secondary rounded-full flex items-center justify-center shadow-lg">
-                    <Cloud className="w-[1.5vw] h-[1.5vw] min-w-[18px] min-h-[18px] text-secondary-foreground" />
+              <div className="bg-card border border-border rounded-[1vw] p-[1vw] text-center hover:scale-105 transition-all duration-300 shadow-xl">
+                <div className="mb-[0.5vh]">
+                  <div className="w-[2.5vw] h-[2.5vw] min-w-[30px] min-h-[30px] mx-auto bg-secondary rounded-full flex items-center justify-center shadow-lg">
+                    <Cloud className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-secondary-foreground" />
                   </div>
                 </div>
-                <h3 className="text-[clamp(1rem,1.3vw,1.3rem)] font-bold text-foreground mb-[0.5vh]">ACRCloud</h3>
-                <Badge className="bg-secondary/20 text-secondary-foreground mb-[1vh]">Commercial API</Badge>
-                <p className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-muted-foreground">
+                <h3 className="text-[clamp(0.9rem,1.1vw,1.1rem)] font-bold text-foreground mb-[0.3vh]">ACRCloud</h3>
+                <Badge className="bg-secondary/20 text-secondary-foreground mb-[0.5vh]">Commercial API</Badge>
+                <p className="text-[clamp(0.6rem,0.8vw,0.8rem)] text-muted-foreground">
                   Sem acesso ao código fonte
                 </p>
               </div>
@@ -158,53 +151,53 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
           </div>
 
           {/* Open Source Solutions Section */}
-          <div className="space-y-[1vh]">
-            <h2 className="text-[clamp(1.2rem,1.8vw,1.8rem)] font-bold text-foreground text-center mb-[1vh]">
+          <div className="space-y-[0.5vh]">
+            <h2 className="text-[clamp(1.2rem,1.8vw,1.8rem)] font-bold text-foreground text-center mb-[0.5vh]">
               Open Source Solutions
             </h2>
-            <div className="grid grid-cols-2 gap-[1vh]">
+            <div className="grid grid-cols-2 gap-[0.5vh]">
               {/* Audfprint */}
-              <div className="bg-card border border-border rounded-[1vw] p-[1.5vw] text-center hover:scale-105 transition-all duration-300 shadow-xl">
-                <div className="mb-[1vh]">
-                  <div className="w-[3vw] h-[3vw] min-w-[36px] min-h-[36px] mx-auto bg-accent rounded-full flex items-center justify-center shadow-lg">
-                    <Code2 className="w-[1.5vw] h-[1.5vw] min-w-[18px] min-h-[18px] text-accent-foreground" />
+              <div className="bg-card border border-border rounded-[1vw] p-[1vw] text-center hover:scale-105 transition-all duration-300 shadow-xl">
+                <div className="mb-[0.5vh]">
+                  <div className="w-[2.5vw] h-[2.5vw] min-w-[30px] min-h-[30px] mx-auto bg-accent rounded-full flex items-center justify-center shadow-lg">
+                    <Code2 className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-accent-foreground" />
                   </div>
                 </div>
-                <h3 className="text-[clamp(0.9rem,1.1vw,1.1rem)] font-bold text-foreground mb-[0.5vh]">Audfprint</h3>
-                <Badge className="bg-accent/20 text-accent-foreground mb-[1vh]">Python</Badge>
+                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-foreground mb-[0.3vh]">Audfprint</h3>
+                <Badge className="bg-accent/20 text-accent-foreground mb-[0.5vh]">Python</Badge>
               </div>
 
               {/* Dejavu */}
-              <div className="bg-card border border-border rounded-[1vw] p-[1.5vw] text-center hover:scale-105 transition-all duration-300 shadow-xl">
-                <div className="mb-[1vh]">
-                  <div className="w-[3vw] h-[3vw] min-w-[36px] min-h-[36px] mx-auto bg-muted rounded-full flex items-center justify-center shadow-lg">
-                    <Database className="w-[1.5vw] h-[1.5vw] min-w-[18px] min-h-[18px] text-muted-foreground" />
+              <div className="bg-card border border-border rounded-[1vw] p-[1vw] text-center hover:scale-105 transition-all duration-300 shadow-xl">
+                <div className="mb-[0.5vh]">
+                  <div className="w-[2.5vw] h-[2.5vw] min-w-[30px] min-h-[30px] mx-auto bg-muted rounded-full flex items-center justify-center shadow-lg">
+                    <Database className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-muted-foreground" />
                   </div>
                 </div>
-                <h3 className="text-[clamp(0.9rem,1.1vw,1.1rem)] font-bold text-foreground mb-[0.5vh]">Dejavu</h3>
-                <Badge className="bg-muted/20 text-muted-foreground mb-[1vh]">Python</Badge>
+                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-foreground mb-[0.3vh]">Dejavu</h3>
+                <Badge className="bg-muted/20 text-muted-foreground mb-[0.5vh]">Python</Badge>
               </div>
 
               {/* Olaf */}
-              <div className="bg-card border border-border rounded-[1vw] p-[1.5vw] text-center hover:scale-105 transition-all duration-300 shadow-xl">
-                <div className="mb-[1vh]">
-                  <div className="w-[3vw] h-[3vw] min-w-[36px] min-h-[36px] mx-auto bg-primary rounded-full flex items-center justify-center shadow-lg">
-                    <Hash className="w-[1.5vw] h-[1.5vw] min-w-[18px] min-h-[18px] text-primary-foreground" />
+              <div className="bg-card border border-border rounded-[1vw] p-[1vw] text-center hover:scale-105 transition-all duration-300 shadow-xl">
+                <div className="mb-[0.5vh]">
+                  <div className="w-[2.5vw] h-[2.5vw] min-w-[30px] min-h-[30px] mx-auto bg-primary rounded-full flex items-center justify-center shadow-lg">
+                    <Hash className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-primary-foreground" />
                   </div>
                 </div>
-                <h3 className="text-[clamp(0.9rem,1.1vw,1.1rem)] font-bold text-foreground mb-[0.5vh]">Olaf</h3>
-                <Badge className="bg-primary/20 text-primary mb-[1vh]">C</Badge>
+                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-foreground mb-[0.3vh]">Olaf</h3>
+                <Badge className="bg-primary/20 text-primary mb-[0.5vh]">C</Badge>
               </div>
 
               {/* Soundfingerprinting */}
-              <div className="bg-card border border-border rounded-[1vw] p-[1.5vw] text-center hover:scale-105 transition-all duration-300 shadow-xl">
-                <div className="mb-[1vh]">
-                  <div className="w-[3vw] h-[3vw] min-w-[36px] min-h-[36px] mx-auto bg-secondary rounded-full flex items-center justify-center shadow-lg">
-                    <Zap className="w-[1.5vw] h-[1.5vw] min-w-[18px] min-h-[18px] text-secondary-foreground" />
+              <div className="bg-card border border-border rounded-[1vw] p-[1vw] text-center hover:scale-105 transition-all duration-300 shadow-xl">
+                <div className="mb-[0.5vh]">
+                  <div className="w-[2.5vw] h-[2.5vw] min-w-[30px] min-h-[30px] mx-auto bg-secondary rounded-full flex items-center justify-center shadow-lg">
+                    <Zap className="w-[1.2vw] h-[1.2vw] min-w-[15px] min-h-[15px] text-secondary-foreground" />
                   </div>
                 </div>
-                <h3 className="text-[clamp(0.9rem,1.1vw,1.1rem)] font-bold text-foreground mb-[0.5vh]">Soundfingerprinting</h3>
-                <Badge className="bg-secondary/20 text-secondary-foreground mb-[1vh]">C#</Badge>
+                <h3 className="text-[clamp(0.8rem,1vw,1rem)] font-bold text-foreground mb-[0.3vh]">Soundfingerprinting</h3>
+                <Badge className="bg-secondary/20 text-secondary-foreground mb-[0.5vh]">C#</Badge>
               </div>
             </div>
           </div>
@@ -244,35 +237,6 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
                 ))}
               </TableBody>
             </Table>
-          </div>
-        </div>
-      </div>
-
-      {/* Statistics Panel */}
-      <div className="flex-shrink-0 px-[2vw] pb-[2vh]">
-        <div className={cn(
-          "flex gap-[2vw] justify-center transition-all duration-700 transform",
-          animationStep >= 4 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-        )}>
-          {/* Commercial Solutions Stats */}
-          <div className="bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-[1vw] p-[1.5vw] text-center shadow-xl">
-            <div className="text-[clamp(2rem,3vw,3rem)] font-bold text-primary mb-[0.5vh]">2</div>
-            <h3 className="text-[clamp(0.9rem,1.2vw,1.2rem)] font-bold text-foreground mb-[0.3vh]">Soluções Comerciais</h3>
-            <p className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-muted-foreground">MP ACR, ACRCloud</p>
-          </div>
-
-          {/* Open Source Stats */}
-          <div className="bg-secondary/20 backdrop-blur-sm border border-secondary/30 rounded-[1vw] p-[1.5vw] text-center shadow-xl">
-            <div className="text-[clamp(2rem,3vw,3rem)] font-bold text-secondary-foreground mb-[0.5vh]">4</div>
-            <h3 className="text-[clamp(0.9rem,1.2vw,1.2rem)] font-bold text-foreground mb-[0.3vh]">Bibliotecas Open Source</h3>
-            <p className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-muted-foreground">Implementações Python, C, C#</p>
-          </div>
-
-          {/* Features Stats */}
-          <div className="bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-[1vw] p-[1.5vw] text-center shadow-xl">
-            <div className="text-[clamp(2rem,3vw,3rem)] font-bold text-accent-foreground mb-[0.5vh]">7</div>
-            <h3 className="text-[clamp(0.9rem,1.2vw,1.2rem)] font-bold text-foreground mb-[0.3vh]">Características Principais Comparadas</h3>
-            <p className="text-[clamp(0.7rem,0.9vw,0.9rem)] text-muted-foreground">Análise abrangente</p>
           </div>
         </div>
       </div>
