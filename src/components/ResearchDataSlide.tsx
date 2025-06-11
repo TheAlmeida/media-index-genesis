@@ -60,7 +60,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
         {
           title: "Referencias (163)",
           data: [
-            { name: "Musica", value: 81.0, fill: "#10b981" },
+            { name: "Música", value: 81.0, fill: "#10b981" },
             { name: "Filmes", value: 7.98, fill: "#34d399" },
             { name: "Desporto", value: 3.68, fill: "#6ee7b7" },
             { name: "Esports", value: 3.68, fill: "#a7f3d0" },
@@ -70,7 +70,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
         {
           title: "Queries 10seg (75 com 75 chunks)",
           data: [
-            { name: "Musica", value: 81.33, fill: "#059669" },
+            { name: "Música", value: 81.33, fill: "#059669" },
             { name: "Desporto", value: 9.33, fill: "#10b981" },
             { name: "Filmes", value: 6.67, fill: "#34d399" },
             { name: "Esports", value: 2.67, fill: "#6ee7b7" }
@@ -79,7 +79,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
         {
           title: "Queries 5seg (128 com 75 chunks)",
           data: [
-            { name: "Musica", value: 75.0, fill: "#047857" },
+            { name: "Música", value: 75.0, fill: "#047857" },
             { name: "Filmes", value: 10.9, fill: "#059669" },
             { name: "Desporto", value: 7.03, fill: "#10b981" },
             { name: "Talk-shows", value: 3.90, fill: "#34d399" },
@@ -97,8 +97,8 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
         {
           title: "Referencias (181)",
           data: [
-            { name: "Musica", value: 72.5, fill: "#8b5cf6" },
-            { name: "Anuncios", value: 9.89, fill: "#a78bfa" },
+            { name: "Música", value: 72.5, fill: "#8b5cf6" },
+            { name: "Anúncios", value: 9.89, fill: "#a78bfa" },
             { name: "Filmes", value: 7.14, fill: "#c4b5fd" },
             { name: "Desporto", value: 3.30, fill: "#ddd6fe" },
             { name: "Esports", value: 3.30, fill: "#ede9fe" },
@@ -126,7 +126,7 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
           "text-center transition-all duration-700 transform",
           animationStep >= 1 ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         )}>
-          <SlideTitle title="Datasets de Investigação" subtitle="Datasets de áudio abrangentes para avaliação e teste de algoritmos" />
+          <SlideTitle title="Datasets" subtitle="Datasets de áudio abrangentes para avaliação e teste de algoritmos" />
         </div>
       </div>
 
