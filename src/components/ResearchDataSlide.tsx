@@ -132,6 +132,8 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
         <div className="h-full flex items-center justify-center">
           <div className="grid grid-cols-3 gap-[2vw] max-w-[90vw] w-full">
             {datasets.map((dataset, index) => {
+              const Icon = dataset.icon;
+              
               return (
                 <div 
                   key={index}
@@ -142,7 +144,25 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                   )}
                   style={{ borderLeftColor: dataset.color }}
                 >
-                  {/* Charts Grid - Takes full height */}
+                  {/* Header */}
+                  <div className="flex items-center gap-[0.8vw] mb-[2vh] flex-shrink-0">
+                    <div 
+                      className="w-[3.2vw] h-[3.2vw] min-w-[40px] min-h-[40px] rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: dataset.color }}
+                    >
+                      <Icon className="w-[1.8vw] h-[1.8vw] min-w-[22px] min-h-[22px] text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-[clamp(1.6rem,2.2vw,2.2rem)] font-bold text-gray-800 leading-tight">
+                        {dataset.title}
+                      </h3>
+                      <p className="text-[clamp(1.2rem,1.6vw,1.6rem)] text-gray-500">
+                        {dataset.subtitle}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Charts Grid - Takes remaining height */}
                   <div className={cn(
                     "flex-1 grid gap-4",
                     dataset.charts.length === 2 ? "grid-cols-2" : "grid-cols-1 grid-rows-3"
