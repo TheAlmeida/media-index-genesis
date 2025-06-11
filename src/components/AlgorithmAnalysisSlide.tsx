@@ -91,7 +91,7 @@ const AlgorithmAnalysisSlide: React.FC<AlgorithmAnalysisSlideProps> = ({ isActiv
           {/* Commercial Solutions Section */}
           <div className="space-y-[0.5vh]">
             <h2 className="text-[clamp(1.2rem,1.8vw,1.8rem)] font-bold text-black text-center mb-[0.5vh]">
-              Soluções Fechaads
+              Soluções Fechadas
             </h2>
             <div className="grid grid-cols-2 gap-[0.5vh]">
               {/* MP ACR Card */}
