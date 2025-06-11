@@ -51,12 +51,6 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
             { name: "Processed", value: 80, fill: "#dbeafe" }
           ]
         }
-      ],
-      features: [
-        "Free Music Archive (FMA) tracks",
-        "Modified audio segments (echo, pitch changes, noise)",
-        "Used for initial algorithm validation",
-        "Audio Fingerprinting Benchmark Toolkit origin"
       ]
     },
     {
@@ -87,12 +81,6 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
             { name: "Talk Shows", value: 45, fill: "#34d399" }
           ]
         }
-      ],
-      features: [
-        "Reflects Mediaprobe's internal database structure",
-        "Mixed content: music, movies, sports, talk-shows, esports",
-        "Simulated acoustic distortions in queries",
-        "Primary dataset for performance evaluation"
       ]
     },
     {
@@ -115,12 +103,6 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
             { name: "Ad Duration (min)", value: 15, fill: "#ddd6fe" }
           ]
         }
-      ],
-      features: [
-        "Integrated Super Bowl advertisements",
-        "Realistic broadcast environment simulation",
-        "Complex query scenarios testing",
-        "Indirect acoustic capture testing"
       ]
     }
   ];
@@ -150,8 +132,6 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
         <div className="h-full flex items-center justify-center">
           <div className="grid grid-cols-3 gap-[2vw] max-w-[90vw] w-full">
             {datasets.map((dataset, index) => {
-              const Icon = dataset.icon;
-              
               return (
                 <div 
                   key={index}
@@ -162,34 +142,13 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                   )}
                   style={{ borderLeftColor: dataset.color }}
                 >
-                  {/* Header */}
-                  <div className="flex items-center gap-[0.8vw] mb-[2vh] flex-shrink-0">
-                    <div 
-                      className="w-[3.2vw] h-[3.2vw] min-w-[40px] min-h-[40px] rounded-full flex items-center justify-center"
-                      style={{ backgroundColor: dataset.color }}
-                    >
-                      <Icon className="w-[1.8vw] h-[1.8vw] min-w-[22px] min-h-[22px] text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-[clamp(1.6rem,2.2vw,2.2rem)] font-bold text-gray-800 leading-tight">
-                        {dataset.title}
-                      </h3>
-                      <p className="text-[clamp(1.2rem,1.6vw,1.6rem)] text-gray-500">
-                        {dataset.subtitle}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Charts Grid */}
+                  {/* Charts Grid - Takes full height */}
                   <div className={cn(
-                    "flex-1 grid gap-4 mb-[2vh]",
+                    "flex-1 grid gap-4",
                     dataset.charts.length === 2 ? "grid-cols-2" : "grid-cols-1 grid-rows-3"
                   )}>
                     {dataset.charts.map((chart, chartIndex) => (
                       <div key={chartIndex} className="flex flex-col">
-                        <h4 className="text-sm font-semibold text-gray-700 mb-2 text-center">
-                          {chart.title}
-                        </h4>
                         <div className="flex-1 min-h-[120px]">
                           <ResponsiveContainer width="100%" height="100%">
                             <PieChart>
@@ -216,21 +175,6 @@ const ResearchDataSlide: React.FC<ResearchDataSlideProps> = ({ isActive = true, 
                             </PieChart>
                           </ResponsiveContainer>
                         </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Features - Fill remaining space */}
-                  <div className="flex-1 space-y-[1vh] overflow-hidden">
-                    {dataset.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <div 
-                          className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
-                          style={{ backgroundColor: dataset.color }}
-                        />
-                        <p className="text-[clamp(1rem,1.4vw,1.4rem)] text-gray-600 leading-relaxed">
-                          {feature}
-                        </p>
                       </div>
                     ))}
                   </div>
